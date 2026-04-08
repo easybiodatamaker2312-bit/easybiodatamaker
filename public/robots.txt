@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Disallow utility/internal paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /preview
+Disallow: /create
+
+# Allow important SEO pages
+Allow: /
+Allow: /about
+Allow: /blog
+Allow: /faq
+Allow: /templates
+Allow: /contact
+Allow: /privacy-policy
+Allow: /disclaimer
+Allow: /terms-of-service
+Allow: /how-to-make-biodata-for-marriage
+Allow: /free-biodata-format-download
+Allow: /hindu-marriage-biodata-format
+Allow: /muslim-marriage-biodata-format
+
+# Sitemaps
+Sitemap: https://easybiodatamaker.com/sitemap.xml
+
+# Crawl-delay for bots (optional, be polite to crawlers)
+Crawl-delay: 1
