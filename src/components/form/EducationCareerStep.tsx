@@ -13,7 +13,7 @@ export default function EducationCareerStep() {
   return (
     <div className="space-y-5">
       <div className="mb-6">
-        <h2 className="text-xl font-display font-bold text-maroon-800">Education & Career</h2>
+        <h2 className="text-xl font-display font-bold text-maroon-800">Education &amp; Career</h2>
         <p className="text-sm text-gray-500 mt-1">Your academic and professional details</p>
       </div>
 

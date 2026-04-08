@@ -73,7 +73,7 @@ export default function PreviewClient() {
       {/* Top controls */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 no-print">
         <div>
-          <h1 className="font-display text-2xl font-bold text-gray-800">Preview & Download</h1>
+          <h1 className="font-display text-2xl font-bold text-gray-800">Preview &amp; Download</h1>
           <p className="text-gray-500 text-sm">Choose template · Upload photos · Download PDF</p>
         </div>
         <div className="flex gap-3 flex-wrap">

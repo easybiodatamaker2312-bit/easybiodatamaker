@@ -35,32 +35,32 @@ const steps = [
   {
     num: '01',
     title: 'Start with a Sacred Heading',
-    desc: 'Begin your biodata with a religious invocation like "॥ श्री गणेशाय नमः ॥" (for Hindus) or "Bismillah ir-Rahman ir-Rahim" (for Muslims). This sets a respectful, traditional tone.',
+    desc: "Begin your biodata with a religious invocation like '\u0964\u0964 \u0936\u094d\u0930\u0940 \u0917\u0923\u0947\u0936\u093e\u092f \u0928\u092e\u0903 \u0964\u0964' (for Hindus) or 'Bismillah ir-Rahman ir-Rahim' (for Muslims). This sets a respectful, traditional tone.",
   },
   {
     num: '02',
     title: 'Add Personal Details',
-    desc: 'Include full name, date of birth, time of birth (for kundali), place of birth, height, weight, complexion, blood group, religion, caste, gotra, and manglik status. These are the most-checked fields by families.',
+    desc: "Include full name, date of birth, time of birth (for kundali), place of birth, height, weight, complexion, blood group, religion, caste, gotra, and manglik status. These are the most-checked fields by families.",
   },
   {
     num: '03',
     title: 'Include Family Background',
-    desc: 'Add father's and mother's names with occupations, number of brothers and sisters, family type (nuclear/joint), family status, and native place. Families look for cultural compatibility here.',
+    desc: "Add the father's and mother's names with occupations, number of brothers and sisters, family type (nuclear/joint), family status, and native place. Families look for cultural compatibility here.",
   },
   {
     num: '04',
     title: 'Highlight Education & Career',
-    desc: 'Mention your highest qualification, college, current job title, company name, and annual income range. These show your social and economic standing to prospective families.',
+    desc: "Mention your highest qualification, college, current job title, company name, and annual income range. These show your social and economic standing to prospective families.",
   },
   {
     num: '05',
     title: 'Provide Contact Information',
-    desc: 'Include a verified mobile number, city, state, and optionally an email. Make it easy for interested families to reach out. Always include at least one contact number.',
+    desc: "Include a verified mobile number, city, state, and optionally an email. Make it easy for interested families to reach out. Always include at least one contact number.",
   },
   {
     num: '06',
     title: 'Write Partner Expectations',
-    desc: 'Describe the qualities you seek in a life partner — education level, location preference, nature, and values. Keep it positive, realistic, and open-minded.',
+    desc: "Describe the qualities you seek in a life partner — education level, location preference, nature, and values. Keep it positive, realistic, and open-minded.",
   },
 ];
 
@@ -79,7 +79,7 @@ const tips = [
 
 const mistakes = [
   'Leaving the manglik status blank without explanation',
-  'Writing salary/income in exact figures — use ranges (e.g., ₹10–15 LPA)',
+  'Writing salary/income in exact figures — use ranges (e.g., \u20b910\u201315 LPA)',
   'Using passport-size photos with official backgrounds — use a natural smile photo',
   'Overly restrictive partner expectations that limit responses',
   'Not mentioning caste or gotra when it is relevant to your community',
@@ -137,15 +137,15 @@ export default function HowToMakeBiodataPage() {
         <article className="py-14 px-4">
           <div className="max-w-3xl mx-auto">
             {/* Intro */}
-            <div className="prose-custom mb-12">
+            <div className="mb-12">
               <p className="text-gray-600 leading-relaxed text-base mb-4">
-                In India, the <strong>marriage biodata</strong> (sometimes called "marriage profile"
-                or "shaadi biodata") is the first impression you make on a prospective family. A
+                In India, the <strong>marriage biodata</strong> (sometimes called &quot;marriage profile&quot;
+                or &quot;shaadi biodata&quot;) is the first impression you make on a prospective family. A
                 well-crafted biodata can open doors to the right match, while a poorly formatted one
                 gets overlooked.
               </p>
               <p className="text-gray-600 leading-relaxed text-base">
-                Whether you're creating a{' '}
+                Whether you are creating a{' '}
                 <strong>marriage biodata for a girl or a boy</strong>, for a Hindu family, Muslim
                 family, or any other community, this guide covers everything you need to know.
               </p>
@@ -216,7 +216,7 @@ export default function HowToMakeBiodataPage() {
               </p>
               <p>
                 The <strong>marriage biodata format for girls</strong> and for boys follows the same
-                structure, though girls' biodatas may sometimes include additional details about
+                structure, though girls&apos; biodatas may sometimes include additional details about
                 cooking skills and family values in traditional communities.
               </p>
             </div>
@@ -227,7 +227,7 @@ export default function HowToMakeBiodataPage() {
                 Ready to Create Your Biodata?
               </h2>
               <p className="text-amber-200/80 text-sm mb-6">
-                Use EasyBiodataMaker — India's simplest free marriage biodata generator.
+                Use EasyBiodataMaker — India&apos;s simplest free marriage biodata generator.
                 No login, instant PDF download.
               </p>
               <Link href="/create" className="btn-primary">

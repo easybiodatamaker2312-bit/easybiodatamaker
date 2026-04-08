@@ -244,7 +244,7 @@ export default function FAQPage() {
               Still Have Questions?
             </h2>
             <p className="text-gray-600 text-sm mb-6">
-              We're here to help. Reach out and we'll get back to you within 24 hours.
+              We&apos;re here to help. Reach out and we&apos;ll get back to you within 24 hours.
             </p>
             <div className="flex gap-3 justify-center flex-wrap">
               <Link href="/contact" className="btn-primary">

@@ -10,7 +10,7 @@ export default function Footer() {
               <div className="font-display font-bold text-white text-xl">Easy<span className="text-saffron-400">Biodata</span>Maker</div>
               <div className="text-[10px] text-amber-400/60 uppercase tracking-widest">easybiodatamaker.com</div>
             </Link>
-            <p className="text-sm text-amber-200/60 leading-relaxed mb-3">India's simplest free marriage biodata maker. 10 templates · All languages · Photo upload · Instant PDF.</p>
+            <p className="text-sm text-amber-200/60 leading-relaxed mb-3">India&apos;s simplest free marriage biodata maker. 10 templates · All languages · Photo upload · Instant PDF.</p>
             <div className="text-xs text-amber-200/40">📧 support@easybiodatamaker.com</div>
             <div className="text-xs text-amber-200/40">🇮🇳 Made with ❤️ for India</div>
           </div>

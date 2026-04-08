@@ -83,7 +83,7 @@ export default function AboutPage() {
                 with MS Word templates, or share their data with sketchy matrimonial websites.
               </p>
               <p>
-                We built <strong>India's simplest free marriage biodata maker</strong> that requires
+                We built <strong>India&apos;s simplest free marriage biodata maker</strong> that requires
                 zero technical skills, zero registration, and costs absolutely nothing. Fill a simple
                 form, preview your biodata, and download a beautiful PDF — in under 5 minutes.
               </p>
@@ -94,7 +94,7 @@ export default function AboutPage() {
                 Sikh shaadi biodata, we've got you covered.
               </p>
               <p>
-                Most importantly, <strong>your data stays private</strong>. We don't have servers storing
+                Most importantly, <strong>your data stays private</strong>. We don&apos;t have servers storing
                 your name, date of birth, or family details. Everything happens in your browser only.
               </p>
             </div>
@@ -129,7 +129,7 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-gray-600 text-sm leading-relaxed">
               <p>
-                Searching for a <strong>free biodata format for marriage download</strong>? You've found
+                Searching for a <strong>free biodata format for marriage download</strong>? You&apos;ve found
                 the right place. Unlike other biodata maker websites that ask for email registration,
                 charge hidden fees, or sell your data to matrimonial agencies, EasyBiodataMaker is
                 completely transparent and free.

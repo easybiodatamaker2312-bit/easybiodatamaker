@@ -13,7 +13,7 @@ export default function ContactDetailsStep() {
   return (
     <div className="space-y-5">
       <div className="mb-6">
-        <h2 className="text-xl font-display font-bold text-maroon-800">Contact & Expectations</h2>
+        <h2 className="text-xl font-display font-bold text-maroon-800">Contact &amp; Expectations</h2>
         <p className="text-sm text-gray-500 mt-1">How families can reach you</p>
       </div>
 
