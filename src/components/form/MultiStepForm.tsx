@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
+import { z } from 'zod';
 import {
   personalDetailsSchema,
   familyDetailsSchema,
@@ -20,11 +21,14 @@ import EducationCareerStep from './EducationCareerStep';
 import ContactDetailsStep from './ContactDetailsStep';
 import { ChevronRight, ChevronLeft, Eye } from 'lucide-react';
 
-const stepSchemas: Record<FormStep, typeof personalDetailsSchema> = {
+// Use ZodSchema (the base class) so all step schemas share a compatible type
+type AnyZodSchema = z.ZodSchema<unknown>;
+
+const stepSchemas: Record<FormStep, AnyZodSchema> = {
   1: personalDetailsSchema,
-  2: familyDetailsSchema as typeof personalDetailsSchema,
-  3: educationCareerSchema as typeof personalDetailsSchema,
-  4: contactDetailsSchema as typeof personalDetailsSchema,
+  2: familyDetailsSchema,
+  3: educationCareerSchema,
+  4: contactDetailsSchema,
 };
 
 export default function MultiStepForm() {
