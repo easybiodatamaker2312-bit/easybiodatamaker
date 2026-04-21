@@ -8,6 +8,12 @@ export const metadata: Metadata = {
     'Terms of Service for EasyBiodataMaker.com. Read the terms and conditions for using our free online marriage biodata maker.',
   alternates: { canonical: 'https://easybiodatamaker.com/terms-of-service' },
   robots: { index: true, follow: false },
+  openGraph: {
+    title: 'Terms of Service – EasyBiodataMaker.com',
+    description: 'Terms of service for EasyBiodataMaker.com free online marriage biodata maker.',
+    url: 'https://easybiodatamaker.com/terms-of-service',
+  },
+  keywords: ['easybiodatamaker terms of service','biodata maker terms conditions'],
 };
 
 const sections = [
@@ -89,10 +95,19 @@ The biodata PDF you generate is your personal document and you may use it freely
   },
 ];
 
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Terms Of Service – EasyBiodataMaker',
+  url: 'https://easybiodatamaker.com/terms-of-service',
+  isPartOf: { '@type': 'WebSite', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' },
+};
 export default function TermsPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
       <main className="flex-1 py-12 px-4">
         <div className="max-w-3xl mx-auto">
           <div className="mb-10 pb-6 border-b border-amber-100">

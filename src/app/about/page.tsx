@@ -1,165 +1,77 @@
 import type { Metadata } from 'next';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
+import { AEOBlock } from '@/components/ui/AEOBlock';
 import Link from 'next/link';
-import { Heart, Shield, Zap, Users, Award, Globe } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About EasyBiodataMaker – Free Marriage Biodata Maker for Indians',
-  description:
-    'Learn about EasyBiodataMaker.com – India\'s most trusted free online marriage biodata maker. Create professional shaadi biodata in minutes without any registration.',
+  title: 'About EasyBiodataMaker – Free Marriage Biodata Tool for India',
+  description: 'EasyBiodataMaker.com is a free marriage biodata creation tool for Indian families. No servers, no data storage, no matrimonial agency. Just a simple tool that creates a PDF.',
+  keywords: ['about easybiodatamaker','easybiodatamaker.com','free marriage biodata maker india','who made easybiodatamaker','easybiodatamaker reviews','easybiodatamaker safe to use'],
   alternates: { canonical: 'https://easybiodatamaker.com/about' },
-  openGraph: {
-    title: 'About EasyBiodataMaker – Free Marriage Biodata Maker',
-    description: 'India\'s simplest free marriage biodata maker. No login, instant PDF download.',
-    url: 'https://easybiodatamaker.com/about',
-  },
-  keywords: [
-    'about easybiodatamaker',
-    'free marriage biodata maker india',
-    'online biodata maker for shaadi',
-    'best biodata maker for marriage',
-    'biodata website india',
-    'marriage biodata generator free',
-  ],
+  openGraph: { title: 'About EasyBiodataMaker – What It Is and What It Is Not', description: 'A free marriage biodata creation tool. No data storage, no matrimonial agency, no hidden charges. Just a tool that helps you create a biodata PDF.', url: 'https://easybiodatamaker.com/about' },
 };
 
-const values = [
-  { icon: Heart, title: 'Made for India', desc: 'Built specifically for Indian families across all communities – Hindu, Muslim, Sikh, Christian, Jain & more.' },
-  { icon: Shield, title: 'Privacy First', desc: 'Your personal data never leaves your browser. We store nothing on our servers. Zero data collection.' },
-  { icon: Zap, title: 'Instant & Free', desc: 'Create and download your complete marriage biodata as a PDF in under 5 minutes. Always free, no hidden charges.' },
-  { icon: Users, title: 'Family Friendly', desc: 'Simple enough for elders to use. No tech knowledge required. Works on mobile, tablet and desktop.' },
-  { icon: Award, title: 'Professional Quality', desc: 'Traditional Indian biodata format with beautiful typography that families and matrimonial sites expect.' },
-  { icon: Globe, title: 'All Communities', desc: 'Supports biodata formats for all religions, castes and communities across every Indian state.' },
+const aeoFaqs = [
+  { question: 'What is EasyBiodataMaker and who is it for?', answer: "EasyBiodataMaker.com is a free online tool that helps Indian families create marriage biodatas quickly. It is for anyone who needs a professionally formatted marriage biodata PDF — whether you are creating it yourself, your parents are helping, or someone is doing it on behalf of a son or daughter. It works for all Indian communities and religions." },
+  { question: 'Is EasyBiodataMaker a matrimonial site?', answer: "No. We are a biodata creation tool only — not a matrimonial agency. We do not match people, we do not store biodata profiles, we do not connect families with each other. We help you create a PDF document. What you do with that PDF — share it on WhatsApp, upload it to a matrimonial site, give it to a relative — is entirely your decision." },
+  { question: 'Is it safe to put personal information on EasyBiodataMaker?', answer: "Yes. Your information never leaves your device. Everything is processed in your browser's session storage and deleted when you close the tab. Our servers never see your name, date of birth, gotra, family details, or any other information you enter. This is why we tell you to complete and download your biodata in one session — because we genuinely cannot retrieve your data later." },
+  { question: 'Does EasyBiodataMaker share data with matrimonial sites?', answer: "No. We have no connection with any matrimonial site — not Shaadi.com, not Jeevansathi, not BharatMatrimony. We do not sell or share data with anyone because we do not collect it. The biodata you create exists only on your device and in the PDF you download." },
+  { question: 'Will EasyBiodataMaker always be free?', answer: "The core functionality — creating and downloading a biodata — will remain free. We may introduce optional premium features in the future, like additional templates or custom branding, but the basic 10 templates and PDF download will stay free. We do not believe in gating essential tools behind a paywall." },
 ];
 
-const stats = [
-  { value: '50,000+', label: 'Biodatas Created' },
-  { value: '100%', label: 'Free Forever' },
-  { value: '28+', label: 'States Covered' },
-  { value: '4.9★', label: 'User Rating' },
-];
+const aeoSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: aeoFaqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) };
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aeoSchema) }} />
       <main className="flex-1">
-        {/* Hero */}
-        <section className="bg-gradient-to-br from-amber-50 to-orange-50 py-16 px-4 border-b border-amber-100">
-          <div className="max-w-4xl mx-auto text-center">
-            <span className="section-tag">Our Story</span>
-            <h1 className="font-display text-4xl sm:text-5xl font-bold text-maroon-900 mb-6">
-              About EasyBiodataMaker
-            </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              We believe every Indian family deserves a beautiful, professional marriage biodata —
-              completely free, without any technical hassle or privacy concerns.
+        <section className="py-14 px-4 border-b bg-gradient-to-br from-amber-50 to-orange-50">
+          <div className="max-w-3xl mx-auto">
+            <h1 className="font-display text-4xl font-bold text-maroon-900 mb-5">About EasyBiodataMaker</h1>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              A free tool. No data collection. No matrimonial matching. Just a simple way to create a
+              marriage biodata PDF without needing technical skills or paying anything.
             </p>
           </div>
         </section>
 
-        {/* Stats */}
-        <section className="py-10 bg-maroon-900">
-          <div className="max-w-4xl mx-auto px-4 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
-            {stats.map(({ value, label }) => (
-              <div key={label}>
-                <div className="font-display text-3xl font-bold text-saffron-400">{value}</div>
-                <div className="text-amber-200/70 text-sm mt-1">{label}</div>
-              </div>
-            ))}
-          </div>
-        </section>
+        <section className="py-14 px-4 bg-white">
+          <div className="max-w-3xl mx-auto space-y-8 text-gray-700 text-sm leading-loose">
+            <div>
+              <h2 className="font-display text-2xl font-bold text-maroon-900 mb-4">What This Tool Is</h2>
+              <p>EasyBiodataMaker.com helps you create a professional marriage biodata PDF in about 5 to 10 minutes. You fill a guided form with your personal, family, education, and contact information. You choose from 10 design templates. You download a finished PDF.</p>
+              <p className="mt-4">The tool supports 7 Indian languages — so form labels appear in Gujarati, Marathi, Hindi, Punjabi, Tamil, or Bengali based on your preference. It supports photo upload and unlimited custom fields for community-specific information.</p>
+            </div>
 
-        {/* Mission */}
-        <section className="py-16 px-4 bg-white">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-display text-3xl font-bold text-maroon-900 mb-6">Our Mission</h2>
-            <div className="prose prose-gray text-gray-600 space-y-4 text-base leading-relaxed">
-              <p>
-                EasyBiodataMaker.com was born out of a simple observation: creating a marriage biodata
-                in India is unnecessarily complicated. Families either hire expensive designers, struggle
-                with MS Word templates, or share their data with sketchy matrimonial websites.
-              </p>
-              <p>
-                We built <strong>India&apos;s simplest free marriage biodata maker</strong> that requires
-                zero technical skills, zero registration, and costs absolutely nothing. Fill a simple
-                form, preview your biodata, and download a beautiful PDF — in under 5 minutes.
-              </p>
-              <p>
-                Our biodata format follows the traditional Indian style trusted by families across all
-                communities — Brahmin, Patel, Rajput, Agarwal, Kayastha, and hundreds more. Whether
-                you need a <strong>Hindu marriage biodata format</strong>, Muslim nikah biodata, or
-                Sikh shaadi biodata, we've got you covered.
-              </p>
-              <p>
-                Most importantly, <strong>your data stays private</strong>. We don&apos;t have servers storing
-                your name, date of birth, or family details. Everything happens in your browser only.
-              </p>
+            <div>
+              <h2 className="font-display text-2xl font-bold text-maroon-900 mb-4">What This Tool Is Not</h2>
+              <p>Not a matrimonial site. We do not match people. We do not create profiles that other families can browse. We do not connect you to anyone. Creating a biodata here does not make you visible to any database.</p>
+              <p className="mt-4">Not a data collection company. We do not store your information. When you close the browser tab, your data is gone. We have designed the tool this way deliberately — your name, date of birth, gotra, family details are sensitive information and they should not be on a stranger&apos;s server.</p>
+            </div>
+
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-5">
+              <h3 className="font-bold text-maroon-900 mb-2">A Note on Privacy</h3>
+              <p>The Indian matrimonial industry has a problem with data. Families enter personal information on matrimonial sites trusting it stays there, and it often does not. EasyBiodataMaker was designed with a different approach: process everything in the user&apos;s browser, store nothing on servers, give you a PDF to share however you choose. Your biodata, your control.</p>
+            </div>
+
+            <div>
+              <h2 className="font-display text-2xl font-bold text-maroon-900 mb-4">Why Free</h2>
+              <p>Creating a marriage biodata should not cost money. It is a basic thing families need and the information age should make it easier, not another subscription to manage. The tool is supported by the goodwill of people who find it useful and tell others about it.</p>
+            </div>
+
+            <div className="flex gap-4 flex-wrap">
+              <Link href="/create" className="btn-primary text-sm">Create Free Biodata</Link>
+              <Link href="/faq" className="btn-secondary text-sm">Read the FAQ</Link>
+              <Link href="/contact" className="btn-secondary text-sm">Contact Us</Link>
             </div>
           </div>
         </section>
 
-        {/* Values */}
-        <section className="py-16 px-4 bg-amber-50/40">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-display text-3xl font-bold text-maroon-900">What We Stand For</h2>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {values.map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="card p-6">
-                  <div className="w-11 h-11 bg-saffron-100 rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="text-saffron-600" size={20} />
-                  </div>
-                  <h3 className="font-bold text-maroon-800 mb-2">{title}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* SEO Content */}
-        <section className="py-16 px-4 bg-white">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-display text-2xl font-bold text-maroon-900 mb-4">
-              Why EasyBiodataMaker is the Best Free Biodata Maker in India
-            </h2>
-            <div className="space-y-4 text-gray-600 text-sm leading-relaxed">
-              <p>
-                Searching for a <strong>free biodata format for marriage download</strong>? You&apos;ve found
-                the right place. Unlike other biodata maker websites that ask for email registration,
-                charge hidden fees, or sell your data to matrimonial agencies, EasyBiodataMaker is
-                completely transparent and free.
-              </p>
-              <p>
-                Our <strong>marriage biodata format in Word</strong> alternative provides an even better
-                experience — a professionally designed PDF template that looks better than any Word
-                document and works on all devices.
-              </p>
-              <p>
-                We support biodata creation for all Indian communities including{' '}
-                <strong>Hindu biodata for marriage</strong>, Muslim biodata format,
-                Sikh marriage biodata, Christian biodata, Jain biodata, and Buddhist biodata formats.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-12 px-4 bg-gradient-to-r from-maroon-800 to-maroon-950 text-white text-center">
-          <h2 className="font-display text-2xl font-bold mb-4">Ready to Create Your Biodata?</h2>
-          <p className="text-amber-200/80 mb-6 text-sm">
-            Join 50,000+ families who created their marriage biodata with us
-          </p>
-          <Link href="/create" className="btn-primary">
-            Create Free Biodata Now →
-          </Link>
-        </section>
+        <AEOBlock faqs={aeoFaqs} title="About EasyBiodataMaker — Common Questions" ctaHref="/create" ctaText="Create Your Free Biodata" />
       </main>
-
       <Footer />
     </div>
   );

@@ -1,29 +1,29 @@
+# EasyBiodataMaker.com — robots.txt | Updated 2024
+
 User-agent: *
 Allow: /
-
-# Disallow utility/internal paths
 Disallow: /api/
 Disallow: /_next/
 Disallow: /preview
 Disallow: /create
+Disallow: /*?*
 
-# Allow important SEO pages
+User-agent: Googlebot
 Allow: /
-Allow: /about
-Allow: /blog
-Allow: /faq
-Allow: /templates
-Allow: /contact
-Allow: /privacy-policy
-Allow: /disclaimer
-Allow: /terms-of-service
-Allow: /how-to-make-biodata-for-marriage
-Allow: /free-biodata-format-download
-Allow: /hindu-marriage-biodata-format
-Allow: /muslim-marriage-biodata-format
-
-# Sitemaps
-Sitemap: https://easybiodatamaker.com/sitemap.xml
-
-# Crawl-delay for bots (optional, be polite to crawlers)
+Disallow: /preview
+Disallow: /create
 Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Disallow: /preview
+Disallow: /create
+Crawl-delay: 2
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+Sitemap: https://easybiodatamaker.com/sitemap.xml

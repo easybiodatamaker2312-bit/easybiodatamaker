@@ -8,6 +8,12 @@ export const metadata: Metadata = {
     'Disclaimer for EasyBiodataMaker.com – Free online marriage biodata maker. Read our terms of use, limitations of liability, and important notices.',
   alternates: { canonical: 'https://easybiodatamaker.com/disclaimer' },
   robots: { index: true, follow: false },
+  openGraph: {
+    title: 'Disclaimer – EasyBiodataMaker.com',
+    description: 'Read the disclaimer for EasyBiodataMaker.com free marriage biodata maker.',
+    url: 'https://easybiodatamaker.com/disclaimer',
+  },
+  keywords: ['easybiodatamaker disclaimer','marriage biodata maker disclaimer'],
 };
 
 const sections = [
@@ -80,10 +86,19 @@ You MAY:
   },
 ];
 
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Disclaimer – EasyBiodataMaker',
+  url: 'https://easybiodatamaker.com/disclaimer',
+  isPartOf: { '@type': 'WebSite', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' },
+};
 export default function DisclaimerPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
       <main className="flex-1 py-12 px-4">
         <div className="max-w-3xl mx-auto">
           <div className="mb-10 pb-6 border-b border-amber-100">

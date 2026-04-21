@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { AEOBlock } from '@/components/ui/AEOBlock';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import { Mail, MessageSquare, Clock, HelpCircle } from 'lucide-react';
@@ -8,6 +9,12 @@ export const metadata: Metadata = {
   title: 'Contact Us – EasyBiodataMaker.com | Free Marriage Biodata Maker',
   description:
     'Contact EasyBiodataMaker.com for support, feedback, or queries about our free marriage biodata maker. We\'re here to help!',
+  openGraph: {
+    title: 'Contact EasyBiodataMaker – Free Marriage Biodata Support',
+    description: 'Get support for EasyBiodataMaker.com free marriage biodata maker. We respond within 24 hours.',
+    url: 'https://easybiodatamaker.com/contact',
+  },
+  keywords: ['contact easybiodatamaker','biodata maker support india','marriage biodata help','easybiodatamaker contact us'],
   alternates: { canonical: 'https://easybiodatamaker.com/contact' },
 };
 
@@ -30,10 +37,35 @@ const faqs = [
   },
 ];
 
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact EasyBiodataMaker',
+  url: 'https://easybiodatamaker.com/contact',
+  description: 'Contact page for EasyBiodataMaker free marriage biodata maker',
+};
+
+const aeoFaqs = [
+  { question: 'How can I contact EasyBiodataMaker for support?', answer: 'Email us at support@easybiodatamaker.com for technical issues. For general enquiries, use hello@easybiodatamaker.com. We respond within 24-48 hours on business days.' },
+  { question: 'What kind of support does EasyBiodataMaker provide?', answer: 'We provide support for: PDF download issues, template selection help, form filling queries, language selector questions, and general biodata creation guidance.' },
+];
+
+const aeoSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: aeoFaqs.map((f: {question: string; answer: string}) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+};
 export default function ContactPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aeoSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
       <main className="flex-1">
         {/* Hero */}
         <section className="bg-gradient-to-br from-amber-50 to-orange-50 py-14 px-4 border-b border-amber-100">
@@ -135,6 +167,7 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
+      <AEOBlock faqs={aeoFaqs} title="People Also Ask" ctaHref="/create" ctaText="Create Your Free Biodata" />
       <Footer />
     </div>
   );

@@ -1,5 +1,3 @@
-'use client';
-
 export async function downloadBiodataAsPDF(elementId: string, filename: string = 'biodata.pdf') {
   const html2canvas = (await import('html2canvas')).default;
   const jsPDF = (await import('jspdf')).default;

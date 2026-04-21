@@ -1,28 +1,20 @@
 import type { Metadata } from 'next';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
-import MultiStepForm from '@/components/form/MultiStepForm';
+import DynamicForm from '@/components/form/DynamicForm';
 
 export const metadata: Metadata = {
-  title: 'Create Marriage Biodata – Free 4-Step Form | EasyBiodataMaker',
-  description: 'Create your marriage biodata in 4 simple steps. Personal details, family background, education, and contact. Free PDF download. All 10 templates.',
-  alternates: { canonical: 'https://easybiodatamaker.com/create' },
+  title: 'Create Marriage Biodata – Dynamic Form | EasyBiodataMaker',
+  description: 'Create your marriage biodata with a fully dynamic form. Add, remove, rename any field. 7 languages. Upload photos. Download PDF free.',
+  robots: { index: false, follow: false },
 };
 
 export default function CreatePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-amber-50/40">
+    <div className="min-h-screen flex flex-col bg-amber-50/30">
       <Navbar />
-      <main className="flex-1 py-10 px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-8">
-            <h1 className="font-display text-3xl font-bold text-maroon-900">Create Your Biodata</h1>
-            <p className="text-gray-500 mt-2 text-sm">
-              Fill 4 steps · Upload photo · Choose from 10 templates · Download free PDF
-            </p>
-          </div>
-          <MultiStepForm />
-        </div>
+      <main className="flex-1 py-10 px-4">
+        <DynamicForm />
       </main>
       <Footer />
     </div>

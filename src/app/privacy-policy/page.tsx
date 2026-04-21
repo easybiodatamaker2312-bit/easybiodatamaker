@@ -8,6 +8,12 @@ export const metadata: Metadata = {
     'Privacy Policy of EasyBiodataMaker.com. Learn how we protect your personal information when you use our free marriage biodata maker.',
   alternates: { canonical: 'https://easybiodatamaker.com/privacy-policy' },
   robots: { index: true, follow: false },
+  openGraph: {
+    title: 'Privacy Policy – EasyBiodataMaker.com',
+    description: 'Privacy policy for EasyBiodataMaker.com. Your biodata data stays in your browser. Zero server storage.',
+    url: 'https://easybiodatamaker.com/privacy-policy',
+  },
+  keywords: ['easybiodatamaker privacy policy','biodata maker privacy data protection'],
 };
 
 const sections = [
@@ -88,10 +94,19 @@ Website: https://easybiodatamaker.com/contact`,
   },
 ];
 
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Privacy Policy – EasyBiodataMaker',
+  url: 'https://easybiodatamaker.com/privacy-policy',
+  isPartOf: { '@type': 'WebSite', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' },
+};
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
       <main className="flex-1 py-12 px-4">
         <div className="max-w-3xl mx-auto">
           {/* Header */}
