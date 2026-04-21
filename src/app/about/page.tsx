@@ -30,7 +30,7 @@ export default function AboutPage() {
       <main className="flex-1">
         <section className="py-14 px-4 border-b bg-gradient-to-br from-amber-50 to-orange-50">
           <div className="max-w-3xl mx-auto">
-            <h1 className="font-display text-4xl font-bold text-maroon-900 mb-5">About EasyBiodataMaker</h1>
+            <h1 className="font-display text-4xl font-bold text-maroon-900 mb-5">About EasyBiodataMaker </h1>
             <p className="text-gray-700 text-lg leading-relaxed">
               A free tool. No data collection. No matrimonial matching. Just a simple way to create a
               marriage biodata PDF without needing technical skills or paying anything.
