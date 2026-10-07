@@ -95,7 +95,7 @@ export default function BiodataBuilder() {
   const submitCustom = () => { if (!newLabel.trim()) return; addCustomField({ id: crypto.randomUUID(), label: newLabel.trim(), value: newValue.trim(), section: currentCustomSection as any }); setNewLabel(''); setNewValue(''); setShowCustom(false); };
   const moveCurrentField = (id: string, direction: 'up' | 'down') => { if (!(fieldOrder[currentCustomSection]?.length)) setFieldOrder(currentCustomSection, orderedCurrentItems); moveField(currentCustomSection, id, direction); };
   const moveSection = (index: number) => { if (index === sectionOrder.length - 1) return; const order = [...sectionOrder]; [order[index], order[index + 1]] = [order[index + 1], order[index]]; setSectionOrder(order); };
-  const currentStepFields = stepFields[step] as readonly string[];
+  const currentStepFields = (stepFields[step as keyof typeof stepFields] ?? []) as readonly string[];
   const hiddenStepFields = currentStepFields.filter((name) => optionalFields[name] === false);
   const currentReligionPreset = getReligionPreset(data.religion);
   const religionPresetFields = currentReligionPreset ? createReligionPresetFields(currentReligionPreset, safeLanguage) : [];
