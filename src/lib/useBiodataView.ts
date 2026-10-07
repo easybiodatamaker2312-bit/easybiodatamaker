@@ -28,7 +28,7 @@ export interface BiodataViewModel {
 const SECTION_KEYS: BiodataSectionKey[] = ['basics', 'family', 'education', 'about', 'additional', 'contact', 'photos'];
 
 const FIELD_GROUPS: Record<Exclude<BiodataSectionKey, 'additional' | 'photos'>, Array<keyof BiodataData & string>> = {
-  basics: ['fullName', 'dateOfBirth', 'timeOfBirth', 'placeOfBirth', 'height', 'weight', 'religion', 'caste', 'subCaste', 'gotra', 'manglik', 'bloodGroup', 'complexion'],
+  basics: ['fullName', 'dateOfBirth', 'timeOfBirth', 'placeOfBirth', 'height', 'religion', 'caste', 'subCaste', 'gotra', 'manglik', 'bloodGroup', 'complexion'],
   family: ['fatherName', 'fatherOccupation', 'motherName', 'motherOccupation', 'brothers', 'marriedBrothers', 'sisters', 'marriedSisters', 'familyType', 'familyStatus', 'nativePlace', 'maternalGotra'],
   education: ['highestQualification', 'fieldOfStudy', 'college', 'additionalQualification', 'occupation', 'employedIn', 'organization', 'designation', 'annualIncome', 'workLocation'],
   about: ['aboutMe', 'hobbies', 'languages', 'expectations'],
@@ -107,7 +107,7 @@ export function useBiodataView(
         if (field?.value.trim()) sections[sectionKey].rows.push({ key: rowKey, label: field.label, value: field.value.trim() });
         return;
       }
-      const fieldKey = rowKey as keyof BiodataData;
+      const fieldKey = rowKey as keyof BiodataData & string;
       if (!visible(fieldKey)) return;
       const raw = String(data[fieldKey] ?? '');
       const value = normalizeValue(fieldKey, raw, safeLanguage);
