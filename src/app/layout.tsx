@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import localFont from 'next/font/local';
 import { LangProvider } from '@/lib/LangContext';
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 
 const inter = localFont({ src: [
   { path: '../../public/fonts/premium/Inter-Regular.otf', weight: '400' },
@@ -200,7 +201,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="font-sans antialiased bg-ivory text-ink">
         <LangProvider>{children}</LangProvider>
-      </body>
+        <GoogleAnalytics />
+    </body>
     </html>
   );
 }
