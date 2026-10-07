@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const aeoFaqs = [
   {
     question: "Which template looks best for a boy's marriage biodata?",
-    answer: "Classic Saffron is the most popular — it is professional, traditional, and works for every community and occupation. Royal Navy Gold has a prestigious dark look that works well for senior professionals, NRI candidates, and business families. Emerald Modern suits IT professionals and urban families. For community-specific templates, Gujarati Navratri or Marathi Wari work well for those communities.",
+    answer: "Midnight Gold offers a traditional, formal presentation. Emerald Palace has a structured professional look, while Sapphire Silver is more minimal. Choose the design that matches the amount of information and the family's preferred style.",
   },
   {
     question: "How should a boy mention his government job in a biodata?",
@@ -72,7 +72,7 @@ export default function BoyBiodataPage() {
       <main className="flex-1">
         <section className="py-14 px-4 border-b bg-gradient-to-br from-blue-50 to-indigo-50">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="text-4xl mb-3">🤵</div>
+            <div className="text-4xl mb-3"></div>
             <h1 className="font-display text-4xl sm:text-5xl font-bold text-maroon-900 mb-5 leading-tight">
               Marriage Biodata for a Boy
               <span className="block text-xl mt-2 text-blue-700 font-normal">
@@ -85,7 +85,7 @@ export default function BoyBiodataPage() {
               No login.
             </p>
             <Link href="/create" className="btn-primary text-lg px-8 py-4">
-              🤵 Create Boy&apos;s Biodata — Free
+               Create Boy&apos;s Biodata — Free
             </Link>
           </div>
         </section>
@@ -149,7 +149,7 @@ export default function BoyBiodataPage() {
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mt-4">
               <h3 className="font-bold text-blue-900 mb-2">Ready to Make Yours?</h3>
               <p className="text-gray-600 text-sm mb-4">No registration. Fill the form, pick Classic Saffron or Royal Navy Gold, download PDF.</p>
-              <Link href="/create" className="btn-primary text-sm">🤵 Start — It&apos;s Free</Link>
+              <Link href="/create" className="btn-primary text-sm"> Start — It&apos;s Free</Link>
             </div>
           </div>
         </section>

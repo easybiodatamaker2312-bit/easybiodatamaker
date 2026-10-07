@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     'manglik biodata mein kaise likhein',
     'kundali matching biodata fields',
     'hindu marriage biodata all communities',
-    'hindu biodata free download 2024',
+    'hindu biodata free download',
     'kul devata biodata',
     'auspicious heading biodata hindu',
   ],
@@ -81,7 +81,7 @@ export default function HinduBiodataPage() {
       <main className="flex-1">
         <section className="bg-gradient-to-br from-amber-50 to-orange-50 py-14 px-4 border-b border-amber-100">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="text-4xl mb-3">🕉️</div>
+            <div className="text-4xl mb-3"></div>
             <h1 className="font-display text-4xl sm:text-5xl font-bold text-maroon-900 mb-5 leading-tight">
               Hindu Marriage Biodata Format
             </h1>
@@ -91,7 +91,7 @@ export default function HinduBiodataPage() {
               Free PDF in 5 minutes. No login.
             </p>
             <Link href="/create" className="btn-primary text-lg px-8 py-4">
-              🕉️ Create Hindu Biodata — Free
+               Create Hindu Biodata — Free
             </Link>
           </div>
         </section>
@@ -177,7 +177,7 @@ export default function HinduBiodataPage() {
 
             <div className="bg-gradient-to-r from-maroon-800 to-maroon-950 rounded-2xl p-6 text-white text-center mt-6">
               <h2 className="font-display text-xl font-bold mb-3">Create Your Hindu Biodata</h2>
-              <p className="text-amber-200/80 text-sm mb-4">Free · Gotra and Manglik fields included · 10 templates · Instant PDF</p>
+              <p className="text-amber-200/80 text-sm mb-4">Free · Gotra and Manglik fields included · premium templates · Instant PDF</p>
               <Link href="/create" className="btn-primary text-sm">Start Now — Free</Link>
             </div>
           </div>

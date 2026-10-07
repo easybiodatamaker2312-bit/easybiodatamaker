@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { CheckCircle, ArrowRight, Clock, Calendar } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'How to Write Biodata for Marriage – Complete 2024 Guide | EasyBiodataMaker',
+  title: 'How to Write Biodata for Marriage – Complete Guide | EasyBiodataMaker',
   description:
     'Learn exactly how to write a marriage biodata in India. clear, numbered guide with real examples for all sections — personal details, family, education, career, expectations. Free PDF download.',
   keywords: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'biodata writing tips for marriage india',
     'how to fill marriage biodata form',
     'what to write in marriage biodata',
-    'marriage biodata writing guide 2024',
+    'marriage biodata writing guide',
     'how to write personal details in biodata',
     'how to write family details in biodata',
     'how to write education in biodata for marriage',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'How to Write Biodata for Marriage – The Complete 2024 Guide',
+  headline: 'How to Write Biodata for Marriage – The Complete Guide',
   description: 'clear, numbered guide to writing a perfect Indian marriage biodata with real examples for every section.',
   datePublished: '2024-12-28',
   dateModified: '2024-12-28',
@@ -178,7 +178,7 @@ export default function HowToWriteBiodataPage() {
             </div>
             <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full mb-4">Guide</span>
             <h1 className="font-display text-4xl font-bold text-maroon-900 mb-4 leading-tight">
-              How to Write Biodata for Marriage – The Complete 2024 Guide
+              How to Write Biodata for Marriage – The Complete Guide
             </h1>
             <p className="text-gray-600 leading-relaxed mb-4">
               A marriage biodata is your first impression with a prospective family. This guide covers
@@ -241,7 +241,7 @@ export default function HowToWriteBiodataPage() {
                 {[
                   ['/blog/what-to-write-in-partner-expectations', 'What to Write in Partner Expectations – 20 Real Examples'],
                   ['/blog/biodata-mistakes-to-avoid', '15 Biodata Mistakes That Cost You Good Matches'],
-                  ['/blog/marriage-biodata-format-india', 'Marriage Biodata Format India 2024 – Complete Guide'],
+                  ['/blog/marriage-biodata-format-india', 'Marriage Biodata Format India – Complete Guide'],
                 ].map(([href, title]) => (
                   <Link key={href} href={href} className="flex items-center gap-2 text-sm text-saffron-600 hover:text-saffron-700">
                     <ArrowRight size={14} /> {title}
@@ -253,7 +253,7 @@ export default function HowToWriteBiodataPage() {
             {/* CTA */}
             <div className="bg-gradient-to-r from-maroon-800 to-maroon-950 rounded-2xl p-8 text-white text-center">
               <h2 className="font-display text-2xl font-bold mb-3">Create Your Biodata Now</h2>
-              <p className="text-amber-200/80 text-sm mb-5">Use EasyBiodataMaker — 10 free templates, 7 languages, photo upload. No login.</p>
+              <p className="text-amber-200/80 text-sm mb-5">Use EasyBiodataMaker — premium templates, 9 Indian languages, photo upload. No login.</p>
               <Link href="/create" className="btn-primary">Create Free Biodata →</Link>
             </div>
           </div>

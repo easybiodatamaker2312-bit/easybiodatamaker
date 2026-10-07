@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export function Breadcrumbs({items}:{items:Array<{label:string;href?:string}>}){return <nav aria-label="Breadcrumb" className="mx-auto max-w-6xl px-4 py-3 text-sm text-stone-500"><ol className="flex flex-wrap gap-2">{items.map((item,i)=><li key={`${item.label}-${i}`} className="flex gap-2">{item.href?<Link href={item.href} className="hover:text-stone-900">{item.label}</Link>:<span aria-current="page">{item.label}</span>}{i<items.length-1&&<span aria-hidden="true">/</span>}</li>)}</ol></nav>}

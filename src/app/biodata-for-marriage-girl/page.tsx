@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const aeoFaqs = [
   {
     question: "Which template looks best for a girl's marriage biodata?",
-    answer: "Rose Bloom is the most popular — soft pink with an oval photo frame that looks elegant and feminine. Classic Saffron works well for conservative families who prefer the traditional look. Emerald Modern is preferred for working professionals in IT or finance where the profile is sent to urban families.",
+    answer: "Blush Rose Floral uses a soft portrait treatment, while Midnight Gold and Emerald Palace provide more traditional or structured alternatives. Choose based on the family's preferred visual style rather than a claimed popularity ranking.",
   },
   {
     question: "What should a girl write in the partner expectations section of her biodata?",
@@ -49,7 +49,7 @@ const aeoFaqs = [
   },
   {
     question: "What kind of photo should a girl use in her marriage biodata?",
-    answer: "Not a passport photo — those look like government ID documents. Use a recent photo where you look like yourself: saree, salwar kameez, or a nice kurta — traditional or semi-formal. Natural light is much better than flash. Smiling naturally is better than a posed smile. Upload up to 3 photos in EasyBiodataMaker — one formal, one in traditional wear, one casual-but-nice.",
+    answer: "Not a passport photo — those look like government ID documents. Use a recent photo where you look like yourself: saree, salwar kameez, or a nice kurta — traditional or semi-formal. Natural light is much better than flash. Smiling naturally is better than a posed smile. Upload up to 5 photos in EasyBiodataMaker — one formal, one in traditional wear, one casual-but-nice.",
   },
 ];
 
@@ -72,7 +72,7 @@ export default function GirlBiodataPage() {
       <main className="flex-1">
         <section className="py-14 px-4 border-b bg-gradient-to-br from-pink-50 to-rose-50">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="text-4xl mb-3">👰</div>
+            <div className="text-4xl mb-3"></div>
             <h1 className="font-display text-4xl sm:text-5xl font-bold text-maroon-900 mb-5 leading-tight">
               Marriage Biodata for a Girl
               <span className="block text-xl mt-2 text-pink-600 font-normal">
@@ -80,15 +80,15 @@ export default function GirlBiodataPage() {
               </span>
             </h1>
             <p className="text-gray-700 text-lg max-w-2xl mx-auto leading-relaxed mb-8">
-              The Rose Bloom template has a soft pink design with an oval photo frame — the most popular
-              choice for girls&apos; biodatas on this site. Works for every community. Upload up to 3
+              The Rose Bloom template has a soft pink design with an oval photo frame — a soft, feminine
+              choice for girls&apos; biodatas. Works for every community. Upload up to 5
               photos. No registration.
             </p>
             <Link href="/create" className="btn-primary text-lg px-8 py-4">
-              👰 Create Girl&apos;s Biodata — Free
+               Create Girl&apos;s Biodata — Free
             </Link>
             <p className="text-sm text-gray-400 mt-3">
-              On preview page, select &ldquo;Rose Bloom&rdquo; for the pink feminine template
+              On the preview page, select &ldquo;Blush Rose Floral&rdquo; for the soft floral template
             </p>
           </div>
         </section>
@@ -152,7 +152,7 @@ export default function GirlBiodataPage() {
             </h2>
 
             <p>
-              EasyBiodataMaker lets you upload up to 3 photos. Use that. One formal photo in
+              EasyBiodataMaker lets you upload up to 5 photos. Use that. One formal photo in
               traditional wear (saree or salwar), one natural photo (kurta or semi-formal), and
               optionally one candid shot if it represents your personality well.
             </p>
@@ -168,7 +168,7 @@ export default function GirlBiodataPage() {
                 photos, download PDF.
               </p>
               <Link href="/create" className="btn-primary text-sm">
-                👰 Start — It&apos;s Free
+                 Start — It&apos;s Free
               </Link>
             </div>
           </div>

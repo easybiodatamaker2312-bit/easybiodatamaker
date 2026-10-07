@@ -1,6 +1,6 @@
 // ── Language translations for biodata form fields ────────────────────────────
 
-export type SupportedLanguage = 'en' | 'gu' | 'mr' | 'hi' | 'pa' | 'ta' | 'bn';
+export type SupportedLanguage = 'en' | 'gu' | 'mr' | 'hi' | 'pa' | 'ta' | 'bn' | 'te' | 'kn';
 
 export interface FieldLabels {
   // Section headers
@@ -9,6 +9,11 @@ export interface FieldLabels {
   educationCareer: string;
   contactDetails: string;
   partnerExpectations: string;
+  aboutMe: string;
+  photos: string;
+  additionalInformation: string;
+  marriageBiodata: string;
+  years: string;
 
   // Personal fields
   fullName: string;
@@ -102,6 +107,7 @@ const en: FieldLabels = {
   educationCareer: 'Education & Career',
   contactDetails: 'Contact Details',
   partnerExpectations: 'Partner Expectations',
+  aboutMe: 'About Me', photos: 'Photos', additionalInformation: 'Additional Information', marriageBiodata: 'Marriage Biodata', years: 'years',
   fullName: 'Full Name',
   dateOfBirth: 'Date of Birth',
   timeOfBirth: 'Time of Birth',
@@ -155,7 +161,7 @@ const en: FieldLabels = {
   next: 'Next',
   back: 'Back',
   preview: 'Preview Biodata',
-  download: 'Download PDF',
+  download: 'Save as PDF',
   createBiodata: 'Create Biodata',
   phFullName: 'e.g., Priya Sharma',
   phDOB: '',
@@ -181,6 +187,7 @@ const gu: FieldLabels = {
   educationCareer: 'શિક્ષણ અને વ્યવસાય',
   contactDetails: 'સંપર્ક',
   partnerExpectations: 'જીવનસાથી અંગે અપેક્ષા',
+  aboutMe: 'મારા વિશે', photos: 'ફોટા', additionalInformation: 'વધારાની માહિતી', marriageBiodata: 'લગ્ન બાયોડેટા', years: 'વર્ષ',
   fullName: 'પૂરું નામ',
   dateOfBirth: 'જન્મ તારીખ',
   timeOfBirth: 'જન્મ સમય',
@@ -234,7 +241,7 @@ const gu: FieldLabels = {
   next: 'આગળ',
   back: 'પાછળ',
   preview: 'પૂર્વ અવલોકન',
-  download: 'PDF ડાઉનલોડ',
+  download: 'PDF તરીકે સાચવો',
   createBiodata: 'બાયોડેટા બનાવો',
   phFullName: 'દા.ત., પ્રિયા શર્મા',
   phDOB: '',
@@ -260,6 +267,7 @@ const mr: FieldLabels = {
   educationCareer: 'शिक्षण व व्यवसाय',
   contactDetails: 'संपर्क',
   partnerExpectations: 'जीवनसाथीकडून अपेक्षा',
+  aboutMe: 'माझ्याबद्दल', photos: 'फोटो', additionalInformation: 'अतिरिक्त माहिती', marriageBiodata: 'विवाह बायोडेटा', years: 'वर्षे',
   fullName: 'संपूर्ण नाव',
   dateOfBirth: 'जन्मतारीख',
   timeOfBirth: 'जन्मवेळ',
@@ -313,7 +321,7 @@ const mr: FieldLabels = {
   next: 'पुढे',
   back: 'मागे',
   preview: 'पूर्वावलोकन',
-  download: 'PDF डाउनलोड',
+  download: 'PDF म्हणून जतन करा',
   createBiodata: 'बायोडेटा तयार करा',
   phFullName: 'उदा., प्रिया शर्मा',
   phDOB: '',
@@ -339,6 +347,7 @@ const hi: FieldLabels = {
   educationCareer: 'शिक्षा एवं व्यवसाय',
   contactDetails: 'संपर्क विवरण',
   partnerExpectations: 'जीवनसाथी से अपेक्षा',
+  aboutMe: 'मेरे बारे में', photos: 'फ़ोटो', additionalInformation: 'अतिरिक्त जानकारी', marriageBiodata: 'विवाह बायोडाटा', years: 'वर्ष',
   fullName: 'पूरा नाम',
   dateOfBirth: 'जन्म तिथि',
   timeOfBirth: 'जन्म समय',
@@ -392,7 +401,7 @@ const hi: FieldLabels = {
   next: 'आगे',
   back: 'पीछे',
   preview: 'पूर्वावलोकन',
-  download: 'PDF डाउनलोड',
+  download: 'PDF म्हणून जतन करा',
   createBiodata: 'बायोडेटा बनाएं',
   phFullName: 'जैसे, प्रिया शर्मा',
   phDOB: '',
@@ -418,6 +427,7 @@ const pa: FieldLabels = {
   educationCareer: 'ਸਿੱਖਿਆ ਅਤੇ ਕੈਰੀਅਰ',
   contactDetails: 'ਸੰਪਰਕ',
   partnerExpectations: 'ਜੀਵਨਸਾਥੀ ਤੋਂ ਉਮੀਦਾਂ',
+  aboutMe: 'ਮੇਰੇ ਬਾਰੇ', photos: 'ਫੋਟੋਆਂ', additionalInformation: 'ਵਾਧੂ ਜਾਣਕਾਰੀ', marriageBiodata: 'ਵਿਆਹ ਬਾਇਓਡਾਟਾ', years: 'ਸਾਲ',
   fullName: 'ਪੂਰਾ ਨਾਮ',
   dateOfBirth: 'ਜਨਮ ਤਾਰੀਖ',
   timeOfBirth: 'ਜਨਮ ਸਮਾਂ',
@@ -471,7 +481,7 @@ const pa: FieldLabels = {
   next: 'ਅੱਗੇ',
   back: 'ਪਿੱਛੇ',
   preview: 'ਪੂਰਵ-ਦਰਸ਼ਨ',
-  download: 'PDF ਡਾਊਨਲੋਡ',
+  download: 'PDF ਵਜੋਂ ਸੇਵ ਕਰੋ',
   createBiodata: 'ਬਾਇਓਡੇਟਾ ਬਣਾਓ',
   phFullName: 'ਜਿਵੇਂ, ਪ੍ਰਿਆ ਸ਼ਰਮਾ',
   phDOB: '',
@@ -497,6 +507,7 @@ const ta: FieldLabels = {
   educationCareer: 'கல்வி மற்றும் தொழில்',
   contactDetails: 'தொடர்பு விவரங்கள்',
   partnerExpectations: 'துணை எதிர்பார்ப்புகள்',
+  aboutMe: 'என்னைப் பற்றி', photos: 'புகைப்படங்கள்', additionalInformation: 'கூடுதல் தகவல்', marriageBiodata: 'திருமண பயோடேட்டா', years: 'ஆண்டுகள்',
   fullName: 'முழு பெயர்',
   dateOfBirth: 'பிறந்த தேதி',
   timeOfBirth: 'பிறந்த நேரம்',
@@ -550,7 +561,7 @@ const ta: FieldLabels = {
   next: 'அடுத்து',
   back: 'பின்',
   preview: 'முன்னோட்டம்',
-  download: 'PDF பதிவிறக்கம்',
+  download: 'PDF ஆக சேமிக்கவும்',
   createBiodata: 'பயோடேட்டா உருவாக்கு',
   phFullName: 'எ.கா., பிரியா ஷர்மா',
   phDOB: '',
@@ -576,6 +587,7 @@ const bn: FieldLabels = {
   educationCareer: 'শিক্ষা ও পেশা',
   contactDetails: 'যোগাযোগ',
   partnerExpectations: 'জীবনসঙ্গী সম্পর্কে প্রত্যাশা',
+  aboutMe: 'আমার সম্পর্কে', photos: 'ছবি', additionalInformation: 'অতিরিক্ত তথ্য', marriageBiodata: 'বিবাহের বায়োডাটা', years: 'বছর',
   fullName: 'পুরো নাম',
   dateOfBirth: 'জন্ম তারিখ',
   timeOfBirth: 'জন্ম সময়',
@@ -629,7 +641,7 @@ const bn: FieldLabels = {
   next: 'পরবর্তী',
   back: 'পূর্ববর্তী',
   preview: 'পূর্বরূপ',
-  download: 'PDF ডাউনলোড',
+  download: 'PDF হিসেবে সংরক্ষণ করুন',
   createBiodata: 'বায়োডেটা তৈরি করুন',
   phFullName: 'যেমন, প্রিয়া শর্মা',
   phDOB: '',
@@ -649,14 +661,56 @@ const bn: FieldLabels = {
   phExpectations: 'আপনার আদর্শ জীবনসঙ্গী সম্পর্কে...',
 };
 
-export const TRANSLATIONS: Record<SupportedLanguage, FieldLabels> = { en, gu, mr, hi, pa, ta, bn };
+
+const te: FieldLabels = {
+  ...en,
+  personalDetails: 'వ్యక్తిగత వివరాలు',
+  familyDetails: 'కుటుంబ వివరాలు',
+  educationCareer: 'విద్య & వృత్తి',
+  contactDetails: 'సంప్రదింపు వివరాలు',
+  partnerExpectations: 'జీవిత భాగస్వామి అంచనాలు',
+  aboutMe: 'నా గురించి', photos: 'ఫోటోలు', additionalInformation: 'అదనపు సమాచారం', marriageBiodata: 'వివాహ బయోడేటా', years: 'సంవత్సరాలు',
+  fullName: 'పూర్తి పేరు', dateOfBirth: 'పుట్టిన తేదీ', timeOfBirth: 'పుట్టిన సమయం', placeOfBirth: 'పుట్టిన ప్రదేశం',
+  height: 'ఎత్తు', weight: 'బరువు', complexion: 'చర్మ ఛాయ', bloodGroup: 'రక్త వర్గం', religion: 'మతం', caste: 'కులం', subCaste: 'ఉపకులం', gotra: 'గోత్రం', manglik: 'మాంగ్లిక్',
+  hobbies: 'అభిరుచులు', languages: 'తెలిసిన భాషలు', fatherName: 'తండ్రి పేరు', fatherOccupation: 'తండ్రి వృత్తి', motherName: 'తల్లి పేరు', motherOccupation: 'తల్లి వృత్తి',
+  brothers: 'సోదరులు', marriedBrothers: 'వివాహమైన సోదరులు', sisters: 'సోదరీమణులు', marriedSisters: 'వివాహమైన సోదరీమణులు', familyType: 'కుటుంబ రకం', familyStatus: 'కుటుంబ స్థితి', nativePlace: 'స్వస్థలం', maternalGotra: 'మాతృ గోత్రం',
+  highestQualification: 'అత్యున్నత విద్యార్హత', fieldOfStudy: 'అధ్యయన రంగం', college: 'కళాశాల / విశ్వవిద్యాలయం', additionalQualification: 'అదనపు విద్యార్హత', occupation: 'వృత్తి', employedIn: 'ఉద్యోగ రంగం', organization: 'సంస్థ / కంపెనీ', designation: 'హోదా', annualIncome: 'వార్షిక ఆదాయం', workLocation: 'పని ప్రదేశం',
+  address: 'పూర్తి చిరునామా', city: 'నగరం', state: 'రాష్ట్రం', pinCode: 'పిన్ కోడ్', phone: 'మొబైల్ నంబర్', alternatePhone: 'ప్రత్యామ్నాయ నంబర్', email: 'ఇమెయిల్', expectations: 'జీవిత భాగస్వామి అంచనాలు',
+  addField: '+ అదనపు వివరాలు', fieldName: 'ఫీల్డ్ పేరు', fieldValue: 'విలువ', deleteField: 'తొలగించు', customSection: 'అదనపు సమాచారం', next: 'తదుపరి', back: 'వెనుకకు', preview: 'బయోడేటా ప్రివ్యూ', download: 'PDFగా సేవ్ చేయండి', createBiodata: 'బయోడేటా రూపొందించండి',
+  phFullName: 'ఉదా., ప్రియా శర్మ', phDOB: '', phPlaceOfBirth: 'ఉదా., హైదరాబాద్, తెలంగాణ', phCaste: 'ఉదా., బ్రాహ్మణ', phGotra: 'ఉదా., కశ్యప', phHobbies: 'ఉదా., పఠనం, వంట, ప్రయాణం', phLanguages: 'ఉదా., తెలుగు, హిందీ, ఇంగ్లీష్', phFatherName: 'ఉదా., రమేష్ శర్మ', phMotherName: 'ఉదా., సునీత శర్మ', phOccupation: 'ఉదా., సాఫ్ట్‌వేర్ ఇంజనీర్', phOrganization: 'ఉదా., ఇన్ఫోసిస్', phAddress: 'ఇంటి నంబర్, వీధి, ప్రాంతం...', phCity: 'ఉదా., హైదరాబాద్', phPhone: '+91 98765 43210', phEmail: 'example@gmail.com', phExpectations: 'మీ ఆదర్శ జీవిత భాగస్వామి గురించి...'
+};
+
+
+const kn: FieldLabels = {
+  ...en,
+  personalDetails: 'ವೈಯಕ್ತಿಕ ವಿವರಗಳು', familyDetails: 'ಕುಟುಂಬ ವಿವರಗಳು', educationCareer: 'ಶಿಕ್ಷಣ ಮತ್ತು ವೃತ್ತಿ', contactDetails: 'ಸಂಪರ್ಕ ವಿವರಗಳು', partnerExpectations: 'ಜೀವನ ಸಂಗಾತಿಯ ನಿರೀಕ್ಷೆಗಳು', aboutMe: 'ನನ್ನ ಬಗ್ಗೆ', photos: 'ಫೋಟೋಗಳು', additionalInformation: 'ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ', marriageBiodata: 'ವಿವಾಹ ಬಯೋಡೇಟಾ', years: 'ವರ್ಷಗಳು',
+  fullName: 'ಪೂರ್ಣ ಹೆಸರು', dateOfBirth: 'ಜನ್ಮ ದಿನಾಂಕ', timeOfBirth: 'ಜನ್ಮ ಸಮಯ', placeOfBirth: 'ಜನ್ಮ ಸ್ಥಳ', height: 'ಎತ್ತರ', weight: 'ತೂಕ', complexion: 'ಚರ್ಮದ ಬಣ್ಣ', bloodGroup: 'ರಕ್ತದ ಗುಂಪು', religion: 'ಧರ್ಮ', caste: 'ಜಾತಿ', subCaste: 'ಉಪಜಾತಿ', gotra: 'ಗೋತ್ರ', manglik: 'ಮಾಂಗಲಿಕ', hobbies: 'ಹವ್ಯಾಸಗಳು', languages: 'ತಿಳಿದಿರುವ ಭಾಷೆಗಳು',
+  fatherName: 'ತಂದೆಯ ಹೆಸರು', fatherOccupation: 'ತಂದೆಯ ವೃತ್ತಿ', motherName: 'ತಾಯಿಯ ಹೆಸರು', motherOccupation: 'ತಾಯಿಯ ವೃತ್ತಿ', brothers: 'ಸಹೋದರರು', marriedBrothers: 'ವಿವಾಹಿತ ಸಹೋದರರು', sisters: 'ಸಹೋದರಿಯರು', marriedSisters: 'ವಿವಾಹಿತ ಸಹೋದರಿಯರು', familyType: 'ಕುಟುಂಬದ ಪ್ರಕಾರ', familyStatus: 'ಕುಟುಂಬದ ಸ್ಥಿತಿ', nativePlace: 'ಸ್ವಸ್ಥಳ', maternalGotra: 'ತಾಯಿಯ ಗೋತ್ರ',
+  highestQualification: 'ಅತ್ಯುನ್ನತ ವಿದ್ಯಾರ್ಹತೆ', fieldOfStudy: 'ಅಧ್ಯಯನ ಕ್ಷೇತ್ರ', college: 'ಕಾಲೇಜು / ವಿಶ್ವವಿದ್ಯಾಲಯ', additionalQualification: 'ಹೆಚ್ಚುವರಿ ವಿದ್ಯಾರ್ಹತೆ', occupation: 'ವೃತ್ತಿ', employedIn: 'ಉದ್ಯೋಗ ಕ್ಷೇತ್ರ', organization: 'ಸಂಸ್ಥೆ / ಕಂಪನಿ', designation: 'ಹುದ್ದೆ', annualIncome: 'ವಾರ್ಷಿಕ ಆದಾಯ', workLocation: 'ಕೆಲಸದ ಸ್ಥಳ',
+  address: 'ಪೂರ್ಣ ವಿಳಾಸ', city: 'ನಗರ', state: 'ರಾಜ್ಯ', pinCode: 'ಪಿನ್ ಕೋಡ್', phone: 'ಮೊಬೈಲ್ ಸಂಖ್ಯೆ', alternatePhone: 'ಪರ್ಯಾಯ ಸಂಖ್ಯೆ', email: 'ಇಮೇಲ್', expectations: 'ಜೀವನ ಸಂಗಾತಿಯ ನಿರೀಕ್ಷೆಗಳು',
+  addField: '+ ಹೆಚ್ಚುವರಿ ವಿವರ', fieldName: 'ಕ್ಷೇತ್ರದ ಹೆಸರು', fieldValue: 'ಮೌಲ್ಯ', deleteField: 'ಅಳಿಸಿ', customSection: 'ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ', next: 'ಮುಂದೆ', back: 'ಹಿಂದೆ', preview: 'ಬಯೋಡೇಟಾ ಪೂರ್ವವೀಕ್ಷಣೆ', download: 'PDF ಆಗಿ ಉಳಿಸಿ', createBiodata: 'ಬಯೋಡೇಟಾ ರಚಿಸಿ',
+};
+
+const withCaptions = (value: FieldLabels): FieldLabels => ({
+  ...en,
+  ...value,
+  aboutMe: value.aboutMe || en.aboutMe,
+  photos: value.photos || en.photos,
+  additionalInformation: value.additionalInformation || en.additionalInformation,
+  marriageBiodata: value.marriageBiodata || en.marriageBiodata,
+  years: value.years || en.years,
+});
+
+export const TRANSLATIONS: Record<SupportedLanguage, FieldLabels> = { en: withCaptions(en), gu: withCaptions(gu), mr: withCaptions(mr), hi: withCaptions(hi), pa: withCaptions(pa), ta: withCaptions(ta), bn: withCaptions(bn), te: withCaptions(te), kn: withCaptions(kn) };
 
 export const LANGUAGE_OPTIONS: { value: SupportedLanguage; label: string; native: string; flag: string }[] = [
-  { value: 'en', label: 'English', native: 'English', flag: '🇬🇧' },
-  { value: 'gu', label: 'Gujarati', native: 'ગુજરાતી', flag: '🪔' },
-  { value: 'mr', label: 'Marathi', native: 'मराठी', flag: '🌼' },
-  { value: 'hi', label: 'Hindi', native: 'हिंदी', flag: '📜' },
-  { value: 'pa', label: 'Punjabi', native: 'ਪੰਜਾਬੀ', flag: '🌾' },
-  { value: 'ta', label: 'Tamil', native: 'தமிழ்', flag: '🌺' },
-  { value: 'bn', label: 'Bengali', native: 'বাংলা', flag: '🪷' },
+  { value: 'en', label: 'English', native: 'English', flag: '' },
+  { value: 'gu', label: 'Gujarati', native: 'ગુજરાતી', flag: '' },
+  { value: 'mr', label: 'Marathi', native: 'मराठी', flag: '' },
+  { value: 'hi', label: 'Hindi', native: 'हिंदी', flag: '' },
+  { value: 'pa', label: 'Punjabi', native: 'ਪੰਜਾਬੀ', flag: '' },
+  { value: 'ta', label: 'Tamil', native: 'தமிழ்', flag: '' },
+  { value: 'bn', label: 'Bengali', native: 'বাংলা', flag: '' },
+  { value: 'te', label: 'Telugu', native: 'తెలుగు', flag: '' },
+  { value: 'kn', label: 'Kannada', native: 'ಕನ್ನಡ', flag: '' },
 ];

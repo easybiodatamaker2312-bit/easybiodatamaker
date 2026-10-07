@@ -27,23 +27,3 @@ export function calculateAge(dateOfBirth: string): string {
   return `${age} Years`;
 }
 
-// Store biodata in sessionStorage
-export function saveBiodata(data: Record<string, unknown>): void {
-  if (typeof window !== 'undefined') {
-    sessionStorage.setItem('biodataFormData', JSON.stringify(data));
-  }
-}
-
-export function loadBiodata(): Record<string, unknown> | null {
-  if (typeof window !== 'undefined') {
-    const saved = sessionStorage.getItem('biodataFormData');
-    return saved ? JSON.parse(saved) : null;
-  }
-  return null;
-}
-
-export function clearBiodata(): void {
-  if (typeof window !== 'undefined') {
-    sessionStorage.removeItem('biodataFormData');
-  }
-}

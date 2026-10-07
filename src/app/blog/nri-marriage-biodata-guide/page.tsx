@@ -5,30 +5,30 @@ import Footer from '@/components/ui/Footer';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'NRI Marriage Biodata Guide – Complete Guide for Indians Abroad 2024',
+  title: 'NRI Marriage Biodata Guide – Complete Guide for Indians Abroad',
   description: 'Complete guide for NRIs creating marriage biodata from USA, UK, Canada, Australia, UAE. What to include, how to mention visa status, income in foreign currency, and more.',
   keywords: ['nri marriage biodata', 'overseas indian marriage biodata', 'nri biodata format', 'usa nri biodata', 'uk nri biodata', 'canada nri biodata', 'australia nri biodata', 'nri groom biodata', 'nri bride biodata', 'how to write nri biodata'],
-  alternates: { canonical: 'https://easybiodatamaker.com/nri-marriage-biodata-guide' },
-  openGraph: { title: 'NRI Marriage Biodata Guide – Complete Guide for Indians Abroad 2024', description: 'Complete guide for NRIs creating marriage biodata from USA, UK, Canada, Australia, UAE. What to include, how to mention visa status, income in foreign currency, and more.', url: 'https://easybiodatamaker.com/nri-marriage-biodata-guide', type: 'article' },
+  alternates: { canonical: 'https://easybiodatamaker.com/blog/nri-marriage-biodata-guide' },
+  openGraph: { title: 'NRI Marriage Biodata Guide – Complete Guide for Indians Abroad', description: 'Complete guide for NRIs creating marriage biodata from USA, UK, Canada, Australia, UAE. What to include, how to mention visa status, income in foreign currency, and more.', url: 'https://easybiodatamaker.com/blog/nri-marriage-biodata-guide', type: 'article' },
 };
 
 
 const pageSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `NRI Marriage Biodata Guide – Complete Guide for Indians Abroad 2024`,
+    headline: `NRI Marriage Biodata Guide – Complete Guide for Indians Abroad`,
     description: `Complete guide for NRIs creating marriage biodata from USA, UK, Canada, Australia, UAE. What to include, how to mention visa status, income in foreign currency, and more.`,
     datePublished: '2024-12-28',
     dateModified: '2024-12-28',
     author: { '@type': 'Organization', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' },
-    publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/logo.png' } },
+    publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-192.png' } },
     mainEntityOfPage: `https://easybiodatamaker.com/blog/nri-marriage-biodata-guide`,
     image: 'https://easybiodatamaker.com/og-image.png',
   };
 
 const aeoFaqs = [
   { question: 'What extra information should NRI add to biodata?', answer: 'NRI biodata should add: country of residence, visa/PR/citizenship status, income in both currencies (USD/GBP + approx INR equivalent), openness to partner relocating abroad or returning to India, and frequency of India visits.' },
-  { question: 'Which template is best for NRI marriage biodata?', answer: 'Emerald Modern (professional, clean) and Royal Navy Gold (prestigious look) are most popular for NRI biodatas. The Classic Saffron also works well for NRI families who prefer traditional presentation.' },
+  { question: 'Which template is best for NRI marriage biodata?', answer: 'Emerald Palace and Sapphire Silver offer clean options for NRI biodatas, while Midnight Gold suits families who prefer a more traditional presentation.' },
 ];
 
 const aeoSchema = {
@@ -71,9 +71,18 @@ Return Plans: Whether you plan to return to India, or prefer a partner willing t
 Indian Connections: Mention frequency of India visits, ties maintained with family, participation in Indian community abroad.
 Native City: Even if living abroad for years, maintain the native city/state mention — families search by origin.
             </div>
+            <div className="rounded-2xl border border-amber-100 bg-amber-50 p-5">
+              <h2 className="font-display text-lg font-bold text-maroon-900">Country-specific NRI formats</h2>
+              <p className="mt-2 text-sm leading-6 text-gray-600">For a more focused starting point, use the USA format or the combined UK and Canada format.</p>
+              <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold">
+                <Link href="/indian-marriage-biodata-maker-usa" className="text-saffron-700 hover:underline">USA NRI biodata format →</Link>
+                <Link href="/marriage-biodata-format-uk-canada" className="text-saffron-700 hover:underline">UK & Canada biodata format →</Link>
+              </div>
+            </div>
+
             <div className="bg-gradient-to-r from-maroon-800 to-maroon-950 rounded-2xl p-6 text-white text-center">
               <h2 className="font-display text-xl font-bold mb-3">Create Your Biodata Free</h2>
-              <p className="text-amber-200/80 text-sm mb-4">10 templates · 7 languages · Instant PDF</p>
+              <p className="text-amber-200/80 text-sm mb-4">premium templates · 9 Indian languages · Instant PDF</p>
               <Link href="/create" className="btn-primary text-sm">Create Free Biodata →</Link>
             </div>
           </div>

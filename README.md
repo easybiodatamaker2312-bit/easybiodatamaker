@@ -1,6 +1,6 @@
 # 🎊 EasyBiodataMaker.com — Complete Production-Ready App
 
-> India's #1 Free Marriage Biodata Maker | 10 Templates | 6 Languages | Photo Upload | Instant PDF
+> Premium Marriage Biodata Maker | 12 Templates | 9 Languages | Photo Upload | Save as PDF
 
 ---
 
@@ -54,7 +54,7 @@ easybiodatamaker/
 │   │   ├── globals.css         ← Tailwind + custom styles
 │   │   ├── sitemap.ts          ← Dynamic sitemap.xml (21 URLs)
 │   │   │
-│   │   ├── create/             ← /create — 4-step form
+│   │   ├── create/             ← /create — 5-step builder
 │   │   ├── preview/            ← /preview — template picker + PDF
 │   │   ├── templates/          ← /templates — template gallery
 │   │   │
@@ -84,101 +84,47 @@ easybiodatamaker/
 │   │       └── terms-of-service/
 │   │
 │   ├── components/
-│   │   ├── ui/
-│   │   │   ├── Navbar.tsx
-│   │   │   ├── Footer.tsx       ← All language + legal links
-│   │   │   ├── StepProgress.tsx
-│   │   │   └── FormField.tsx    ← Input, Select, Textarea
-│   │   ├── form/
-│   │   │   ├── MultiStepForm.tsx        ← Core form orchestrator
-│   │   │   ├── PersonalDetailsStep.tsx  ← Step 1
-│   │   │   ├── FamilyDetailsStep.tsx    ← Step 2
-│   │   │   ├── EducationCareerStep.tsx  ← Step 3
-│   │   │   └── ContactDetailsStep.tsx   ← Step 4
-│   │   └── biodata/
-│   │       ├── AllTemplates.tsx   ← All 10 template designs
-│   │       └── PreviewClient.tsx  ← Template picker + photo upload
+│   │   ├── ui/                  ← Accessible reusable UI primitives
+│   │   ├── builder/             ← Five-step mobile-first builder
+│   │   ├── photos/              ← Crop, compression and 3-photo flow
+│   │   └── biodata/             ← Eight pure A4 templates + registry
 │   ├── lib/
-│   │   ├── utils.ts    ← Helpers, sessionStorage functions
-│   │   └── pdf.ts      ← html2canvas + jsPDF generation
+│   │   ├── biodata-schema.ts    ← Zod schema + age calculation
+│   │   ├── pdf.ts               ← Browser print PDF + PNG/share helpers
+│   │   └── pdf/page-breaks.ts   ← Multi-page layout planning
+│   ├── store/
+│   │   └── biodataStore.ts      ← Zustand + localStorage persistence
 │   └── types/
-│       └── biodata.ts  ← Zod schemas + TypeScript types
+│       └── biodata.ts
+
 ```
 
 ---
 
-## 🎨 10 Templates (All Free)
+## Eight Premium A4 Templates
 
-| # | Name | Language | Community |
-|---|------|----------|-----------|
-| 1 | 🕉️ Classic Indian | English | All Hindu |
-| 2 | 👑 Royal Gold | English (dark) | All |
-| 3 | 🌸 Rose Garden | English (pink) | All / Girls |
-| 4 | ✦ Modern Minimal | English | Urban/NRI |
-| 5 | 🪔 Gujarati Festive | ગુજ + EN | Gujarati |
-| 6 | 🌼 Marathi Tradition | मराठी + EN | Marathi |
-| 7 | 📜 Hindi/Devanagari | हिंदी + EN | Hindi belt |
-| 8 | 🌺 South Indian | EN (Tamil/Telugu) | South India |
-| 9 | ☪️ Islamic Nikah | Arabic + EN | Muslim |
-| 10 | 🌾 Punjabi/Sikh | ਪੰਜਾਬੀ + EN | Sikh |
+| Template | Style |
+|---|---|
+| Royal Gold | Traditional |
+| Ivory Minimal | Minimal |
+| Emerald Modern | Modern |
+| Traditional Mandala | Traditional |
+| Contemporary Two-Column | Modern |
+| Gujarati | Regional |
+| Marathi | Regional |
+| South Indian | Regional |
 
----
-
-## 🔍 SEO Features
-
-- **21-URL sitemap.xml** auto-generated at `/sitemap.xml`
-- **robots.txt** with proper crawl rules
-- **JSON-LD Schemas**: WebSite, SoftwareApplication, FAQPage, HowTo, Organization
-- **Long-tail keywords** on every page (English + Hindi + Gujarati + Marathi)
-- **Canonical URLs** on all pages
-- **OpenGraph + Twitter Cards** on all pages
-- **geo.region: IN** meta tag for India-specific ranking
-- **en-IN locale** for Indian English ranking signals
-
-### Top Targeted Keywords
-```
-biodata maker for marriage           (Primary)
-free biodata maker online            (Primary)
-gujarati lagna biodata               (Regional)
-marathi vivah biodata                (Regional)
-hindi shaadi biodata                 (Regional)
-marriage biodata format India        (Informational)
-how to make biodata for marriage     (Informational)
-free biodata format download         (Transactional)
-hindu marriage biodata format        (Community)
-muslim nikah biodata                 (Community)
-```
-
----
+Templates are pure components driven by shared theme objects. They do not read browser storage.
 
 ## 📸 Photo Upload Feature
 
-Users can upload up to 3 photos on the preview page (`/preview`). Photos appear inline on the biodata template in an appropriate size/position. Processed client-side only — never uploaded to any server.
+Users can add up to 3 photos in the builder: 1 profile photo and up to 2 additional photos. Images are cropped/compressed client-side and persisted locally only.
 
 ---
 
-## 💰 Future Premium Features (Structure Ready)
+## Template System
 
-```typescript
-// In AllTemplates.tsx — templates are already marked:
-// isPremium: false  → free
-// isPremium: true   → locked (Coming Soon)
-
-// Razorpay integration ready:
-// 1. Add NEXT_PUBLIC_RAZORPAY_KEY to env
-// 2. Create /api/create-order route
-// 3. Unlock premium templates on payment verification
-```
-
-Premium templates planned:
-- Watermark-free downloads
-- Royal Heritage (ornate)
-- Christian Marriage
-- South Indian Extended (2-page)
-- Custom color themes
-- Photo collage layout
-
----
+The template system contains 12 independent A4 layouts. Each template has three colorways, consumes the normalized biodata view model, and stays independent from browser storage. The current product does not include payment or account-gated features.
 
 ## 🔧 Tech Stack
 
@@ -189,8 +135,11 @@ Premium templates planned:
 | Tailwind CSS | 3.4 | Styling |
 | React Hook Form | 7.x | Form management |
 | Zod | 3.x | Validation |
-| html2canvas | 1.4 | DOM to canvas |
-| jsPDF | 2.5 | Canvas to PDF |
+| html2canvas | 1.4 | PNG export only |
+| Zustand | 5.x | Local draft persistence |
+| react-easy-crop | 5.x | Portrait photo crop |
+| Vitest | 2.x | Unit tests |
+| Playwright | 1.x | Mobile/desktop e2e tests |
 | Lucide React | 0.38 | Icons |
 
 ---
@@ -198,9 +147,10 @@ Premium templates planned:
 ## 📝 Customization Guide
 
 ### Add a new template:
-1. Create a new component in `AllTemplates.tsx`
-2. Add it to the `TEMPLATES` registry at the bottom
-3. It auto-appears in the template picker on `/preview`
+1. Create a pure template component in `TemplateRegistry.tsx`
+2. Add its theme to `TEMPLATE_THEMES`
+3. Register it in `TEMPLATES`
+4. It automatically becomes available to the builder and template gallery
 
 ### Add a new language page:
 1. Create `src/app/[language]-biodata-format/page.tsx`

@@ -106,7 +106,7 @@ export default function DisclaimerPage() {
             <div className="flex items-center gap-4 text-sm text-gray-400">
               <span>EasyBiodataMaker.com</span>
               <span>•</span>
-              <span>Last Updated: January 2024</span>
+              <span>Last Updated: See current policy version</span>
             </div>
           </div>
 

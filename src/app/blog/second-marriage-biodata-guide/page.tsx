@@ -5,23 +5,23 @@ import Footer from '@/components/ui/Footer';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Second Marriage / Remarriage Biodata Guide India 2024 | EasyBiodataMaker',
+  title: 'Second Marriage / Remarriage Biodata Guide India | EasyBiodataMaker',
   description: 'Creating a biodata for second marriage or remarriage requires sensitivity. How to mention divorce, widowhood, children honestly yet compellingly. Complete guide for India.',
   keywords: ['second marriage biodata', 'remarriage biodata india', 'divorce biodata format', 'widow widower biodata', 'biodata for second marriage india', 'how to write divorce in biodata', 'second shaadi biodata', 'how to mention children in biodata', 'remarriage biodata tips'],
-  alternates: { canonical: 'https://easybiodatamaker.com/second-marriage-biodata-guide' },
-  openGraph: { title: 'Second Marriage / Remarriage Biodata Guide India 2024 | EasyBiodataMaker', description: 'Creating a biodata for second marriage or remarriage requires sensitivity. How to mention divorce, widowhood, children honestly yet compellingly. Complete guide for India.', url: 'https://easybiodatamaker.com/second-marriage-biodata-guide', type: 'article' },
+  alternates: { canonical: 'https://easybiodatamaker.com/blog/second-marriage-biodata-guide' },
+  openGraph: { title: 'Second Marriage / Remarriage Biodata Guide India | EasyBiodataMaker', description: 'Creating a biodata for second marriage or remarriage requires sensitivity. How to mention divorce, widowhood, children honestly yet compellingly. Complete guide for India.', url: 'https://easybiodatamaker.com/blog/second-marriage-biodata-guide', type: 'article' },
 };
 
 
 const pageSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `Second Marriage / Remarriage Biodata Guide India 2024 | EasyBiodataMaker`,
+    headline: `Second Marriage / Remarriage Biodata Guide India | EasyBiodataMaker`,
     description: `Creating a biodata for second marriage or remarriage requires sensitivity. How to mention divorce, widowhood, children honestly yet compellingly. Complete guide for India.`,
     datePublished: '2024-12-28',
     dateModified: '2024-12-28',
     author: { '@type': 'Organization', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' },
-    publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/logo.png' } },
+    publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-192.png' } },
     mainEntityOfPage: `https://easybiodatamaker.com/blog/second-marriage-biodata-guide`,
     image: 'https://easybiodatamaker.com/og-image.png',
   };
@@ -54,7 +54,7 @@ export default function Page() {
               <span>/</span><span>Second Marriage Biodata Guide</span>
             </div>
             <h1 className="font-display text-3xl font-bold text-maroon-900 mb-4 leading-tight">
-              💍 Second Marriage Biodata Guide
+               Second Marriage Biodata Guide
             </h1>
             <p className="text-gray-600 leading-relaxed text-sm">Honest, Sensitive, and Compelling</p>
           </div>
@@ -81,7 +81,7 @@ The Classic Saffron or Emerald Modern templates work best — they look professi
             </div>
             <div className="bg-gradient-to-r from-maroon-800 to-maroon-950 rounded-2xl p-6 text-white text-center">
               <h2 className="font-display text-xl font-bold mb-3">Create Your Biodata Free</h2>
-              <p className="text-amber-200/80 text-sm mb-4">10 templates · 7 languages · Instant PDF</p>
+              <p className="text-amber-200/80 text-sm mb-4">premium templates · 9 Indian languages · Instant PDF</p>
               <Link href="/create" className="btn-primary text-sm">Create Free Biodata →</Link>
             </div>
           </div>

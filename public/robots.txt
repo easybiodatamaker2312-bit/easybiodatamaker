@@ -1,29 +1,7 @@
-# EasyBiodataMaker.com — robots.txt | Updated 2024
-
+# EasyBiodataMaker robots.txt
 User-agent: *
 Allow: /
+Disallow: /create
 Disallow: /api/
-Disallow: /_next/
-Disallow: /preview
-Disallow: /create
-Disallow: /*?*
-
-User-agent: Googlebot
-Allow: /
-Disallow: /preview
-Disallow: /create
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Disallow: /preview
-Disallow: /create
-Crawl-delay: 2
-
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: DotBot
-Disallow: /
 
 Sitemap: https://easybiodatamaker.com/sitemap.xml

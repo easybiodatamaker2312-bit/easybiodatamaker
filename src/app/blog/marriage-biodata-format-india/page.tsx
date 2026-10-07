@@ -7,12 +7,12 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Marriage Biodata Format in India – What Each Section Actually Needs | EasyBiodataMaker',
   description: 'The actual Indian marriage biodata format explained honestly. What belongs in each section, what to skip, how long it should be, with real examples. Not a generic guide.',
-  keywords: ['marriage biodata format india','standard biodata format india','biodata sections india','what goes in each biodata section','personal details biodata format','family details biodata format','partner expectations biodata format','biodata format examples india 2024'],
+  keywords: ['marriage biodata format india','standard biodata format india','biodata sections india','what goes in each biodata section','personal details biodata format','family details biodata format','partner expectations biodata format','biodata format examples india'],
   alternates: { canonical: 'https://easybiodatamaker.com/blog/marriage-biodata-format-india' },
   openGraph: { title: 'Marriage Biodata Format India – Honest Section-by-Section Guide', description: 'What each section of an Indian marriage biodata actually needs. Real examples, no fluff.', url: 'https://easybiodatamaker.com/blog/marriage-biodata-format-india', type: 'article' },
 };
 
-const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'Marriage Biodata Format India – What Each Section Actually Needs', datePublished: '2024-12-28', dateModified: '2024-12-28', author: { '@type': 'Organization', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' }, publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/logo.png' } }, mainEntityOfPage: 'https://easybiodatamaker.com/blog/marriage-biodata-format-india' };
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'Marriage Biodata Format India – What Each Section Actually Needs', datePublished: '2024-12-28', dateModified: '2024-12-28', author: { '@type': 'Organization', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' }, publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-192.png' } }, mainEntityOfPage: 'https://easybiodatamaker.com/blog/marriage-biodata-format-india' };
 
 const aeoFaqs = [
   { question: 'How many sections does a standard Indian marriage biodata have?', answer: "Six: (1) Auspicious heading — ॐ or Bismillah or ੴ depending on religion. (2) Personal details — name, DOB, time of birth, height, religion, caste, gotra. (3) Family details — parents with occupations, siblings. (4) Education and career — highest qualification, company, designation, income range. (5) Contact — city and state minimum, phone. (6) Partner expectations — 2 to 4 sentences." },
@@ -164,7 +164,7 @@ export default function BiodataFormatPage() {
 
             <div className="bg-gradient-to-r from-maroon-800 to-maroon-950 rounded-2xl p-8 text-white text-center">
               <h2 className="font-display text-xl font-bold mb-3">Create Your Biodata Now</h2>
-              <p className="text-amber-200/80 text-sm mb-5">All 6 sections included · 10 templates · 7 languages · Free · No login</p>
+              <p className="text-amber-200/80 text-sm mb-5">5 guided builder steps · premium templates · 9 Indian languages · Free · No login</p>
               <Link href="/create" className="btn-primary">Start — It&apos;s Free</Link>
             </div>
           </div>

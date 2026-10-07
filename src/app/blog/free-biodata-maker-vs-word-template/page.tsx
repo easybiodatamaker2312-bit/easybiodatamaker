@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: { title: 'Online Biodata Maker vs Word Template – Honest Comparison', description: 'Formatting, design, mobile support, privacy compared. An honest look at both options.', url: 'https://easybiodatamaker.com/blog/free-biodata-maker-vs-word-template', type: 'article' },
 };
 
-const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'Online Biodata Maker vs Word Template – The Honest Comparison', datePublished: '2024-12-24', dateModified: '2024-12-24', author: { '@type': 'Organization', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' }, publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/logo.png' } }, mainEntityOfPage: 'https://easybiodatamaker.com/blog/free-biodata-maker-vs-word-template' };
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'Online Biodata Maker vs Word Template – The Honest Comparison', datePublished: '2024-12-24', dateModified: '2024-12-24', author: { '@type': 'Organization', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' }, publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-192.png' } }, mainEntityOfPage: 'https://easybiodatamaker.com/blog/free-biodata-maker-vs-word-template' };
 
 const aeoFaqs = [
   { question: 'Why do Word biodata templates look bad when you send them?', answer: "Because Word documents are sensitive to the environment they open in. The fonts you installed on your computer may not exist on the recipient's phone. Line spacing and margins render differently across versions of Word. Tables shift. Borders disappear. The PDF you download from an online maker is a fixed image of the layout — it looks exactly the same on every device, every operating system, every screen size." },
@@ -31,7 +31,7 @@ const comparison = [
   { aspect: 'Photo handling', word: 'Manual — you insert and resize a photo yourself, often creating alignment issues.', online: 'Upload and it is positioned correctly automatically.' },
   { aspect: 'Language support', word: 'You type in whatever language you like, but templates are usually English only.', online: 'Form labels switch to Gujarati, Marathi, Hindi, Punjabi, Tamil, Bengali automatically.' },
   { aspect: 'Privacy', word: 'The file exists on your device and wherever you send it.', online: 'Data stays in your browser only — never reaches any server.' },
-  { aspect: 'Community templates', word: 'Generic templates. No Gujarati Navratri or Marathi Wari format.', online: '10 templates designed for specific Indian communities.' },
+  { aspect: 'Community templates', word: 'Generic templates. No Gujarati Navratri or Marathi Wari format.', online: 'premium templates designed for specific Indian communities.' },
 ];
 
 export default function BiodataVsWordPage() {
@@ -99,7 +99,7 @@ export default function BiodataVsWordPage() {
 
             <div className="bg-gradient-to-r from-maroon-800 to-maroon-950 rounded-2xl p-6 text-white text-center">
               <h2 className="font-display text-xl font-bold mb-3">Try the Online Approach</h2>
-              <p className="text-amber-200/80 text-sm mb-4">10 templates · 7 languages · Photo upload · PDF in 5 minutes · Free</p>
+              <p className="text-amber-200/80 text-sm mb-4">premium templates · 9 Indian languages · Photo upload · PDF in 5 minutes · Free</p>
               <Link href="/create" className="btn-primary text-sm">Create Biodata Free →</Link>
             </div>
           </div>

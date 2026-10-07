@@ -1,0 +1,6 @@
+
+/* Multi-page safety */
+.haldi-marigold-layout, .pearl-lavender-layout, .sandstone-rajasthan-layout { overflow: visible; min-height: 297mm; }
+@media print {
+  .haldi-marigold-layout, .pearl-lavender-layout, .sandstone-rajasthan-layout { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

@@ -5,7 +5,7 @@ import Footer from '@/components/ui/Footer';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'What to Write in Partner Expectations Biodata – 20 Real Examples 2024',
+  title: 'What to Write in Partner Expectations Biodata – 20 Real Examples',
   description: 'The partner expectations section stumps most people. Here are 20 real-world examples for Hindu, Muslim, Sikh, NRI, and open families with expert writing tips.',
   keywords: ['what to write in partner expectations biodata','partner expectations examples for biodata','jeevan saathi expectations biodata','life partner expectations examples','biodata expectations section examples','how to write expectations in shaadi biodata','partner expectations for girl biodata','partner expectations for boy biodata','partner expectations hindi','jeevan saathi ki apeksha'],
   alternates: { canonical: 'https://easybiodatamaker.com/blog/what-to-write-in-partner-expectations' },
@@ -38,12 +38,12 @@ const tips = [
 const pageSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `What to Write in Partner Expectations Biodata – 20 Real Examples 2024`,
+    headline: `What to Write in Partner Expectations Biodata – 20 Real Examples`,
     description: `The partner expectations section stumps most people. Here are 20 real-world examples for Hindu, Muslim, Sikh, NRI, and open families with expert writing tips.`,
     datePublished: '2024-12-28',
     dateModified: '2024-12-28',
     author: { '@type': 'Organization', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' },
-    publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/logo.png' } },
+    publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-192.png' } },
     mainEntityOfPage: `https://easybiodatamaker.com/blog/what-to-write-in-partner-expectations`,
     image: 'https://easybiodatamaker.com/og-image.png',
   };
@@ -133,7 +133,7 @@ export default function PartnerExpectationsPage() {
 
             <div className="bg-gradient-to-r from-maroon-800 to-maroon-950 rounded-2xl p-6 text-white text-center">
               <h2 className="font-display text-xl font-bold mb-3">Create Your Biodata Now</h2>
-              <p className="text-amber-200/80 text-sm mb-4">Partner expectations section included · 10 templates · 7 languages · Free</p>
+              <p className="text-amber-200/80 text-sm mb-4">Partner expectations section included · premium templates · 9 Indian languages · Free</p>
               <Link href="/create" className="btn-primary">Create Free Biodata →</Link>
             </div>
           </div>

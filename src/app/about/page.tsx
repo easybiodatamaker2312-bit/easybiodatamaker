@@ -17,7 +17,7 @@ const aeoFaqs = [
   { question: 'Is EasyBiodataMaker a matrimonial site?', answer: "No. We are a biodata creation tool only — not a matrimonial agency. We do not match people, we do not store biodata profiles, we do not connect families with each other. We help you create a PDF document. What you do with that PDF — share it on WhatsApp, upload it to a matrimonial site, give it to a relative — is entirely your decision." },
   { question: 'Is it safe to put personal information on EasyBiodataMaker?', answer: "Yes. Your information never leaves your device. Everything is processed in your browser's session storage and deleted when you close the tab. Our servers never see your name, date of birth, gotra, family details, or any other information you enter. This is why we tell you to complete and download your biodata in one session — because we genuinely cannot retrieve your data later." },
   { question: 'Does EasyBiodataMaker share data with matrimonial sites?', answer: "No. We have no connection with any matrimonial site — not Shaadi.com, not Jeevansathi, not BharatMatrimony. We do not sell or share data with anyone because we do not collect it. The biodata you create exists only on your device and in the PDF you download." },
-  { question: 'Will EasyBiodataMaker always be free?', answer: "The core functionality — creating and downloading a biodata — will remain free. We may introduce optional premium features in the future, like additional templates or custom branding, but the basic 10 templates and PDF download will stay free. We do not believe in gating essential tools behind a paywall." },
+  { question: 'Will EasyBiodataMaker always be free?', answer: "The core functionality — creating and downloading a biodata — will remain free. We may introduce optional premium features in the future, like additional templates or custom branding, but the basic premium templates and PDF download will stay free. We do not believe in gating essential tools behind a paywall." },
 ];
 
 const aeoSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: aeoFaqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) };
@@ -42,8 +42,8 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto space-y-8 text-gray-700 text-sm leading-loose">
             <div>
               <h2 className="font-display text-2xl font-bold text-maroon-900 mb-4">What This Tool Is</h2>
-              <p>EasyBiodataMaker.com helps you create a professional marriage biodata PDF in about 5 to 10 minutes. You fill a guided form with your personal, family, education, and contact information. You choose from 10 design templates. You download a finished PDF.</p>
-              <p className="mt-4">The tool supports 7 Indian languages — so form labels appear in Gujarati, Marathi, Hindi, Punjabi, Tamil, or Bengali based on your preference. It supports photo upload and unlimited custom fields for community-specific information.</p>
+              <p>EasyBiodataMaker.com helps you create a professional marriage biodata PDF in about 5 to 10 minutes. You fill a guided form with your personal, family, education, and contact information. You choose from 8 premium design templates. You download a finished PDF.</p>
+              <p className="mt-4">The tool supports 9 Indian languages — so form labels appear in Gujarati, Marathi, Hindi, Punjabi, Tamil, or Bengali based on your preference. It supports photo upload and custom fields when needed for community-specific information.</p>
             </div>
 
             <div>

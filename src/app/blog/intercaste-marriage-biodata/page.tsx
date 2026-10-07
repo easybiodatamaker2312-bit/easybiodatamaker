@@ -5,23 +5,23 @@ import Footer from '@/components/ui/Footer';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Inter-Caste Marriage Biodata – How to Write Caste No Bar 2024',
+  title: 'Inter-Caste Marriage Biodata – How to Write Caste No Bar',
   description: 'If you are open to inter-caste or inter-religion marriage, your biodata must say so clearly. Here is how to write the caste no bar section and what to expect.',
   keywords: ['intercaste marriage biodata', 'caste no bar biodata', 'inter caste biodata india', 'inter religion marriage biodata', 'how to write caste no bar in biodata', 'open minded biodata format', 'progressive biodata india', 'love marriage biodata format'],
-  alternates: { canonical: 'https://easybiodatamaker.com/intercaste-marriage-biodata' },
-  openGraph: { title: 'Inter-Caste Marriage Biodata – How to Write Caste No Bar 2024', description: 'If you are open to inter-caste or inter-religion marriage, your biodata must say so clearly. Here is how to write the caste no bar section and what to expect.', url: 'https://easybiodatamaker.com/intercaste-marriage-biodata', type: 'article' },
+  alternates: { canonical: 'https://easybiodatamaker.com/blog/intercaste-marriage-biodata' },
+  openGraph: { title: 'Inter-Caste Marriage Biodata – How to Write Caste No Bar', description: 'If you are open to inter-caste or inter-religion marriage, your biodata must say so clearly. Here is how to write the caste no bar section and what to expect.', url: 'https://easybiodatamaker.com/blog/intercaste-marriage-biodata', type: 'article' },
 };
 
 
 const pageSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `Inter-Caste Marriage Biodata – How to Write Caste No Bar 2024`,
+    headline: `Inter-Caste Marriage Biodata – How to Write Caste No Bar`,
     description: `If you are open to inter-caste or inter-religion marriage, your biodata must say so clearly. Here is how to write the caste no bar section and what to expect.`,
     datePublished: '2024-12-28',
     dateModified: '2024-12-28',
     author: { '@type': 'Organization', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' },
-    publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/logo.png' } },
+    publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-192.png' } },
     mainEntityOfPage: `https://easybiodatamaker.com/blog/intercaste-marriage-biodata`,
     image: 'https://easybiodatamaker.com/og-image.png',
   };
@@ -54,7 +54,7 @@ export default function Page() {
               <span>/</span><span>Inter-Caste Marriage Biodata – Writing Caste No Bar</span>
             </div>
             <h1 className="font-display text-3xl font-bold text-maroon-900 mb-4 leading-tight">
-              🤝 Inter-Caste Marriage Biodata – Writing Caste No Bar
+               Inter-Caste Marriage Biodata – Writing Caste No Bar
             </h1>
             <p className="text-gray-600 leading-relaxed text-sm">How to Communicate Openness Respectfully</p>
           </div>
@@ -79,7 +79,7 @@ If your family is traditional but you personally are open, have a frank conversa
             </div>
             <div className="bg-gradient-to-r from-maroon-800 to-maroon-950 rounded-2xl p-6 text-white text-center">
               <h2 className="font-display text-xl font-bold mb-3">Create Your Biodata Free</h2>
-              <p className="text-amber-200/80 text-sm mb-4">10 templates · 7 languages · Instant PDF</p>
+              <p className="text-amber-200/80 text-sm mb-4">premium templates · 9 Indian languages · Instant PDF</p>
               <Link href="/create" className="btn-primary text-sm">Create Free Biodata →</Link>
             </div>
           </div>

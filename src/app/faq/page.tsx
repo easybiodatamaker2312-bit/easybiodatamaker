@@ -40,7 +40,7 @@ const faqSchema = {
       name: 'Is EasyBiodataMaker actually free or is there a catch?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "It is actually free. All 10 templates, photo upload, custom fields, and PDF download — no charges, no watermark on the content, no registration. The only thing on the PDF is a small EasyBiodataMaker.com credit at the bottom, like most free tools add. That is it.",
+        text: "It is actually free. All premium templates, photo upload, custom fields, and PDF download — no charges, no watermark on the content, no registration. The only thing on the PDF is a small EasyBiodataMaker.com credit at the bottom, like most free tools add. That is it.",
       },
     },
     {
@@ -48,7 +48,7 @@ const faqSchema = {
       name: 'How long should a marriage biodata be?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "One A4 page. That is the standard across India — North, South, East, West. Families review dozens of biodatas and do not have time to read three pages. If your information does not fit on one page, you are either including too many details or need a more compact template. Two pages is acceptable only for some South Indian communities that traditionally use extended formats.",
+        text: "EasyBiodataMaker formats the final document to one A4 page by scaling the complete design when necessary. Keep only the details you want to share so the result stays readable; optional fields and photos can be removed before export.",
       },
     },
     {
@@ -139,11 +139,11 @@ type FAQ = { question: string; answer: string };
 const categories: { title: string; emoji: string; faqs: FAQ[] }[] = [
   {
     title: 'About EasyBiodataMaker',
-    emoji: '🛠',
+    emoji: '',
     faqs: [
       {
         question: 'Is EasyBiodataMaker actually free or is there a catch?',
-        answer: "It is actually free. All 10 templates, photo upload, custom fields, and PDF download — no charges, no watermark on the content, no registration. The only thing on the PDF is a small EasyBiodataMaker.com credit at the bottom, like most free tools do. That is it.",
+        answer: "It is actually free. All premium templates, photo upload, custom fields, and PDF download — no charges, no watermark on the content, no registration. The only thing on the PDF is a small EasyBiodataMaker.com credit at the bottom, like most free tools do. That is it.",
       },
       {
         question: 'Is my data safe here?',
@@ -157,7 +157,7 @@ const categories: { title: string; emoji: string; faqs: FAQ[] }[] = [
   },
   {
     title: 'What to Write (and What to Skip)',
-    emoji: '✍️',
+    emoji: '',
     faqs: [
       {
         question: 'How long should a marriage biodata be?',
@@ -179,7 +179,7 @@ const categories: { title: string; emoji: string; faqs: FAQ[] }[] = [
   },
   {
     title: 'Gotra, Manglik, and Community Fields',
-    emoji: '🕉️',
+    emoji: '',
     faqs: [
       {
         question: 'My parents do not know my gotra. What do I write?',
@@ -197,7 +197,7 @@ const categories: { title: string; emoji: string; faqs: FAQ[] }[] = [
   },
   {
     title: 'Photos and Format',
-    emoji: '📸',
+    emoji: '',
     faqs: [
       {
         question: 'What kind of photo should I use in my biodata?',

@@ -1,47 +1,27 @@
 import Link from 'next/link';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-amber-100 shadow-sm">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-saffron-500 to-maroon-700 flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
-            <span className="text-white font-bold text-sm font-serif">EB</span>
-          </div>
-          <div>
-            <div className="font-display font-bold text-maroon-800 text-lg leading-tight">
-              Easy<span className="text-saffron-500">Biodata</span>Maker
-            </div>
-            <div className="text-[10px] text-gray-400 uppercase tracking-widest leading-none">
-              Free · Instant · No Login
-            </div>
-          </div>
+    <header className="sticky top-0 z-50 border-b border-stone-200/80 bg-ivory/90 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="group flex min-h-11 items-center gap-3" aria-label="EasyBiodataMaker home">
+          <span className="grid size-9 place-items-center rounded-xl border border-gold/40 bg-white text-oxblood shadow-sm transition-transform duration-200 group-hover:-rotate-2">
+            <Sparkles size={16} aria-hidden="true" />
+          </span>
+          <span>
+            <span className="block font-display text-[19px] font-semibold leading-none text-ink">Easy<span className="text-oxblood">Biodata</span></span>
+            <span className="mt-1 block text-[9px] font-semibold uppercase tracking-[.18em] text-stone-500">Made for families</span>
+          </span>
         </Link>
 
-        {/* Nav */}
-        <nav className="hidden sm:flex items-center gap-6">
-          <Link
-            href="/"
-            className="text-sm font-medium text-gray-600 hover:text-maroon-700 transition-colors"
-          >
-            Home
-          </Link>
-          <Link
-            href="/create"
-            className="text-sm font-medium text-gray-600 hover:text-maroon-700 transition-colors"
-          >
-            Create Biodata
-          </Link>
-          <Link href="/create" className="btn-primary text-sm py-2 px-4">
-            Get Started Free
-          </Link>
+        <nav className="hidden items-center gap-2 sm:flex" aria-label="Primary navigation">
+          <Link href="/templates" className="btn-ghost">Templates</Link>
+          <Link href="/faq" className="btn-ghost">FAQ</Link>
+          <Link href="/create" className="btn-primary ml-1">Create biodata <ArrowRight size={16} aria-hidden="true" /></Link>
         </nav>
 
-        {/* Mobile CTA */}
-        <Link href="/create" className="sm:hidden btn-primary text-sm py-2 px-3">
-          Create Free
-        </Link>
+        <Link href="/create" className="btn-primary px-4 sm:hidden">Create <ArrowRight size={15} aria-hidden="true" /></Link>
       </div>
     </header>
   );

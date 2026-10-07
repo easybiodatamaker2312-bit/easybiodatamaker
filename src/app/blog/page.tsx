@@ -6,10 +6,10 @@ import Link from 'next/link';
 import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Marriage Biodata Blog – Tips, Formats & Guides 2024 | EasyBiodataMaker',
+  title: 'Marriage Biodata Blog – Tips, Formats & Guides | EasyBiodataMaker',
   description: 'Expert guides on Indian marriage biodata creation. How to write biodata, formats for all communities, partner expectations tips, common mistakes, NRI biodata guide. 100% free advice.',
   keywords: [
-    'marriage biodata tips 2024','how to write biodata for marriage blog','shaadi biodata guide india','biodata format tips hindi','marriage biodata mistakes to avoid','partner expectations in biodata examples','biodata for nri marriage tips','how to write gotra in biodata','manglik biodata tips','biodata format for second marriage','intercaste marriage biodata tips','how to mention income in biodata','marriage biodata photo tips','biodata for girl how to write','biodata for boy how to write',
+    'marriage biodata tips','how to write biodata for marriage blog','shaadi biodata guide india','biodata format tips hindi','marriage biodata mistakes to avoid','partner expectations in biodata examples','biodata for nri marriage tips','how to write gotra in biodata','manglik biodata tips','biodata format for second marriage','intercaste marriage biodata tips','how to mention income in biodata','marriage biodata photo tips','biodata for girl how to write','biodata for boy how to write',
   ],
   alternates: { canonical: 'https://easybiodatamaker.com/blog' },
   openGraph: { title: 'Marriage Biodata Blog – Expert Tips & Guides', description: 'Complete guides on Indian marriage biodata — formats, writing tips, community guides, and more.', url: 'https://easybiodatamaker.com/blog' },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const articles = [
   {
     slug: '/blog/how-to-write-biodata-for-marriage',
-    title: 'How to Write Biodata for Marriage – The Complete 2024 Guide',
+    title: 'How to Write Biodata for Marriage – The Complete Guide',
     excerpt: 'clear, numbered guide to writing the perfect marriage biodata. What sections to include, what language to use, how long it should be, and 10 expert tips from matrimonial advisors.',
     category: 'Guide',
     categoryColor: 'bg-blue-100 text-blue-700',
@@ -29,7 +29,7 @@ const articles = [
   },
   {
     slug: '/blog/marriage-biodata-format-india',
-    title: 'Marriage Biodata Format India 2024 – Complete Section-by-Section Guide',
+    title: 'Marriage Biodata Format India – Complete Section-by-Section Guide',
     excerpt: 'The standard Indian marriage biodata format explained section by section. What goes in personal details, family details, education, career and contact sections with real examples.',
     category: 'Format',
     categoryColor: 'bg-amber-100 text-amber-700',
@@ -40,7 +40,7 @@ const articles = [
   },
   {
     slug: '/blog/free-biodata-maker-vs-word-template',
-    title: 'Free Biodata Maker vs Word Template – Which is Better in 2024?',
+    title: 'Free Biodata Maker vs Word Template – Which is Better in?',
     excerpt: 'Should you use a free online biodata maker or download a Word template? We compare both options on design quality, ease of use, mobile support, privacy, and final output.',
     category: 'Comparison',
     categoryColor: 'bg-green-100 text-green-700',
@@ -51,7 +51,7 @@ const articles = [
   },
   {
     slug: '/blog/what-to-write-in-partner-expectations',
-    title: 'What to Write in Partner Expectations – 20 Real Examples for 2024',
+    title: 'What to Write in Partner Expectations – 20 Real Examples for',
     excerpt: 'The partner expectations section is the most personal part of a biodata. Here are 20 real examples for Hindu, Muslim, Sikh families, NRIs, and inter-caste open families.',
     category: 'Tips',
     categoryColor: 'bg-purple-100 text-purple-700',
@@ -62,7 +62,7 @@ const articles = [
   },
   {
     slug: '/blog/biodata-mistakes-to-avoid',
-    title: '15 Biodata Mistakes That Cost You Good Matches – Avoid These in 2024',
+    title: '15 Biodata Mistakes That Cost You Good Matches – Avoid These in',
     excerpt: 'From exaggerating qualifications to leaving manglik blank — these 15 common biodata mistakes are silently killing your matrimonial prospects. Here is how to fix them.',
     category: 'Mistakes',
     categoryColor: 'bg-red-100 text-red-700',
@@ -73,7 +73,7 @@ const articles = [
   },
   {
     slug: '/blog/nri-marriage-biodata-guide',
-    title: 'NRI Marriage Biodata – Complete Guide for Indians Abroad 2024',
+    title: 'NRI Marriage Biodata – Complete Guide for Indians Abroad',
     excerpt: 'A complete guide for NRIs creating a marriage biodata from USA, UK, Canada, Australia, UAE. What extra information to include, how to mention visa status, income in foreign currency.',
     category: 'NRI',
     categoryColor: 'bg-teal-100 text-teal-700',
@@ -84,7 +84,7 @@ const articles = [
   },
   {
     slug: '/blog/intercaste-marriage-biodata',
-    title: 'Inter-Caste Marriage Biodata – How to Write Caste No Bar 2024',
+    title: 'Inter-Caste Marriage Biodata – How to Write Caste No Bar',
     excerpt: 'If you are open to inter-caste or inter-religion marriage, your biodata needs to communicate this clearly and respectfully. Here is exactly how to word it.',
     category: 'Guide',
     categoryColor: 'bg-blue-100 text-blue-700',
@@ -215,7 +215,7 @@ export default function BlogPage() {
         {/* CTA */}
         <section className="py-12 px-4 bg-gradient-to-r from-maroon-800 to-maroon-950 text-white text-center">
           <h2 className="font-display text-2xl font-bold mb-3">Ready to Create Your Biodata?</h2>
-          <p className="text-amber-200/80 text-sm mb-6">Free · 10 Templates · 7 Languages · Instant PDF</p>
+          <p className="text-amber-200/80 text-sm mb-6">Free · Premium Templates · 9 Indian Languages · Instant PDF</p>
           <Link href="/create" className="btn-primary">Create Free Biodata Now →</Link>
         </section>
       </main>

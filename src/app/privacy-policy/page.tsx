@@ -115,10 +115,10 @@ export default function PrivacyPolicyPage() {
             <div className="flex items-center gap-4 text-sm text-gray-400">
               <span>EasyBiodataMaker.com</span>
               <span>•</span>
-              <span>Last Updated: January 2024</span>
+              <span>Last Updated: See current policy version</span>
             </div>
             <div className="mt-4 bg-green-50 border border-green-200 rounded-xl p-4 text-sm text-green-800">
-              <strong>🔒 Privacy-First Platform:</strong> EasyBiodataMaker does not collect or store
+              <strong> Privacy-First Platform:</strong> EasyBiodataMaker does not collect or store
               your personal biodata information. All data stays in your browser only.
             </div>
           </div>

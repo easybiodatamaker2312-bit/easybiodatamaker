@@ -5,7 +5,7 @@ import Footer from '@/components/ui/Footer';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: '15 Marriage Biodata Mistakes to Avoid in 2024 | EasyBiodataMaker Blog',
+  title: '15 Marriage Biodata Mistakes to Avoid in | EasyBiodataMaker Blog',
   description: 'These 15 common marriage biodata mistakes silently kill your matrimonial prospects. From exaggerating qualifications to leaving manglik blank — learn what not to do and how to fix it.',
   keywords: ['marriage biodata mistakes to avoid','common biodata mistakes india','what not to write in biodata','biodata errors india','biodata tips dos and donts','manglik biodata mistake','biodata photo mistake','biodata income mistake','shaadi biodata galtiyan','vivah biodata mistakes'],
   alternates: { canonical: 'https://easybiodatamaker.com/blog/biodata-mistakes-to-avoid' },
@@ -34,12 +34,12 @@ const mistakes = [
 const pageSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: `15 Marriage Biodata Mistakes to Avoid in 2024 | EasyBiodataMaker Blog`,
+    headline: `15 Marriage Biodata Mistakes to Avoid in | EasyBiodataMaker Blog`,
     description: `These 15 common marriage biodata mistakes silently kill your matrimonial prospects. From exaggerating qualifications to leaving manglik blank — learn what not to do and how to fix it.`,
     datePublished: '2024-12-28',
     dateModified: '2024-12-28',
     author: { '@type': 'Organization', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' },
-    publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/logo.png' } },
+    publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-192.png' } },
     mainEntityOfPage: `https://easybiodatamaker.com/blog/biodata-mistakes-to-avoid`,
     image: 'https://easybiodatamaker.com/og-image.png',
   };
@@ -105,7 +105,7 @@ export default function MistakesPage() {
 
             <div className="bg-gradient-to-r from-maroon-800 to-maroon-950 rounded-2xl p-6 text-white text-center mt-8">
               <h2 className="font-display text-xl font-bold mb-3">Create a Perfect Biodata — Avoid All 15 Mistakes</h2>
-              <p className="text-amber-200/80 text-sm mb-4">EasyBiodataMaker guides you through every field. 10 templates · 7 languages · Free</p>
+              <p className="text-amber-200/80 text-sm mb-4">EasyBiodataMaker guides you through every field. premium templates · 9 Indian languages · Free</p>
               <Link href="/create" className="btn-primary">Create Free Biodata →</Link>
             </div>
           </div>

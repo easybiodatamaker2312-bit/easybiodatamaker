@@ -117,7 +117,7 @@ export default function TermsPage() {
             <div className="flex items-center gap-4 text-sm text-gray-400">
               <span>EasyBiodataMaker.com</span>
               <span>•</span>
-              <span>Effective: January 1, 2024</span>
+              <span>Effective: See current policy version</span>
             </div>
           </div>
 
