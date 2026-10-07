@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { AEOBlock } from '@/components/ui/AEOBlock';
-import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 
 export type NriPageConfig = {
   path: string;
