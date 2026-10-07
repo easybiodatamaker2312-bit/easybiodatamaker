@@ -2,10 +2,10 @@ import React from 'react';
 import type { BiodataViewSection, BiodataViewRow } from '@/lib/useBiodataView';
 import type { TemplateRenderProps } from '../../template-contract';
 
-export function SymbolMark({ value }: Pick<TemplateRenderProps, 'auspiciousSymbol'>) {
-  if (value === 'none') return null;
-  if (value === 'swastik') return <span aria-hidden="true" className="template-symbol template-symbol-glyph">卐</span>;
-  if (value === 'crescent-star') return <span aria-hidden="true" className="template-symbol template-symbol-crescent">☪</span>;
+export function SymbolMark({ auspiciousSymbol }: Pick<TemplateRenderProps, 'auspiciousSymbol'>) {
+  if (auspiciousSymbol === 'none') return null;
+  if (auspiciousSymbol === 'swastik') return <span aria-hidden="true" className="template-symbol template-symbol-glyph">卐</span>;
+  if (auspiciousSymbol === 'crescent-star') return <span aria-hidden="true" className="template-symbol template-symbol-crescent">☪</span>;
   const marks: Record<Exclude<TemplateRenderProps['auspiciousSymbol'], 'none' | 'swastik' | 'crescent-star'>, string> = {
     om: 'ॐ',
     ganesh: 'श्री गणेश',
@@ -15,7 +15,7 @@ export function SymbolMark({ value }: Pick<TemplateRenderProps, 'auspiciousSymbo
     cross: '✝',
     bismillah: '﷽',
   };
-  return <span aria-hidden="true" className="template-symbol">{marks[value]}</span>;
+  return <span aria-hidden="true" className="template-symbol">{marks[auspiciousSymbol]}</span>;
 }
 
 export function PhotoPlaceholder({ className = '' }: { className?: string }) {

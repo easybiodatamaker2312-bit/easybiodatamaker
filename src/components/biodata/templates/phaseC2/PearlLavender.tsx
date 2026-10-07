@@ -16,7 +16,7 @@ export function PearlLavenderLayout({view,auspiciousSymbol,colorway}:TemplateRen
  const sections=view.sections.filter(s=>s.key!=='photos');
  return <A4Root className="pearl-lavender-layout" style={{...TEMPLATE_ROOT_STYLE,...colorwayVariables(colorway),fontFamily:'var(--template-body)',padding:'0'}}>
    <div className="pearl-orb pearl-orb-a"/><div className="pearl-orb pearl-orb-b"/>
-   <aside className="pearl-sidebar"><div className="pearl-cameo"><PhotoImage src={photo}/></div><div className="pearl-sidebar-rule"/><SymbolMark value={auspiciousSymbol}/><p>{view.headerCaption}</p><div className="pearl-sidebar-mark"><GlassIcon/></div></aside>
+   <aside className="pearl-sidebar"><div className="pearl-cameo"><PhotoImage src={photo}/></div><div className="pearl-sidebar-rule"/><SymbolMark auspiciousSymbol={auspiciousSymbol}/><p>{view.headerCaption}</p><div className="pearl-sidebar-mark"><GlassIcon/></div></aside>
    <main className="pearl-main"><header><span className="pearl-eyebrow">{view.headerCaption}</span><h1>{view.fullName}</h1><div className="pearl-title-line"/></header><div className="pearl-grid">{sections.map((section,i)=><section className="pearl-card" key={section.key}><div className="pearl-card-head"><span>{String(i+1).padStart(2,'0')}</span><h2>{section.title}</h2></div>{section.rows.map(row=><div className="pearl-row" key={row.key}><span>{row.label}</span><strong>{row.value}</strong></div>)}</section>)}</div>{extra.length>0&&<section className="pearl-gallery"><h2>{view.sections.find(s=>s.key==='photos')?.title}</h2><div>{extra.map(src=><PhotoImage key={src} src={src}/>)}</div></section>}</main>
    <footer className="pearl-footer">{view.headerCaption}</footer>
  </A4Root>

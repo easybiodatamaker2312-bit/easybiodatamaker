@@ -15,7 +15,7 @@ export function SandstoneRajasthanLayout({view,auspiciousSymbol,colorway}:Templa
  const photo=view.photos[0], extra=view.photos.slice(1); const sections=view.sections.filter(s=>s.key!=='photos');
  return <A4Root className="sandstone-rajasthan-layout" style={{...TEMPLATE_ROOT_STYLE,...colorwayVariables(colorway),fontFamily:'var(--template-body)',padding:'0'}}>
    <div className="sandstone-topprint"><BlockPrint/></div>
-   <header className="sandstone-header"><div className="sandstone-portrait"><PhotoImage src={photo}/></div><div className="sandstone-title"><SymbolMark value={auspiciousSymbol}/><p>{view.headerCaption}</p><h1>{view.fullName}</h1><span>{view.headerCaption}</span></div></header>
+   <header className="sandstone-header"><div className="sandstone-portrait"><PhotoImage src={photo}/></div><div className="sandstone-title"><SymbolMark auspiciousSymbol={auspiciousSymbol}/><p>{view.headerCaption}</p><h1>{view.fullName}</h1><span>{view.headerCaption}</span></div></header>
    <main className="sandstone-main">{sections.map((section,i)=><section className="sandstone-section" key={section.key}><div className="sandstone-section-title"><span>{String(i+1).padStart(2,'0')}</span><h2>{section.title}</h2></div><div className="sandstone-table">{section.rows.map(row=><div className="sandstone-table-row" key={row.key}><span>{row.label}</span><i/><strong>{row.value}</strong></div>)}</div></section>)}
    {extra.length>0&&<section className="sandstone-extra"><h2>{view.sections.find(s=>s.key==='photos')?.title}</h2><div>{extra.map(src=><PhotoImage key={src} src={src}/>)}</div></section>}</main>
    <footer>{view.headerCaption}</footer><div className="sandstone-bottomprint"><BlockPrint/></div>

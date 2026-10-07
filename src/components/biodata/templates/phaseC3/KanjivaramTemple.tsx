@@ -15,7 +15,7 @@ export function KanjivaramTempleLayout({view,auspiciousSymbol,colorway}:Template
  const photo=view.photos[0]; const extra=view.photos.slice(1); const sections=view.sections.filter(s=>s.key!=='photos');
  return <A4Root className="kanjivaram-temple-layout" style={{...TEMPLATE_ROOT_STYLE,...colorwayVariables(colorway),fontFamily:'var(--template-body)'}}>
    <div className="kanjivaram-frame" aria-hidden="true"/><Gopuram/>
-   <header className="kanjivaram-hero"><div className="kanjivaram-copy"><SymbolMark value={auspiciousSymbol}/><p>{view.headerCaption}</p><h1>{view.fullName}</h1><span className="kanjivaram-rule"/></div><div className="kanjivaram-portrait"><PhotoImage src={photo}/></div></header>
+   <header className="kanjivaram-hero"><div className="kanjivaram-copy"><SymbolMark auspiciousSymbol={auspiciousSymbol}/><p>{view.headerCaption}</p><h1>{view.fullName}</h1><span className="kanjivaram-rule"/></div><div className="kanjivaram-portrait"><PhotoImage src={photo}/></div></header>
    <main className="kanjivaram-main">{sections.map((section,i)=><section className="kanjivaram-section" key={section.key}><div className="kanjivaram-tab"><span>{String(i+1).padStart(2,'0')}</span><h2>{section.title}</h2></div><div className="kanjivaram-box">{section.rows.map(row=><div className="kanjivaram-row" key={row.key}><span>{row.label}</span><strong>{row.value}</strong></div>)}</div></section>)}
    {extra.length>0&&<section className="kanjivaram-gallery"><h2>{view.sections.find(s=>s.key==='photos')?.title}</h2><div>{extra.map(src=><PhotoImage key={src} src={src}/>)}</div></section>}</main>
    <Gopuram bottom/><footer>{view.headerCaption}</footer>

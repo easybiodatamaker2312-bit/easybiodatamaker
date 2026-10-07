@@ -15,7 +15,7 @@ export function HaldiMarigoldLayout({view,auspiciousSymbol,colorway}:TemplateRen
  const photo=view.photos[0]; const extra=view.photos.slice(1);
  return <A4Root className="haldi-marigold-layout" style={{...TEMPLATE_ROOT_STYLE,...colorwayVariables(colorway),fontFamily:'var(--template-body)',padding:'12mm 13mm'}}>
    <div className="haldi-border haldi-border-top"><RangoliBorder/></div>
-   <header className="haldi-header"><div className="haldi-sun"><span aria-hidden="true">+</span></div><div className="haldi-head-copy"><SymbolMark value={auspiciousSymbol}/><p>{view.headerCaption}</p><h1>{view.fullName}</h1></div><div className="haldi-polaroid"><PhotoImage src={photo}/><span/></div></header>
+   <header className="haldi-header"><div className="haldi-sun"><span aria-hidden="true">+</span></div><div className="haldi-head-copy"><SymbolMark auspiciousSymbol={auspiciousSymbol}/><p>{view.headerCaption}</p><h1>{view.fullName}</h1></div><div className="haldi-polaroid"><PhotoImage src={photo}/><span/></div></header>
    <div className="haldi-intro-line"/>
    <main className="haldi-content">{view.sections.filter(s=>s.key!=='photos').map((section,i)=><section className="haldi-section" key={section.key}><div className="haldi-section-title"><span>{String(i+1).padStart(2,'0')}</span><h2>{section.title}</h2></div><div className="haldi-zebra">{section.rows.map((row,j)=><div className={j%2?'haldi-row alt':'haldi-row'} key={row.key}><span>{row.label}</span><strong>{row.value}</strong></div>)}</div></section>)}</main>
    {extra.length>0&&<section className="haldi-extra"><h2>{view.sections.find(s=>s.key==='photos')?.title}</h2><div>{extra.map(src=><PhotoImage key={src} src={src}/>)}</div></section>}

@@ -14,7 +14,7 @@ function PeacockFeather(){return <svg className="peacock-feather" viewBox="0 0 1
 export function RoyalPeacockLayout({ view, auspiciousSymbol, colorway }: TemplateRenderProps){
   const photo=view.photos[0]; const extra=view.photos.slice(1);
   return <A4Root className="royal-peacock-layout" style={{...TEMPLATE_ROOT_STYLE,...colorwayVariables(colorway),fontFamily:'var(--template-body)',padding:0}}>
-    <aside className="peacock-sidebar"><PeacockFeather/><SymbolMark value={auspiciousSymbol}/><div className="peacock-vertical">{view.headerCaption}</div></aside>
+    <aside className="peacock-sidebar"><PeacockFeather/><SymbolMark auspiciousSymbol={auspiciousSymbol}/><div className="peacock-vertical">{view.headerCaption}</div></aside>
     <main className="peacock-main"><header><div className="peacock-kicker">{view.headerCaption}</div><h1>{view.fullName}</h1><div className="peacock-rule"/></header>
       <div className="peacock-hero"><PhotoImage src={photo} className="peacock-photo"/><div className="peacock-hero-note">{view.sections.find(s=>s.key==='basics')?.rows.slice(0,3).map(r=><span key={r.key}><b>{r.label}</b>{r.value}</span>)}</div></div>
       <div className="peacock-grid">{view.sections.filter(s=>s.key!=='photos').map(section=><section key={section.key}><h2>{section.title}</h2>{section.rows.map(row=><div className="peacock-row" key={row.key}><span>{row.label}</span><b>{row.value}</b></div>)}</section>)}</div>

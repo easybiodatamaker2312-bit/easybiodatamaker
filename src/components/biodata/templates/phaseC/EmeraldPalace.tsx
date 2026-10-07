@@ -15,7 +15,7 @@ export function EmeraldPalaceLayout({ view, auspiciousSymbol, colorway }: Templa
   const photo = view.photos[0];
   const extra = view.photos.slice(1);
   return <A4Root className="emerald-palace-layout" style={{ ...TEMPLATE_ROOT_STYLE, ...colorwayVariables(colorway), fontFamily:'var(--template-body)', padding:0 }}>
-    <div className="emerald-top"><Jaali/><div className="emerald-top-copy"><SymbolMark value={auspiciousSymbol}/><div className="emerald-caption">{view.headerCaption}</div><h1>{view.fullName}</h1></div></div>
+    <div className="emerald-top"><Jaali/><div className="emerald-top-copy"><SymbolMark auspiciousSymbol={auspiciousSymbol}/><div className="emerald-caption">{view.headerCaption}</div><h1>{view.fullName}</h1></div></div>
     <main className="emerald-main">
       <aside className="emerald-portrait"><PhotoImage src={photo} className="emerald-diamond"/><span className="emerald-diamond-ring"/></aside>
       <div className="emerald-sections">{view.sections.filter(s=>s.key!=='photos').map((section,i)=><section className="emerald-section" key={section.key}><h2><span>{String(i+1).padStart(2,'0')}</span>{section.title}</h2><div className="emerald-rows">{section.rows.map(row=><div className="emerald-row" key={row.key}><b>{row.label}</b><span>{row.value}</span></div>)}</div></section>)}</div>

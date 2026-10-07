@@ -15,7 +15,7 @@ export function RajwadaCrimsonLayout({view,auspiciousSymbol,colorway}:TemplateRe
  const photo=view.photos[0], extra=view.photos.slice(1);
  return <A4Root className="rajwada-crimson-layout" style={{...TEMPLATE_ROOT_STYLE,...colorwayVariables(colorway),fontFamily:'var(--template-body)',padding:'8mm'}}>
    <div className="rajwada-frame"><div className="rajwada-inner">
-    <header className="rajwada-header"><SymbolMark value={auspiciousSymbol}/><div className="rajwada-caption">{view.headerCaption}</div><h1>{view.fullName}</h1><div className="rajwada-arch"><PhotoImage src={photo}/></div></header>
+    <header className="rajwada-header"><SymbolMark auspiciousSymbol={auspiciousSymbol}/><div className="rajwada-caption">{view.headerCaption}</div><h1>{view.fullName}</h1><div className="rajwada-arch"><PhotoImage src={photo}/></div></header>
     <MandalaBand/>
     <main className="rajwada-body">{view.sections.filter(s=>s.key!=='photos').map(section=><section key={section.key}><h2><span>{section.title}</span></h2><div className="rajwada-ribbon">{section.title}</div><div className="rajwada-rows">{section.rows.map(row=><div className="rajwada-row" key={row.key}><span>{row.label}</span><b>{row.value}</b></div>)}</div></section>)}</main>
     {extra.length>0&&<section className="rajwada-gallery"><h2>{view.sections.find(s=>s.key==='photos')?.title}</h2><div>{extra.map(src=><PhotoImage key={src} src={src}/>)}</div></section>}

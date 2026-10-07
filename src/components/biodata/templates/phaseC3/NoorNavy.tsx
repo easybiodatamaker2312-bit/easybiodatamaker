@@ -14,7 +14,7 @@ function Girih(){return <svg className="noor-girih" viewBox="0 0 1200 170" prese
 export function NoorNavyLayout({view,auspiciousSymbol,colorway}:TemplateRenderProps){
  const photo=view.photos[0]; const extra=view.photos.slice(1); const sections=view.sections.filter(s=>s.key!=='photos');
  return <A4Root className="noor-navy-layout" style={{...TEMPLATE_ROOT_STYLE,...colorwayVariables(colorway),fontFamily:'var(--template-body)'}}>
-   <div className="noor-border" aria-hidden="true"/><header className="noor-hero"><div className="noor-hero-copy"><SymbolMark value={auspiciousSymbol}/><p>{view.headerCaption}</p><h1>{view.fullName}</h1><span>{view.sections[0]?.title}</span></div><div className="noor-hero-photo"><PhotoImage src={photo}/></div></header>
+   <div className="noor-border" aria-hidden="true"/><header className="noor-hero"><div className="noor-hero-copy"><SymbolMark auspiciousSymbol={auspiciousSymbol}/><p>{view.headerCaption}</p><h1>{view.fullName}</h1><span>{view.sections[0]?.title}</span></div><div className="noor-hero-photo"><PhotoImage src={photo}/></div></header>
    <Girih/>
    <main className="noor-main">{sections.map((section,i)=><section className="noor-section" key={section.key}><div className="noor-section-head"><span>{String(i+1).padStart(2,'0')}</span><h2>{section.title}</h2></div><div className="noor-rows">{section.rows.map(row=><div className="noor-row" key={row.key}><span>{row.label}</span><strong>{row.value}</strong></div>)}</div></section>)}
    {extra.length>0&&<section className="noor-gallery"><h2>{view.sections.find(s=>s.key==='photos')?.title}</h2><div>{extra.map(src=><PhotoImage key={src} src={src}/>)}</div></section>}</main>

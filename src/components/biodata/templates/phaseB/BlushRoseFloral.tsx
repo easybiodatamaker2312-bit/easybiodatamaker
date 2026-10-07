@@ -15,7 +15,7 @@ export function BlushRoseFloralLayout({ view, auspiciousSymbol, colorway }: Temp
   const photo = view.photos[0];
   return <A4Root className="blush-rose-layout" style={{ ...TEMPLATE_ROOT_STYLE, ...colorwayVariables(colorway), background: 'var(--template-paper)', color: 'var(--template-ink)', padding: '15mm 15mm', fontFamily: 'var(--template-body)' }}>
     <FloralCorner /><FloralCorner flip />
-    <header className="blush-header"><SymbolMark value={auspiciousSymbol}/><div className="blush-photo-wrap"><PhotoImage src={photo} className="blush-photo" /></div><p>{view.headerCaption}</p><h1>{view.fullName}</h1><div className="blush-line" /></header>
+    <header className="blush-header"><SymbolMark auspiciousSymbol={auspiciousSymbol}/><div className="blush-photo-wrap"><PhotoImage src={photo} className="blush-photo" /></div><p>{view.headerCaption}</p><h1>{view.fullName}</h1><div className="blush-line" /></header>
     <div className="blush-card-grid">{view.sections.filter((s) => s.key !== 'photos').map((section) => <section className="blush-card" key={section.key}><h2>{section.title}</h2><SectionRows section={section} /></section>)}</div>
     {view.photos.length > 1 && <section className="blush-gallery"><h2>{view.sections.find((s) => s.key === 'photos')?.title}</h2><div>{view.photos.slice(1).map((src) => <PhotoImage key={src} src={src} />)}</div></section>}
     <footer>{view.headerCaption}</footer>

@@ -20,7 +20,7 @@ export function MidnightGoldLayout({ view, auspiciousSymbol, colorway }: Templat
     <Filigree /><div className="midnight-filigree right"><Filigree /></div>
     <div className="midnight-inner-frame" />
     <header className="midnight-header">
-      <SymbolMark value={auspiciousSymbol} />
+      <SymbolMark auspiciousSymbol={auspiciousSymbol} />
       <p className="midnight-caption">{view.headerCaption}</p>
       <h1>{view.sections.length || view.photos.length ? view.sections[0]?.rows.find((r) => r.key === 'fullName')?.value || '' : ''}</h1>
       <div className="midnight-name">{view.fullName}</div>
