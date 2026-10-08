@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -6,9 +7,8 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
           <div className="col-span-2 sm:col-span-1">
-            <Link href="/" className="block mb-3">
-              <div className="font-display font-bold text-white text-xl">Easy<span className="text-gold">Biodata</span>Maker</div>
-              <div className="text-[10px] text-gold/70 uppercase tracking-widest">easybiodatamaker.com</div>
+            <Link href="/" className="mb-4 inline-flex rounded-xl bg-[#FBF7F0] px-3 py-2" aria-label="EasyBiodataMaker home">
+              <Image src="/brand-logo.png" alt="EasyBiodataMaker" width={261} height={158} className="h-14 w-auto object-contain" />
             </Link>
             <p className="text-sm text-stone-400 leading-relaxed mb-3">A calm, private marriage biodata maker for Indian families. Create, refine and share without a login.</p>
             <div className="text-xs text-stone-500">support@easybiodatamaker.com</div>

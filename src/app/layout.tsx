@@ -151,7 +151,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', site: '@easybiodata', creator: '@easybiodata', title: 'EasyBiodataMaker – Free Marriage Biodata Maker India', description: 'premium templates · 9 Indian languages · Photo upload · Custom fields · Instant PDF · No login', images: [{ url: '/og-image.png', alt: 'EasyBiodataMaker' }] },
   alternates: { canonical: 'https://easybiodatamaker.com' },
   verification: { google: process.env.NEXT_PUBLIC_GSC_TOKEN },
-  icons: { icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }, { url: '/icon-192.png', sizes: '192x192', type: 'image/png' }], apple: '/apple-touch-icon.png' },
+  icons: { icon: [{ url: '/favicon.png', sizes: '512x512', type: 'image/png' }, { url: '/icon-192.png', sizes: '192x192', type: 'image/png' }], apple: '/apple-touch-icon.png' },
 };
 
 const websiteSchema = {
