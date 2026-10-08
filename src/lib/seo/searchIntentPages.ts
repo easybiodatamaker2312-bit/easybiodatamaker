@@ -546,7 +546,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
       { question: 'Should sect or school of thought be included?', answer: 'Only if it is relevant to the family’s matrimonial conversation and the person wants it stated.' },
       { question: 'Can I make the profile in Urdu?', answer: 'Yes. The language-friendly workflow can be used for Urdu-focused profiles.' },
     ],
-  },,
+  },
 
   {
     path: '/biodata-maker-with-ganesh-photo', title: 'Biodata Maker with Ganesh Photo | Hindu Profile', updatedAt: '2026-10-08',

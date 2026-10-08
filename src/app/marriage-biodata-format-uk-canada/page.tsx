@@ -1,11 +1,11 @@
 import { buildMetadata, getSitePage } from '@/lib/seo';
 import { NriLandingPage, type NriPageConfig } from '@/components/seo/NriLandingPage';
 
-const page = getSitePage('/marriage-biodata-format-uk-canada');
+const sitePage = getSitePage('/marriage-biodata-format-uk-canada');
 
-export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
+export const metadata = buildMetadata({ title: sitePage.title, description: sitePage.description, path: sitePage.path, type: sitePage.type });
 
-const page: NriPageConfig = {
+const pageConfig: NriPageConfig = {
   path: '/marriage-biodata-format-uk-canada',
   title: 'Marriage Biodata Format for Indians in UK & Canada',
   eyebrow: 'UK and Canada NRI marriage biodata',
@@ -25,4 +25,4 @@ const page: NriPageConfig = {
   ],
 };
 
-export default function Page() { return <NriLandingPage page={page} />; }
+export default function Page() { return <NriLandingPage page={pageConfig} />; }
