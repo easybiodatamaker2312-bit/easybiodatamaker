@@ -2,7 +2,7 @@
 
 import Script from 'next/script';
 import { useCallback, useEffect, useRef } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 // The production GA4 web stream shown in the owner's Analytics property.
 // It can be overridden at deploy time without changing source code.
@@ -40,7 +40,6 @@ export function trackAnalyticsEvent(
 
 export default function GoogleAnalytics() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const analyticsReady = useRef(false);
   const initialPageViewSent = useRef(false);
 
@@ -57,7 +56,7 @@ export default function GoogleAnalytics() {
     if (!initialPageViewSent.current) return;
 
     sendCurrentPageView();
-  }, [pathname, searchParams, sendCurrentPageView]);
+  }, [pathname, sendCurrentPageView]);
 
   return (
     <>
