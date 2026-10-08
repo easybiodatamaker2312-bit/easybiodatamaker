@@ -1,34 +1,12 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import { AEOBlock } from '@/components/ui/AEOBlock';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: "Boy's Marriage Biodata Free – Best Format & Template | EasyBiodataMaker",
-  description:
-    "Create a marriage biodata for a boy online — free, in 5 minutes. Classic Saffron, Royal Navy Gold, Emerald Modern templates. All communities. Photo upload, PDF download. No registration.",
-  keywords: [
-    'biodata for marriage boy',
-    'marriage biodata format for boy',
-    'ladke ka biodata kaise banaye',
-    'groom biodata format india',
-    'dulha ka biodata',
-    'boy biodata with photo free',
-    'government job biodata format boy',
-    'NRI boy biodata format',
-    'boy biodata free pdf download',
-    'which template is best for boy biodata',
-    'engineering doctor boy biodata',
-    'boy biodata income kaise likhein',
-  ],
-  alternates: { canonical: 'https://easybiodatamaker.com/biodata-for-marriage-boy' },
-  openGraph: {
-    title: "Boy's Marriage Biodata — Free, Photo Upload, PDF Download",
-    description: "Free marriage biodata for a boy. Classic Saffron or Royal Navy Gold template. Government job, IT, doctor, business — all occupations covered. No login.",
-    url: 'https://easybiodatamaker.com/biodata-for-marriage-boy',
-  },
-};
+const page = getSitePage('/biodata-for-marriage-boy');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const aeoFaqs = [
   {

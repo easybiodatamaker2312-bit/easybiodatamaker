@@ -1,20 +1,10 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 
-export const metadata: Metadata = {
-  title: 'Disclaimer – EasyBiodataMaker.com',
-  description:
-    'Disclaimer for EasyBiodataMaker.com – Free online marriage biodata maker. Read our terms of use, limitations of liability, and important notices.',
-  alternates: { canonical: 'https://easybiodatamaker.com/disclaimer' },
-  robots: { index: true, follow: false },
-  openGraph: {
-    title: 'Disclaimer – EasyBiodataMaker.com',
-    description: 'Read the disclaimer for EasyBiodataMaker.com free marriage biodata maker.',
-    url: 'https://easybiodatamaker.com/disclaimer',
-  },
-  keywords: ['easybiodatamaker disclaimer','marriage biodata maker disclaimer'],
-};
+const page = getSitePage('/disclaimer');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const sections = [
   {

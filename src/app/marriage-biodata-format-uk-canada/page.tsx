@@ -1,12 +1,9 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
 import { NriLandingPage, type NriPageConfig } from '@/components/seo/NriLandingPage';
 
-export const metadata: Metadata = {
-  title: 'Marriage Biodata Format UK & Canada | NRI Maker',
-  description: 'Create an Indian marriage biodata for UK or Canada with location, residency, relocation and overseas work details. Free, no login.',
-  alternates: { canonical: 'https://easybiodatamaker.com/marriage-biodata-format-uk-canada' },
-  openGraph: { title: 'Marriage Biodata Format UK & Canada | EasyBiodataMaker', description: 'A practical NRI marriage biodata format for Indians living in the UK or Canada.', url: 'https://easybiodatamaker.com/marriage-biodata-format-uk-canada', type: 'website' },
-};
+const page = getSitePage('/marriage-biodata-format-uk-canada');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const page: NriPageConfig = {
   path: '/marriage-biodata-format-uk-canada',

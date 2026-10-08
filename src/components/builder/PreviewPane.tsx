@@ -5,7 +5,7 @@ import { Share2, Download, Save, Images, FileImage } from 'lucide-react';
 import { useBiodataStore, type PhotoItem } from '@/store/biodataStore';
 import { TRANSLATIONS, type SupportedLanguage } from '@/lib/translations';
 import { TEMPLATES, type TemplateId } from '@/components/biodata/TemplateRegistry';
-import { downloadBiodataAsPDF, downloadBiodataAsPNG, shareBiodata } from '@/lib/pdf';
+import { downloadBiodataAsPDF, downloadBiodataAsPNG, downloadBiodataAsJPG, shareBiodata } from '@/lib/pdf';
 import { downloadBiodataAsWord } from '@/lib/word-export';
 import { useBiodataView } from '@/lib/useBiodataView';
 import { colorwayVariables } from '@/components/biodata/template-contract';
@@ -68,16 +68,20 @@ export function PreviewPane() {
   const view = useBiodataView(data, safeLanguage, sectionOrder, optionalFields, contactVisible, photos, customFields, fieldOrder);
   const definition = TEMPLATES[(templateId in TEMPLATES ? templateId : 'midnight-gold') as TemplateId];
   const colorway = definition.colorways.find((item) => item.id === colorwayId) ?? definition.colorways[0];
+  const templateName = definition.name;
+  const colorwayName = colorway.name;
   const extraPhotos = photos.slice(1);
   return <div data-testid="biodata-preview-container">
     <div className="builder-preview-shell"><div className="builder-a4-wrap"><div className="builder-a4-scale"><RenderTemplate elementId="biodata-preview-live" /></div></div></div>
     <div className="mt-3 flex flex-wrap gap-2 no-print">
-      <button type="button" className="btn-primary" onClick={() => downloadBiodataAsPDF('print-root', `${filename}.pdf`)}><Save size={15} /> Save as PDF</button>
+      <button type="button" className="btn-primary" onClick={() => downloadBiodataAsPDF('print-root', `${filename}.pdf`)}><Save size={15} /> Download Premium PDF</button>
       <button type="button" className="btn-secondary" onClick={() => downloadBiodataAsPNG('png-root', `${filename}.png`)}><Download size={15} /> Download PNG</button>
+      <button type="button" className="btn-secondary" onClick={() => downloadBiodataAsJPG('png-root', `${filename}.jpg`)}><FileImage size={15} /> Download JPG</button>
       <button type="button" className="btn-secondary" onClick={() => downloadBiodataAsWord(view, `${filename}.docx`)}><Download size={15} /> Download Word</button>
       <button type="button" className="btn-secondary" onClick={() => shareBiodata(data.fullName || TRANSLATIONS[safeLanguage].marriageBiodata, shareText, 'png-root', `${filename}.png`)}><Share2 size={15} /> Share / WhatsApp</button>
     </div>
-    <p className="no-print mt-2 text-xs leading-5 text-stone-500">Save as PDF creates page 1 for the biodata, then your extra photos as full A4 pages or one gallery page based on your photo-page setting. PNG and WhatsApp share page 1. Word creates an editable .docx.</p>
+    <div className="no-print mt-3 flex flex-wrap items-center gap-2 rounded-2xl border border-stone-200 bg-white/80 px-3.5 py-2.5 text-xs text-stone-600 shadow-sm"><span className="font-semibold text-stone-800">Export theme</span><span>{templateName}</span><span className="text-stone-300">•</span><span>{colorwayName}</span><span className="ml-auto text-stone-500">A4 · 300 DPI JPG/PNG · print-ready PDF</span></div>
+    <p className="no-print mt-2 text-xs leading-5 text-stone-500">Premium PDF uses the selected template and colorway at a fixed A4 canvas, so browser zoom and print margins cannot change the artwork width. JPG and PNG are generated at 2480 × 3508 px (300 DPI equivalent). Extra photos remain separate A4 pages in the PDF.</p>
     {extraPhotos.length > 0 && <div className="mt-6 no-print"><div className="mb-3 flex items-center gap-2"><Images size={15} className="text-[var(--antique-gold)]" /><p className="text-sm font-semibold">Export preview</p><span className="text-xs text-stone-500">Page 1 + {photoPageMode === 'single-per-page' ? `${extraPhotos.length} photo page${extraPhotos.length > 1 ? 's' : ''}` : '1 photo gallery page'}</span></div><div className="space-y-5"><div className="rounded-2xl border border-stone-200 bg-white p-3"><div className="mb-2 flex items-center gap-2 text-xs font-semibold text-stone-600"><FileImage size={13} /> Page 1 · Biodata</div><div className="overflow-hidden rounded-xl border border-stone-100"><div className="mx-auto w-full max-w-[720px]"><RenderTemplate elementId="visible-export-preview-biodata" photosOverride={photos.slice(0, 1)} /></div></div></div>{photoPageMode === 'single-per-page' ? extraPhotos.map((photo, index) => <div key={photo.id} className="rounded-2xl border border-stone-200 bg-white p-3"><div className="mb-2 flex items-center gap-2 text-xs font-semibold text-stone-600"><FileImage size={13} /> Page {index + 2} · Photo {index + 2}</div><div className="mx-auto w-full max-w-[720px] overflow-hidden rounded-xl border border-stone-100"><PhotoGalleryPage photos={[photo]} singlePhoto /></div></div>) : <div className="rounded-2xl border border-stone-200 bg-white p-3"><div className="mb-2 flex items-center gap-2 text-xs font-semibold text-stone-600"><FileImage size={13} /> Page 2 · All additional photos</div><div className="mx-auto w-full max-w-[720px] overflow-hidden rounded-xl border border-stone-100"><PhotoGalleryPage photos={extraPhotos} /></div></div>}</div></div>}
     {portalHost ? createPortal(
       <>

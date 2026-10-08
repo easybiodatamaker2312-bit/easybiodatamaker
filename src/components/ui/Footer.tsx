@@ -18,12 +18,12 @@ export default function Footer() {
             <h3 className="text-white font-bold mb-4 text-xs uppercase tracking-wider">Language Biodatas</h3>
             <ul className="space-y-2 text-sm">
               {[
-                ['/gujarati-biodata-format','Gujarati Biodata'],
-                ['/marathi-biodata-format','Marathi Biodata'],
-                ['/hindi-biodata-format','Hindi Biodata'],
-                ['/punjabi-biodata-format','Punjabi Biodata'],
-                ['/tamil-biodata-format','Tamil Biodata'],
-                ['/bengali-biodata-format','Bengali Biodata'],
+                ['/gujarati-marriage-biodata','Gujarati Biodata'],
+                ['/marathi-marriage-biodata','Marathi Biodata'],
+                ['/hindi-marriage-biodata','Hindi Biodata'],
+                ['/punjabi-marriage-biodata','Punjabi Biodata'],
+                ['/tamil-marriage-biodata','Tamil Biodata'],
+                ['/bengali-marriage-biodata','Bengali Biodata'],
               ].map(([href,label]) => (
                 <li key={href}><Link href={href} className="hover:text-gold transition-colors">{label}</Link></li>
               ))}
@@ -34,10 +34,14 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               {[
                 ['/templates','Templates'],
-                ['/how-to-make-biodata-for-marriage','How to Make Biodata'],
+                ['/marriage-biodata-guides','Marriage Biodata Guides'],
+                ['/marriage-biodata-format','Marriage Biodata Format'],
+                ['/simple-marriage-biodata-format','Simple Biodata Format'],
+                ['/modern-marriage-biodata-format','Modern Biodata Format'],
+                ['/marriage-biodata-format-word','Word Biodata Format'],
+                ['/marriage-biodata-format-pdf','PDF Biodata Format'],
                 ['/hindu-marriage-biodata-format','Hindu Biodata'],
                 ['/muslim-marriage-biodata-format','Muslim Nikah Biodata'],
-                ['/free-biodata-format-download','Free Format Download'],
                 ['/blog','Blog & Guides'],
                 ['/faq','FAQs'],
               ].map(([href,label]) => (

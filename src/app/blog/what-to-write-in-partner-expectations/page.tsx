@@ -1,16 +1,13 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
+import { EditorialByline } from '@/components/seo/EditorialByline';
 import { AEOBlock } from '@/components/ui/AEOBlock';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'What to Write in Partner Expectations Biodata – 20 Real Examples',
-  description: 'The partner expectations section stumps most people. Here are 20 real-world examples for Hindu, Muslim, Sikh, NRI, and open families with expert writing tips.',
-  keywords: ['what to write in partner expectations biodata','partner expectations examples for biodata','jeevan saathi expectations biodata','life partner expectations examples','biodata expectations section examples','how to write expectations in shaadi biodata','partner expectations for girl biodata','partner expectations for boy biodata','partner expectations hindi','jeevan saathi ki apeksha'],
-  alternates: { canonical: 'https://easybiodatamaker.com/blog/what-to-write-in-partner-expectations' },
-  openGraph: { title: 'What to Write in Partner Expectations – 20 Real Biodata Examples', description: '20 real partner expectations examples for all communities and situations.', url: 'https://easybiodatamaker.com/blog/what-to-write-in-partner-expectations', type: 'article' },
-};
+const page = getSitePage('/blog/what-to-write-in-partner-expectations');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const examples = [
   { label: 'Traditional Hindu Family', cat: 'Traditional', text: 'Looking for a well-educated, family-oriented life partner from a good Hindu family. Should be respectful of both families, caring in nature, and value Indian traditions. Preference for candidates from Gujarat, but open to other states. Caste no bar within Hindu community.' },
@@ -42,7 +39,7 @@ const pageSchema = {
     description: `The partner expectations section stumps most people. Here are 20 real-world examples for Hindu, Muslim, Sikh, NRI, and open families with expert writing tips.`,
     datePublished: '2024-12-28',
     dateModified: '2024-12-28',
-    author: { '@type': 'Organization', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' },
+    author: { '@type': 'Person', name: 'Karan Shah', url: 'https://easybiodatamaker.com/about' },
     publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-192.png' } },
     mainEntityOfPage: `https://easybiodatamaker.com/blog/what-to-write-in-partner-expectations`,
     image: 'https://easybiodatamaker.com/og-image.png',
@@ -69,6 +66,7 @@ export default function PartnerExpectationsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aeoSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
       <main className="flex-1">
+        <div className="max-w-3xl mx-auto px-4"><EditorialByline lastUpdated="2024-12-28" /></div>
         <section className="bg-gradient-to-br from-amber-50 to-orange-50 py-12 px-4 border-b border-amber-100">
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-2 mb-4 text-xs text-gray-400">
@@ -85,6 +83,8 @@ export default function PartnerExpectationsPage() {
             </p>
           </div>
         </section>
+
+        <div className="max-w-3xl mx-auto px-4"><EditorialByline lastUpdated="2024-12-28" /></div>
 
         <article className="py-12 px-4">
           <div className="max-w-3xl mx-auto space-y-5">

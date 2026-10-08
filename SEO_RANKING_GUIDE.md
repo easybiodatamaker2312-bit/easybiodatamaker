@@ -1,177 +1,145 @@
-# 🚀 EasyBiodataMaker.com — Complete SEO & Google Ranking Guide
+# EasyBiodataMaker.com — SEO Operations Guide
 
-## 📋 Project Summary
-- **39 pages** across 3 content tiers
-- **39-URL sitemap** with priority scores
-- **7 JSON-LD schema types** per page
-- **150+ long-tail keywords** targeted
-- **7 language hreflang** tags for India
+This guide describes the SEO setup that is actually implemented in the project. It intentionally avoids ranking guarantees, artificial authority signals, keyword stuffing, and tactics that could create low-value or manipulative pages.
 
----
+## 1. Search Console setup
 
-## ⚡ Day 1: Do These Immediately After Deployment
+After deployment:
 
-### 1. Google Search Console
-1. Go to https://search.google.com/search-console
-2. Add property: `https://easybiodatamaker.com`
-3. Verify via HTML tag method
-4. Add your verification code to `src/app/layout.tsx`:
-   ```ts
-   verification: { google: 'YOUR_CODE_HERE' }
-   ```
-5. Submit sitemap: `https://easybiodatamaker.com/sitemap.xml`
+1. Add `https://easybiodatamaker.com` as a Google Search Console property.
+2. Set the production environment variable `NEXT_PUBLIC_GSC_TOKEN` to the real Google verification token.
+3. Deploy and confirm the verification meta tag is present in the document head.
+4. Submit `https://easybiodatamaker.com/sitemap.xml`.
+5. Inspect important URLs in Search Console and request indexing when appropriate.
+6. Use the Performance report to identify queries, pages, impressions and CTR that deserve editorial improvement.
 
-### 2. Bing Webmaster Tools
-1. Go to https://www.bing.com/webmasters/
-2. Add your site and submit sitemap
+Do not paste a placeholder or invented verification token into source control.
 
-### 3. Google Analytics 4
-1. Create GA4 property at analytics.google.com
-2. Get measurement ID (G-XXXXXXXXXX)
-3. Add to layout.tsx or use Vercel Analytics
+## 2. Bing and other webmaster tools
 
-### 4. Submit to Google Index
-After deploying, manually request indexing for your most important pages:
-- Go to Search Console → URL Inspection
-- Enter each URL → Request Indexing:
-  - `https://easybiodatamaker.com/`
-  - `https://easybiodatamaker.com/shaadi-biodata-maker`
-  - `https://easybiodatamaker.com/biodata-for-marriage-girl`
-  - `https://easybiodatamaker.com/biodata-for-marriage-boy`
-  - `https://easybiodatamaker.com/gujarati-biodata-format`
+If the owner chooses to use Bing Webmaster Tools or another search engine's webmaster console, verify the real property using that provider's current instructions and submit the production sitemap where supported.
 
----
+## 3. Analytics
 
-## 🎯 Target Keywords by Competition Level
+Analytics is an optional product decision and is not required for this SEO architecture. Do not add a paid analytics service or server-side tracking without an explicit product decision and privacy review.
 
-### 🟢 Easy to Rank (Week 1-4) — Long-tail, low competition
-- `gujarati lagna biodata online free`
-- `shaadi ka biodata kaise banaye online free`
-- `marathi vivah biodata free download 2024`
-- `sikh anand karaj biodata free`
-- `biodata for marriage girl free download`
-- `hindi shaadi biodata devanagari format`
-- `jain marriage biodata format shvetambar`
-- `christian marriage biodata india free`
-- `second marriage biodata india 2024`
-- `nri marriage biodata format usa uk`
+## 4. URL and content architecture
 
-### 🟡 Medium Competition (Month 1-3)
-- `biodata for marriage girl format pdf`
-- `biodata for marriage boy format`
-- `marriage biodata format india 2024`
-- `free biodata format download pdf`
-- `how to write biodata for marriage`
-- `what to write in partner expectations`
-- `marriage biodata mistakes to avoid`
+The site uses one primary search intent per indexable landing page. Closely overlapping pages were consolidated rather than creating near-duplicate keyword variants.
 
-### 🔴 High Competition (Month 3-6+)
-- `biodata maker for marriage`
-- `free biodata maker online`
-- `shaadi biodata maker`
-- `online biodata maker`
-- `marriage biodata format`
+Examples of the current canonical targets include:
 
----
+- `/marriage-biodata-format` — broad marriage biodata format intent
+- `/marriage-biodata-format-word` — Word/export intent
+- `/marriage-biodata-format-pdf` — PDF intent
+- `/marriage-biodata-maker-online` — online maker intent
+- `/simple-marriage-biodata-format` — simple/minimal format intent
+- `/modern-marriage-biodata-format` — modern design intent
+- `/marriage-biodata-formats-by-community` — community hub
+- `/marriage-biodata-guides` — guide hub
 
-## 📝 Content Strategy for New Site
+Redirected legacy intent URLs should not be added back as competing indexable pages.
 
-### Week 1: Publish these blog posts
-1. `/blog/how-to-write-biodata-for-marriage` ✅ Done
-2. `/blog/what-to-write-in-partner-expectations` ✅ Done
-3. `/blog/biodata-mistakes-to-avoid` ✅ Done
+## 5. Content quality rules
 
-### Week 2-4: Add more content
-4. `/blog/biodata-format-in-gujarati` — target Gujarati speakers
-5. `/blog/manglik-kya-hota-hai` — Hindi SEO
-6. `/blog/gotra-kya-hota-hai-biodata-mein` — Hindi SEO
-7. `/blog/biodata-photo-tips` — visual search
+Every public SEO page should answer a real user question or help a visitor complete a real task.
 
-### Month 2-3: Expand
-8. City-specific pages: Mumbai, Pune, Ahmedabad, Delhi biodata
-9. `/biodata-format-in-word-free-download` — catches Word template searches
-10. `/marriage-biodata-sample` — sample/example searchers
+Use:
 
----
+- clear, specific page titles and descriptions
+- useful examples and explanations
+- accurate product capabilities
+- relevant internal links
+- visible update dates where editorial content has been maintained
+- descriptive image alt text
+- community terminology that is respectful and context-aware
+- original writing rather than competitor rewrites
 
-## 🔗 Off-Page SEO — Link Building for New Site
+Avoid:
 
-### Free, High-Impact Backlinks
-1. **Reddit India** — Post in r/india, r/gujarat, r/maharashtra about free biodata maker
-2. **Quora** — Answer questions about "how to make biodata for marriage" with your tool
-3. **Google Business Profile** — Create free profile at business.google.com
-4. **IndiaMART directory** — Free listing as matrimonial tool
-5. **matrimonialsite.com** — List as free biodata tool
-6. **YouTube video** — "Free biodata banao 5 minutes mein" — Hindi tutorial
-7. **Facebook Groups** — Share in Indian matrimonial groups
-8. **WhatsApp Broadcast** — Share with contacts who may know people searching
-9. **Guest posting** — Write articles for Indian wedding/matrimonial blogs
-10. **Press release** — Submit to PR Newswire India, Business Standard free section
+- repeating exact-match keywords unnaturally
+- generating many pages that differ only by a place, community or keyword name
+- fake reviews, ratings, user counts or popularity claims
+- unsupported product claims
+- pages created only to capture search traffic without additional user value
+- hidden text or keyword lists
 
----
+## 6. Existing keyword architecture
 
-## ⚙️ Technical SEO Checklist
+The machine-readable keyword map is `src/lib/seo/keywordMap.ts` and the human-readable explanation is `SEO_KEYWORD_MAP.md`.
 
-### Already Implemented ✅
-- [x] sitemap.xml (39 URLs with priorities)
-- [x] robots.txt (crawl budget optimized)
-- [x] canonical URLs on all pages
-- [x] OpenGraph tags on all pages
-- [x] Twitter Card meta tags
-- [x] JSON-LD structured data (WebSite, Organization, SoftwareApplication, Article, WebPage, FAQ, HowTo)
-- [x] Hreflang for 7 Indian languages
-- [x] Geo meta tags (India targeting)
-- [x] Mobile-optimized meta tags
-- [x] Font preloading (Core Web Vitals)
-- [x] DNS prefetch for external resources
-- [x] Preconnect for Google Fonts
-- [x] No-index on /preview, /create (saves crawl budget)
-- [x] 150+ long-tail keywords across all pages
-- [x] Internal linking throughout all pages
-- [x] H1 tags on every page
-- [x] Breadcrumb schema on pages
+Keywords are mapped to the page that best satisfies their intent. A keyword may therefore point to an existing canonical page after consolidation rather than having a dedicated URL.
 
-### Still To Do After Deployment
-- [ ] Add Google Search Console verification code
-- [ ] Create actual logo.png (400x400px)
-- [ ] Create og-image.png (1200x630px)
-- [ ] Create favicon.ico
-- [ ] Create apple-touch-icon.png (180x180px)
-- [ ] Add Google Analytics 4
-- [ ] Submit sitemap to Google
-- [ ] Request indexing for top 10 pages
+Do not add a new landing page merely because another spelling or synonym appears in keyword research. First determine whether the existing page already satisfies that intent.
 
----
+## 7. Internal linking
 
-## 📊 Expected Ranking Timeline
+Use contextual internal links between genuinely related resources:
 
-| Timeframe | Expected Achievement |
-|-----------|---------------------|
-| Week 1-2  | Site indexed by Google |
-| Week 2-4  | Long-tail keywords appear in Search Console |
-| Month 1   | First page for 5-10 long-tail keywords |
-| Month 2-3 | Top 10 for 20+ long-tail keywords |
-| Month 3-6 | Top 5 for medium competition keywords |
-| Month 6+  | Competitive for "biodata maker" type terms |
+- format guides → relevant maker/template pages
+- community guides → the community hub and relevant templates
+- writing guides → the maker and related writing resources
+- Word/PDF guides → the corresponding export page
+- mobile/WhatsApp guides → the mobile or sharing workflow
+- blog articles → relevant guides and tools
 
----
+Links should help the reader continue the task, not form a large artificial keyword network.
 
-## 🚀 Quick Start
+## 8. Legitimate authority and link acquisition
 
-```bash
-# Install
-npm install
+External links should be earned through useful resources and genuine relationships. Appropriate tactics include:
 
-# Development
-npm run dev
+1. Create genuinely useful guides that wedding, matrimonial or community publishers may reference.
+2. Submit the site to legitimate, relevant business or software directories when the listing is truthful and useful.
+3. Answer relevant community questions where the answer itself is useful; only reference EasyBiodataMaker when it genuinely helps.
+4. Build partnerships with wedding planners, matrimonial consultants, community organizations or publishers when there is a real relationship.
+5. Publish practical tutorials or demonstrations that can naturally earn references and shares.
+6. Correctly attribute and link to the site when partners choose to mention the tool.
 
-# Production build
-npm run build
+Do not buy spammy backlinks, create networks of low-quality sites, mass-post promotional answers, or use automated comments for links.
 
-# Deploy to Vercel (recommended)
-npx vercel --prod
-```
+## 9. Images
 
----
+Template previews should have meaningful alternative text, explicit dimensions and lazy loading where they are not above the fold. Keep image files appropriately compressed and include important image URLs in the image sitemap when applicable.
 
-*EasyBiodataMaker.com — Built for aggressive Google ranking from Day 1*
+## 10. Structured data
+
+Structured data must describe content that is actually present on the page. The project deliberately avoids aggregate ratings, review counts and rating values because no real review dataset has been supplied.
+
+SoftwareApplication structured data is scoped to the homepage, templates and relevant maker landing pages. BreadcrumbList is used for inner pages where appropriate. Blog Article schema uses real publication/modification dates and the named editorial author where that information is available.
+
+Structured data does not guarantee enhanced search results or higher rankings.
+
+## 11. Draft content
+
+Draft articles are kept outside the public route tree until they are reviewed and approved. A draft should only become an indexable page after its content, metadata, links, author information and publication date have been verified.
+
+Current draft topics include Hindi/Hinglish biodata education, photo guidance, girl/boy samples and a Mumbai-focused draft. These are drafts, not ranking promises or published URLs.
+
+## 12. Ongoing Search Console workflow
+
+Use Search Console data to improve existing pages based on real evidence:
+
+- High impressions + low CTR → review title/description and search intent.
+- Queries close to the page's intended topic → improve the relevant section if useful to readers.
+- Pages with poor engagement or little useful differentiation → consolidate or improve them rather than producing more variants.
+- Newly published pages → verify indexing and canonical selection.
+
+There is no guaranteed ranking timeline. Search visibility can change as Google crawls, indexes and evaluates pages and as competitors publish or improve their own content.
+
+## 13. Deployment checklist
+
+Before deployment:
+
+- [ ] Set the real `NEXT_PUBLIC_GSC_TOKEN` if Search Console verification is desired.
+- [ ] Confirm production canonical URLs use HTTPS and the correct domain.
+- [ ] Confirm `/create` remains crawlable but `noindex`.
+- [ ] Confirm `/api/` remains disallowed by robots.
+- [ ] Submit the sitemap in Search Console after deployment.
+- [ ] Inspect the homepage, core format page, community page and maker page.
+- [ ] Check that redirects resolve to the intended canonical pages.
+- [ ] Review newly published editorial content before indexing.
+
+## 14. What this guide does not promise
+
+This project does not promise first-page rankings, a specific position, indexing within a specific number of days, traffic numbers, or a particular number of ranking keywords. SEO work improves the site's technical accessibility, relevance and usefulness; search engines make the final ranking decisions.

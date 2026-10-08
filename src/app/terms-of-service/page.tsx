@@ -1,20 +1,10 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 
-export const metadata: Metadata = {
-  title: 'Terms of Service – EasyBiodataMaker.com',
-  description:
-    'Terms of Service for EasyBiodataMaker.com. Read the terms and conditions for using our free online marriage biodata maker.',
-  alternates: { canonical: 'https://easybiodatamaker.com/terms-of-service' },
-  robots: { index: true, follow: false },
-  openGraph: {
-    title: 'Terms of Service – EasyBiodataMaker.com',
-    description: 'Terms of service for EasyBiodataMaker.com free online marriage biodata maker.',
-    url: 'https://easybiodatamaker.com/terms-of-service',
-  },
-  keywords: ['easybiodatamaker terms of service','biodata maker terms conditions'],
-};
+const page = getSitePage('/terms-of-service');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const sections = [
   {

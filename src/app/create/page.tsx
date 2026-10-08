@@ -1,11 +1,7 @@
-import type { Metadata } from 'next';
+import { buildMetadata } from '@/lib/seo';
 import dynamic from 'next/dynamic';
 
-export const metadata: Metadata = {
-  title: 'Create Your Marriage Biodata | EasyBiodataMaker',
-  description: 'Create a premium Indian marriage biodata in five simple steps. No login required.',
-  robots: { index: false, follow: true },
-};
+export const metadata = buildMetadata({ title: 'Create Your Marriage Biodata | EasyBiodataMaker', description: 'Create your marriage biodata in the browser with guided fields, photos and live preview. No account is required to start editing.', path: '/create', noIndex: true });
 
 const BiodataBuilder = dynamic(() => import('@/components/builder/BiodataBuilder'), {
   ssr: false,

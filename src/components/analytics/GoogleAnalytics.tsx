@@ -1,10 +1,13 @@
 'use client';
 
 import Script from 'next/script';
-import { useEffect, useRef } from 'react';
-import { usePathname } from 'next/navigation';
+import { useCallback, useEffect, useRef } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
 
-const MEASUREMENT_ID = 'G-S4MM2P9GK1';
+// The production GA4 web stream shown in the owner's Analytics property.
+// It can be overridden at deploy time without changing source code.
+const MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-S4MM2P9GK1';
 
 declare global {
   interface Window {
@@ -13,30 +16,60 @@ declare global {
   }
 }
 
+function sendPageView() {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
+
+  window.gtag('event', 'page_view', {
+    page_title: document.title,
+    page_location: window.location.href,
+  });
+}
+
+export function trackAnalyticsEvent(
+  name: string,
+  parameters: Record<string, string | number | boolean | undefined> = {},
+) {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
+
+  const cleanParameters = Object.fromEntries(
+    Object.entries(parameters).filter(([, value]) => value !== undefined),
+  );
+
+  window.gtag('event', name, cleanParameters);
+}
+
 export default function GoogleAnalytics() {
   const pathname = usePathname();
-  const firstRender = useRef(true);
+  const searchParams = useSearchParams();
+  const analyticsReady = useRef(false);
+  const initialPageViewSent = useRef(false);
+
+  const sendCurrentPageView = useCallback(() => {
+    if (!analyticsReady.current) return;
+
+    // GA4 is configured with send_page_view:false, so this is the single
+    // source of truth for both the initial page and Next.js client navigations.
+    sendPageView();
+  }, []);
 
   useEffect(() => {
-    if (!pathname || firstRender.current) {
-      firstRender.current = false;
-      return;
-    }
+    if (!analyticsReady.current) return;
+    if (!initialPageViewSent.current) return;
 
-    const pageLocation = `${window.location.origin}${pathname}${window.location.search}`;
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'page_view', {
-        page_location: pageLocation,
-        page_title: document.title,
-      });
-    }
-  }, [pathname]);
+    sendCurrentPageView();
+  }, [pathname, searchParams, sendCurrentPageView]);
 
   return (
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`}
         strategy="afterInteractive"
+        onLoad={() => {
+          analyticsReady.current = true;
+          window.dataLayer = window.dataLayer || [];
+          sendCurrentPageView();
+          initialPageViewSent.current = true;
+        }}
       />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
@@ -44,7 +77,10 @@ export default function GoogleAnalytics() {
           function gtag(){window.dataLayer.push(arguments);}
           window.gtag = gtag;
           gtag('js', new Date());
-          gtag('config', '${MEASUREMENT_ID}');
+          gtag('config', '${MEASUREMENT_ID}', {
+            send_page_view: false,
+            cookie_flags: 'SameSite=Lax;Secure'
+          });
         `}
       </Script>
     </>

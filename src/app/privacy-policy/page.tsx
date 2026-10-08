@@ -1,20 +1,10 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy – EasyBiodataMaker.com',
-  description:
-    'Privacy Policy of EasyBiodataMaker.com. Learn how we protect your personal information when you use our free marriage biodata maker.',
-  alternates: { canonical: 'https://easybiodatamaker.com/privacy-policy' },
-  robots: { index: true, follow: false },
-  openGraph: {
-    title: 'Privacy Policy – EasyBiodataMaker.com',
-    description: 'Privacy policy for EasyBiodataMaker.com. Your biodata data stays in your browser. Zero server storage.',
-    url: 'https://easybiodatamaker.com/privacy-policy',
-  },
-  keywords: ['easybiodatamaker privacy policy','biodata maker privacy data protection'],
-};
+const page = getSitePage('/privacy-policy');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const sections = [
   {

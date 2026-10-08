@@ -1,35 +1,12 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import Link from 'next/link';
 import { AEOBlock } from '@/components/ui/AEOBlock';
 
-export const metadata: Metadata = {
-  title: 'Marriage Biodata FAQ – Real Questions, Honest Answers | EasyBiodataMaker',
-  description:
-    'Answers to real questions about marriage biodata in India. What to write, what to skip, how long, which template, gotra, manglik, NRI biodata, photo tips — everything families actually ask.',
-  keywords: [
-    'marriage biodata faq india',
-    'biodata kya hota hai',
-    'marriage biodata questions answers',
-    'shaadi biodata help',
-    'biodata gotra kya likhein',
-    'manglik biodata mein likhein ya nahi',
-    'biodata photo tips india',
-    'biodata kitna lamba hona chahiye',
-    'biodata pdf ya word',
-    'biodata kab update karein',
-    'partner expectations mein kya likhein',
-    'biodata mein income kaise likhein',
-    'biodata without registration india',
-  ],
-  alternates: { canonical: 'https://easybiodatamaker.com/faq' },
-  openGraph: {
-    title: 'Marriage Biodata FAQ – Real Questions, Honest Answers',
-    description: 'What to write in a marriage biodata, how long it should be, gotra, manglik, NRI tips — all the questions families actually ask.',
-    url: 'https://easybiodatamaker.com/faq',
-  },
-};
+const page = getSitePage('/faq');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -40,7 +17,7 @@ const faqSchema = {
       name: 'Is EasyBiodataMaker actually free or is there a catch?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "It is actually free. All premium templates, photo upload, custom fields, and PDF download — no charges, no watermark on the content, no registration. The only thing on the PDF is a small EasyBiodataMaker.com credit at the bottom, like most free tools add. That is it.",
+        text: "It is actually free. All premium templates, photo upload, custom fields, and PDF download — no charges, no registration. The only thing on the PDF is a small EasyBiodataMaker.com credit at the bottom, like most free tools add. That is it.",
       },
     },
     {
@@ -143,7 +120,7 @@ const categories: { title: string; emoji: string; faqs: FAQ[] }[] = [
     faqs: [
       {
         question: 'Is EasyBiodataMaker actually free or is there a catch?',
-        answer: "It is actually free. All premium templates, photo upload, custom fields, and PDF download — no charges, no watermark on the content, no registration. The only thing on the PDF is a small EasyBiodataMaker.com credit at the bottom, like most free tools do. That is it.",
+        answer: "It is actually free. All premium templates, photo upload, custom fields, and PDF download — no charges, no registration. The only thing on the PDF is a small EasyBiodataMaker.com credit at the bottom, like most free tools do. That is it.",
       },
       {
         question: 'Is my data safe here?',

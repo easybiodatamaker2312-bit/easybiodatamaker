@@ -1,16 +1,13 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
+import { EditorialByline } from '@/components/seo/EditorialByline';
 import { AEOBlock } from '@/components/ui/AEOBlock';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'Second Marriage / Remarriage Biodata Guide India | EasyBiodataMaker',
-  description: 'Creating a biodata for second marriage or remarriage requires sensitivity. How to mention divorce, widowhood, children honestly yet compellingly. Complete guide for India.',
-  keywords: ['second marriage biodata', 'remarriage biodata india', 'divorce biodata format', 'widow widower biodata', 'biodata for second marriage india', 'how to write divorce in biodata', 'second shaadi biodata', 'how to mention children in biodata', 'remarriage biodata tips'],
-  alternates: { canonical: 'https://easybiodatamaker.com/blog/second-marriage-biodata-guide' },
-  openGraph: { title: 'Second Marriage / Remarriage Biodata Guide India | EasyBiodataMaker', description: 'Creating a biodata for second marriage or remarriage requires sensitivity. How to mention divorce, widowhood, children honestly yet compellingly. Complete guide for India.', url: 'https://easybiodatamaker.com/blog/second-marriage-biodata-guide', type: 'article' },
-};
+const page = getSitePage('/blog/second-marriage-biodata-guide');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 
 const pageSchema = {
@@ -20,7 +17,7 @@ const pageSchema = {
     description: `Creating a biodata for second marriage or remarriage requires sensitivity. How to mention divorce, widowhood, children honestly yet compellingly. Complete guide for India.`,
     datePublished: '2024-12-28',
     dateModified: '2024-12-28',
-    author: { '@type': 'Organization', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' },
+    author: { '@type': 'Person', name: 'Karan Shah', url: 'https://easybiodatamaker.com/about' },
     publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-192.png' } },
     mainEntityOfPage: `https://easybiodatamaker.com/blog/second-marriage-biodata-guide`,
     image: 'https://easybiodatamaker.com/og-image.png',
@@ -47,6 +44,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aeoSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
       <main className="flex-1">
+        <div className="max-w-3xl mx-auto px-4"><EditorialByline lastUpdated="2024-12-28" /></div>
         <section className="bg-gradient-to-br from-amber-50 to-orange-50 py-12 px-4 border-b border-amber-100">
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-2 mb-4 text-xs text-gray-400">
@@ -59,6 +57,8 @@ export default function Page() {
             <p className="text-gray-600 leading-relaxed text-sm">Honest, Sensitive, and Compelling</p>
           </div>
         </section>
+        <div className="max-w-3xl mx-auto px-4"><EditorialByline lastUpdated="2024-12-28" /></div>
+
         <article className="py-12 px-4">
           <div className="max-w-3xl mx-auto space-y-5">
             <div className="card p-6 text-sm text-gray-600 leading-relaxed whitespace-pre-line">

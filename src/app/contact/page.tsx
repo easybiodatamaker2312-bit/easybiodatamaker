@@ -1,22 +1,13 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
 import { AEOBlock } from '@/components/ui/AEOBlock';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import { Mail, MessageSquare, Clock, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'Contact Us – EasyBiodataMaker.com | Free Marriage Biodata Maker',
-  description:
-    'Contact EasyBiodataMaker.com for support, feedback, or queries about our free marriage biodata maker. We\'re here to help!',
-  openGraph: {
-    title: 'Contact EasyBiodataMaker – Free Marriage Biodata Support',
-    description: 'Get support for EasyBiodataMaker.com free marriage biodata maker. We respond within 24 hours.',
-    url: 'https://easybiodatamaker.com/contact',
-  },
-  keywords: ['contact easybiodatamaker','biodata maker support india','marriage biodata help','easybiodatamaker contact us'],
-  alternates: { canonical: 'https://easybiodatamaker.com/contact' },
-};
+const page = getSitePage('/contact');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const faqs = [
   {

@@ -1,16 +1,13 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
+import { EditorialByline } from '@/components/seo/EditorialByline';
 import { AEOBlock } from '@/components/ui/AEOBlock';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: '15 Marriage Biodata Mistakes to Avoid in | EasyBiodataMaker Blog',
-  description: 'These 15 common marriage biodata mistakes silently kill your matrimonial prospects. From exaggerating qualifications to leaving manglik blank — learn what not to do and how to fix it.',
-  keywords: ['marriage biodata mistakes to avoid','common biodata mistakes india','what not to write in biodata','biodata errors india','biodata tips dos and donts','manglik biodata mistake','biodata photo mistake','biodata income mistake','shaadi biodata galtiyan','vivah biodata mistakes'],
-  alternates: { canonical: 'https://easybiodatamaker.com/blog/biodata-mistakes-to-avoid' },
-  openGraph: { title: '15 Marriage Biodata Mistakes That Cost You Good Matches', description: 'Common biodata mistakes that hurt your matrimonial prospects and how to fix them.', url: 'https://easybiodatamaker.com/blog/biodata-mistakes-to-avoid', type: 'article' },
-};
+const page = getSitePage('/blog/biodata-mistakes-to-avoid');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const mistakes = [
   { n: 1, bad: 'Exaggerating Height or Age', good: 'Always be accurate — 1-2 inch lies are discovered at the first meeting and destroy trust instantly.' },
@@ -38,7 +35,7 @@ const pageSchema = {
     description: `These 15 common marriage biodata mistakes silently kill your matrimonial prospects. From exaggerating qualifications to leaving manglik blank — learn what not to do and how to fix it.`,
     datePublished: '2024-12-28',
     dateModified: '2024-12-28',
-    author: { '@type': 'Organization', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' },
+    author: { '@type': 'Person', name: 'Karan Shah', url: 'https://easybiodatamaker.com/about' },
     publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-192.png' } },
     mainEntityOfPage: `https://easybiodatamaker.com/blog/biodata-mistakes-to-avoid`,
     image: 'https://easybiodatamaker.com/og-image.png',
@@ -65,6 +62,7 @@ export default function MistakesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aeoSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
       <main className="flex-1">
+        <div className="max-w-3xl mx-auto px-4"><EditorialByline lastUpdated="2024-12-28" /></div>
         <section className="bg-gradient-to-br from-amber-50 to-orange-50 py-12 px-4 border-b border-amber-100">
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-2 mb-4 text-xs text-gray-400">
@@ -81,6 +79,8 @@ export default function MistakesPage() {
             </p>
           </div>
         </section>
+
+        <div className="max-w-3xl mx-auto px-4"><EditorialByline lastUpdated="2024-12-28" /></div>
 
         <article className="py-12 px-4">
           <div className="max-w-3xl mx-auto space-y-4">

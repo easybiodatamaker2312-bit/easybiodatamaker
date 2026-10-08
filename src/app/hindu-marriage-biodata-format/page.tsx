@@ -1,34 +1,12 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import { AEOBlock } from '@/components/ui/AEOBlock';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'Hindu Marriage Biodata Format – Gotra, Manglik, Kundali Explained | EasyBiodataMaker',
-  description:
-    'Create a Hindu marriage biodata with all the fields that matter — gotra, manglik, time of birth, kul devata, caste and sub-caste. Free PDF download. All Hindu communities supported.',
-  keywords: [
-    'hindu marriage biodata format',
-    'hindu biodata with gotra and manglik',
-    'brahmin biodata format',
-    'rajput biodata format',
-    'patel biodata format',
-    'what is gotra in biodata',
-    'manglik biodata mein kaise likhein',
-    'kundali matching biodata fields',
-    'hindu marriage biodata all communities',
-    'hindu biodata free download',
-    'kul devata biodata',
-    'auspicious heading biodata hindu',
-  ],
-  alternates: { canonical: 'https://easybiodatamaker.com/hindu-marriage-biodata-format' },
-  openGraph: {
-    title: 'Hindu Marriage Biodata – Gotra, Manglik, All Fields Explained',
-    description: 'Free Hindu marriage biodata with gotra, manglik, kul devata fields. All communities — Brahmin, Rajput, Patel, Yadav, and more.',
-    url: 'https://easybiodatamaker.com/hindu-marriage-biodata-format',
-  },
-};
+const page = getSitePage('/hindu-marriage-biodata-format');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const aeoFaqs = [
   {

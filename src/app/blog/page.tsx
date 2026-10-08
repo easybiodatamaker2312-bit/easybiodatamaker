@@ -1,19 +1,14 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
 import { AEOBlock } from '@/components/ui/AEOBlock';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import Link from 'next/link';
+import { EditorialByline } from '@/components/seo/EditorialByline';
 import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Marriage Biodata Blog – Tips, Formats & Guides | EasyBiodataMaker',
-  description: 'Expert guides on Indian marriage biodata creation. How to write biodata, formats for all communities, partner expectations tips, common mistakes, NRI biodata guide. 100% free advice.',
-  keywords: [
-    'marriage biodata tips','how to write biodata for marriage blog','shaadi biodata guide india','biodata format tips hindi','marriage biodata mistakes to avoid','partner expectations in biodata examples','biodata for nri marriage tips','how to write gotra in biodata','manglik biodata tips','biodata format for second marriage','intercaste marriage biodata tips','how to mention income in biodata','marriage biodata photo tips','biodata for girl how to write','biodata for boy how to write',
-  ],
-  alternates: { canonical: 'https://easybiodatamaker.com/blog' },
-  openGraph: { title: 'Marriage Biodata Blog – Expert Tips & Guides', description: 'Complete guides on Indian marriage biodata — formats, writing tips, community guides, and more.', url: 'https://easybiodatamaker.com/blog' },
-};
+const page = getSitePage('/blog');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const articles = [
   {
@@ -141,6 +136,7 @@ export default function BlogPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
 
       <main className="flex-1">
+        <div className="max-w-5xl mx-auto px-4 pt-6"><EditorialByline lastUpdated="2024-12-28" /></div>
         {/* Hero */}
         <section className="bg-gradient-to-br from-amber-50 to-orange-50 py-14 px-4 border-b border-amber-100">
           <div className="max-w-4xl mx-auto text-center">

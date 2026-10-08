@@ -1,7 +1,0 @@
-# EasyBiodataMaker robots.txt
-User-agent: *
-Allow: /
-Disallow: /create
-Disallow: /api/
-
-Sitemap: https://easybiodatamaker.com/sitemap.xml

@@ -65,12 +65,12 @@ easybiodatamaker/
 │   │   ├── muslim-marriage-biodata-format/
 │   │   │
 │   │   ├── ── LANGUAGE PAGES ──
-│   │   ├── gujarati-biodata-format/    ← ગુજરાતી
-│   │   ├── marathi-biodata-format/     ← मराठी
-│   │   ├── hindi-biodata-format/       ← हिंदी
-│   │   ├── punjabi-biodata-format/     ← ਪੰਜਾਬੀ
-│   │   ├── tamil-biodata-format/       ← தமிழ்
-│   │   ├── bengali-biodata-format/     ← বাংলা
+│   │   ├── gujarati-marriage-biodata/    ← ગુજરાતી
+│   │   ├── marathi-marriage-biodata/     ← मराठी
+│   │   ├── hindi-marriage-biodata/       ← हिंदी
+│   │   ├── punjabi-marriage-biodata/     ← ਪੰਜਾਬੀ
+│   │   ├── tamil-marriage-biodata/       ← தமிழ்
+│   │   ├── bengali-marriage-biodata/     ← বাংলা
 │   │   │
 │   │   ├── ── CONTENT PAGES ──
 │   │   ├── blog/

@@ -1,16 +1,13 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
+import { EditorialByline } from '@/components/seo/EditorialByline';
 import { AEOBlock } from '@/components/ui/AEOBlock';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'NRI Marriage Biodata Guide – Complete Guide for Indians Abroad',
-  description: 'Complete guide for NRIs creating marriage biodata from USA, UK, Canada, Australia, UAE. What to include, how to mention visa status, income in foreign currency, and more.',
-  keywords: ['nri marriage biodata', 'overseas indian marriage biodata', 'nri biodata format', 'usa nri biodata', 'uk nri biodata', 'canada nri biodata', 'australia nri biodata', 'nri groom biodata', 'nri bride biodata', 'how to write nri biodata'],
-  alternates: { canonical: 'https://easybiodatamaker.com/blog/nri-marriage-biodata-guide' },
-  openGraph: { title: 'NRI Marriage Biodata Guide – Complete Guide for Indians Abroad', description: 'Complete guide for NRIs creating marriage biodata from USA, UK, Canada, Australia, UAE. What to include, how to mention visa status, income in foreign currency, and more.', url: 'https://easybiodatamaker.com/blog/nri-marriage-biodata-guide', type: 'article' },
-};
+const page = getSitePage('/blog/nri-marriage-biodata-guide');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 
 const pageSchema = {
@@ -20,7 +17,7 @@ const pageSchema = {
     description: `Complete guide for NRIs creating marriage biodata from USA, UK, Canada, Australia, UAE. What to include, how to mention visa status, income in foreign currency, and more.`,
     datePublished: '2024-12-28',
     dateModified: '2024-12-28',
-    author: { '@type': 'Organization', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' },
+    author: { '@type': 'Person', name: 'Karan Shah', url: 'https://easybiodatamaker.com/about' },
     publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-192.png' } },
     mainEntityOfPage: `https://easybiodatamaker.com/blog/nri-marriage-biodata-guide`,
     image: 'https://easybiodatamaker.com/og-image.png',
@@ -47,6 +44,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aeoSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
       <main className="flex-1">
+        <div className="max-w-3xl mx-auto px-4"><EditorialByline lastUpdated="2024-12-28" /></div>
         <section className="bg-gradient-to-br from-amber-50 to-orange-50 py-12 px-4 border-b border-amber-100">
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-2 mb-4 text-xs text-gray-400">
@@ -59,6 +57,8 @@ export default function Page() {
             <p className="text-gray-600 leading-relaxed text-sm">USA · UK · Canada · Australia · UAE · Singapore</p>
           </div>
         </section>
+        <div className="max-w-3xl mx-auto px-4"><EditorialByline lastUpdated="2024-12-28" /></div>
+
         <article className="py-12 px-4">
           <div className="max-w-3xl mx-auto space-y-5">
             <div className="card p-6 text-sm text-gray-600 leading-relaxed whitespace-pre-line">

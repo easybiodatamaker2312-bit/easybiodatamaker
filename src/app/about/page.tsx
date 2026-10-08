@@ -1,16 +1,13 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import { AEOBlock } from '@/components/ui/AEOBlock';
 import Link from 'next/link';
+import { EditorialByline } from '@/components/seo/EditorialByline';
 
-export const metadata: Metadata = {
-  title: 'About EasyBiodataMaker – Free Marriage Biodata Tool for India',
-  description: 'EasyBiodataMaker.com is a free marriage biodata creation tool for Indian families. No servers, no data storage, no matrimonial agency. Just a simple tool that creates a PDF.',
-  keywords: ['about easybiodatamaker','easybiodatamaker.com','free marriage biodata maker india','who made easybiodatamaker','easybiodatamaker reviews','easybiodatamaker safe to use'],
-  alternates: { canonical: 'https://easybiodatamaker.com/about' },
-  openGraph: { title: 'About EasyBiodataMaker – What It Is and What It Is Not', description: 'A free marriage biodata creation tool. No data storage, no matrimonial agency, no hidden charges. Just a tool that helps you create a biodata PDF.', url: 'https://easybiodatamaker.com/about' },
-};
+const page = getSitePage('/about');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const aeoFaqs = [
   { question: 'What is EasyBiodataMaker and who is it for?', answer: "EasyBiodataMaker.com is a free online tool that helps Indian families create marriage biodatas quickly. It is for anyone who needs a professionally formatted marriage biodata PDF — whether you are creating it yourself, your parents are helping, or someone is doing it on behalf of a son or daughter. It works for all Indian communities and religions." },
@@ -28,6 +25,7 @@ export default function AboutPage() {
       <Navbar />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aeoSchema) }} />
       <main className="flex-1">
+        <div className="max-w-3xl mx-auto px-4 pt-6"><EditorialByline lastUpdated="2026-10-08" /></div>
         <section className="py-14 px-4 border-b bg-gradient-to-br from-amber-50 to-orange-50">
           <div className="max-w-3xl mx-auto">
             <h1 className="font-display text-4xl font-bold text-maroon-900 mb-5">About EasyBiodataMaker </h1>
@@ -35,6 +33,16 @@ export default function AboutPage() {
               A free tool. No data collection. No matrimonial matching. Just a simple way to create a
               marriage biodata PDF without needing technical skills or paying anything.
             </p>
+          </div>
+        </section>
+
+        <section id="editorial-policy" className="py-12 px-4 bg-stone-50 border-y border-stone-200">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs font-semibold uppercase tracking-[.14em] text-amber-700">Editorial accountability</p>
+            <h2 className="font-display text-2xl font-bold text-maroon-900 mt-2 mb-4">Author, review and editorial policy</h2>
+            <p className="text-gray-700 text-sm leading-7">Content is written and reviewed by <strong>Karan Shah</strong>. The editorial process focuses on practical marriage-biodata guidance, accurate descriptions of the tool, readable examples and clear privacy information.</p>
+            <p className="mt-3 text-gray-700 text-sm leading-7">We do not publish fabricated ratings, reviews, popularity numbers or claims that a feature exists when it does not. Examples are fictional unless explicitly identified otherwise. Pages are reviewed when their product workflow, supported exports or important guidance changes.</p>
+            <p className="mt-3 text-gray-700 text-sm leading-7">For community and language guidance, the site aims to describe optional fields without presenting one family's customs as universal. Readers should use their own family or community preferences when deciding what belongs in a biodata.</p>
           </div>
         </section>
 

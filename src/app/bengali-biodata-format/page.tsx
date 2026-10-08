@@ -1,14 +1,5 @@
-import type { Metadata } from 'next';
-import { CommunityLandingPage } from '@/components/seo/CommunityLandingPage';
-import { COMMUNITY_PAGES } from '@/lib/seo/communityPages';
+import { permanentRedirect } from 'next/navigation';
 
-const page = COMMUNITY_PAGES.find((item) => item.slug === 'bengali')!;
-
-export const metadata: Metadata = {
-  title: page.title,
-  description: page.description,
-  alternates: { canonical: `https://easybiodatamaker.com${page.path}` },
-  openGraph: { title: page.title, description: page.description, url: `https://easybiodatamaker.com${page.path}`, type: 'article' },
-};
-
-export default function Page() { return <CommunityLandingPage page={page} />; }
+export default function Page() {
+  permanentRedirect('/bengali-marriage-biodata');
+}

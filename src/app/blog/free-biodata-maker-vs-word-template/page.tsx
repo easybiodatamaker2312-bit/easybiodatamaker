@@ -1,18 +1,15 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
+import { EditorialByline } from '@/components/seo/EditorialByline';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import { AEOBlock } from '@/components/ui/AEOBlock';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'Online Biodata Maker vs Word Template – The Honest Comparison | EasyBiodataMaker',
-  description: 'Should you use an online biodata maker or download a Word template for your marriage biodata? Honest comparison on formatting, design, mobile use, privacy, and final output.',
-  keywords: ['biodata maker vs word template','online biodata maker vs word','should i use biodata maker or word template','biodata word format problems','online biodata better than word','free biodata word template problems india'],
-  alternates: { canonical: 'https://easybiodatamaker.com/blog/free-biodata-maker-vs-word-template' },
-  openGraph: { title: 'Online Biodata Maker vs Word Template – Honest Comparison', description: 'Formatting, design, mobile support, privacy compared. An honest look at both options.', url: 'https://easybiodatamaker.com/blog/free-biodata-maker-vs-word-template', type: 'article' },
-};
+const page = getSitePage('/blog/free-biodata-maker-vs-word-template');
 
-const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'Online Biodata Maker vs Word Template – The Honest Comparison', datePublished: '2024-12-24', dateModified: '2024-12-24', author: { '@type': 'Organization', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' }, publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-192.png' } }, mainEntityOfPage: 'https://easybiodatamaker.com/blog/free-biodata-maker-vs-word-template' };
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
+
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'Online Biodata Maker vs Word Template – The Honest Comparison', datePublished: '2024-12-24', dateModified: '2024-12-24', author: { '@type': 'Person', name: 'Karan Shah', url: 'https://easybiodatamaker.com/about' }, publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-192.png' } }, mainEntityOfPage: 'https://easybiodatamaker.com/blog/free-biodata-maker-vs-word-template' };
 
 const aeoFaqs = [
   { question: 'Why do Word biodata templates look bad when you send them?', answer: "Because Word documents are sensitive to the environment they open in. The fonts you installed on your computer may not exist on the recipient's phone. Line spacing and margins render differently across versions of Word. Tables shift. Borders disappear. The PDF you download from an online maker is a fixed image of the layout — it looks exactly the same on every device, every operating system, every screen size." },
@@ -42,6 +39,7 @@ export default function BiodataVsWordPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aeoSchema) }} />
 
       <main className="flex-1">
+        <div className="max-w-3xl mx-auto px-4"><EditorialByline lastUpdated="2024-12-24" /></div>
         <section className="bg-gradient-to-br from-amber-50 to-orange-50 py-12 px-4 border-b border-amber-100">
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-2 mb-4 text-xs text-gray-400">
@@ -58,6 +56,8 @@ export default function BiodataVsWordPage() {
             </p>
           </div>
         </section>
+
+        <div className="max-w-3xl mx-auto px-4"><EditorialByline lastUpdated="2024-12-24" /></div>
 
         <article className="py-12 px-4">
           <div className="max-w-3xl mx-auto space-y-8">

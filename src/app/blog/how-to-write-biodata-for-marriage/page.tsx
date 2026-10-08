@@ -1,40 +1,14 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
+import { EditorialByline } from '@/components/seo/EditorialByline';
 import { AEOBlock } from '@/components/ui/AEOBlock';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import Link from 'next/link';
 import { CheckCircle, ArrowRight, Clock, Calendar } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'How to Write Biodata for Marriage – Complete Guide | EasyBiodataMaker',
-  description:
-    'Learn exactly how to write a marriage biodata in India. clear, numbered guide with real examples for all sections — personal details, family, education, career, expectations. Free PDF download.',
-  keywords: [
-    'how to write biodata for marriage',
-    'how to write marriage biodata in english',
-    'biodata writing tips for marriage india',
-    'how to fill marriage biodata form',
-    'what to write in marriage biodata',
-    'marriage biodata writing guide',
-    'how to write personal details in biodata',
-    'how to write family details in biodata',
-    'how to write education in biodata for marriage',
-    'how to write career in marriage biodata',
-    'how to write hobbies in biodata',
-    'how to describe yourself in marriage biodata',
-    'biodata writing mistakes india',
-    'shaadi biodata kaise likhe',
-    'vivah biodata likhne ka tarika',
-    'marriage biodata with example',
-  ],
-  alternates: { canonical: 'https://easybiodatamaker.com/blog/how-to-write-biodata-for-marriage' },
-  openGraph: {
-    title: 'How to Write Biodata for Marriage – Complete Guide with Examples',
-    description: 'clear, numbered guide to writing a perfect Indian marriage biodata with real examples for every section.',
-    url: 'https://easybiodatamaker.com/blog/how-to-write-biodata-for-marriage',
-    type: 'article',
-  },
-};
+const page = getSitePage('/blog/how-to-write-biodata-for-marriage');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -43,7 +17,7 @@ const articleSchema = {
   description: 'clear, numbered guide to writing a perfect Indian marriage biodata with real examples for every section.',
   datePublished: '2024-12-28',
   dateModified: '2024-12-28',
-  author: { '@type': 'Organization', name: 'EasyBiodataMaker' },
+  author: { '@type': 'Person', name: 'Karan Shah', url: 'https://easybiodatamaker.com/about' },
   publisher: { '@type': 'Organization', name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' },
   mainEntityOfPage: 'https://easybiodatamaker.com/blog/how-to-write-biodata-for-marriage',
 };
@@ -168,6 +142,7 @@ export default function HowToWriteBiodataPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
       <main className="flex-1">
+        <div className="max-w-3xl mx-auto px-4"><EditorialByline lastUpdated="2024-12-28" /></div>
         {/* Hero */}
         <section className="bg-gradient-to-br from-amber-50 to-orange-50 py-12 px-4 border-b border-amber-100">
           <div className="max-w-3xl mx-auto">
@@ -191,6 +166,8 @@ export default function HowToWriteBiodataPage() {
             </div>
           </div>
         </section>
+
+        <div className="max-w-3xl mx-auto px-4"><EditorialByline lastUpdated="2024-12-28" /></div>
 
         <article className="py-12 px-4">
           <div className="max-w-3xl mx-auto">

@@ -1,13 +1,10 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 
-export const metadata: Metadata = {
-  title: 'Marriage Biodata Format in Word | Free Maker',
-  description: 'Create a marriage biodata and download an editable Word document with A4 layout and selectable text. No login required.',
-  alternates: { canonical: 'https://easybiodatamaker.com/marriage-biodata-format-word' },
-  openGraph: { title: 'Marriage Biodata Format in Word | EasyBiodataMaker', description: 'Create an editable Word marriage biodata with A4 page settings and selectable text.', url: 'https://easybiodatamaker.com/marriage-biodata-format-word', type: 'article' },
-};
+const page = getSitePage('/marriage-biodata-format-word');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const faqs = [
   ['Can I edit the Word biodata after downloading it?', 'Yes. The download is a real .docx document, so its text can be edited in Microsoft Word and compatible editors.'],

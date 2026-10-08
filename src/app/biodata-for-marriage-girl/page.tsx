@@ -1,34 +1,12 @@
-import type { Metadata } from 'next';
+import { buildMetadata, getSitePage } from '@/lib/seo';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import { AEOBlock } from '@/components/ui/AEOBlock';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: "Girl's Marriage Biodata Free – Best Template & Format | EasyBiodataMaker",
-  description:
-    "Create a marriage biodata for a girl online — free, in 5 minutes. Rose Bloom template with oval photo frame. All communities. Upload photo, download PDF. No registration.",
-  keywords: [
-    'biodata for marriage girl',
-    'marriage biodata format for girl',
-    'girl biodata free download',
-    'ladki ka biodata kaise banaye',
-    'girl marriage biodata with photo',
-    'bride biodata format india',
-    'dulhan ka biodata',
-    'girl biodata template free',
-    'bahu ki biodata free',
-    'biodata for girl free pdf',
-    'which template is best for girl biodata',
-    'rose bloom biodata template',
-  ],
-  alternates: { canonical: 'https://easybiodatamaker.com/biodata-for-marriage-girl' },
-  openGraph: {
-    title: "Girl's Marriage Biodata — Free, With Photo, Download PDF",
-    description: "Free marriage biodata for a girl. Rose Bloom template with oval photo frame. All communities. 5 minutes. No login.",
-    url: 'https://easybiodatamaker.com/biodata-for-marriage-girl',
-  },
-};
+const page = getSitePage('/biodata-for-marriage-girl');
+
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const aeoFaqs = [
   {

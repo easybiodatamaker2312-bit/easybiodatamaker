@@ -1,14 +1,9 @@
-import type { Metadata } from 'next';
+import { buildMetadata } from '@/lib/seo';
 import { CommunityLandingPage } from '@/components/seo/CommunityLandingPage';
 import { COMMUNITY_PAGES } from '@/lib/seo/communityPages';
 
 const page = COMMUNITY_PAGES.find((item) => item.slug === 'muslim')!;
 
-export const metadata: Metadata = {
-  title: page.title,
-  description: page.description,
-  alternates: { canonical: `https://easybiodatamaker.com${page.path}` },
-  openGraph: { title: page.title, description: page.description, url: `https://easybiodatamaker.com${page.path}`, type: 'article' },
-};
+export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path });
 
 export default function Page() { return <CommunityLandingPage page={page} />; }

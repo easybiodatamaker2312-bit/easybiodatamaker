@@ -5,14 +5,14 @@ import { LangProvider } from '@/lib/LangContext';
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 
 const inter = localFont({ src: [
-  { path: '../../public/fonts/premium/Inter-Regular.otf', weight: '400' },
-  { path: '../../public/fonts/premium/Inter-Medium.otf', weight: '500' },
-  { path: '../../public/fonts/premium/Inter-SemiBold.otf', weight: '600' },
-  { path: '../../public/fonts/premium/Inter-Bold.otf', weight: '700' },
+  { path: '../../public/fonts/premium/latin/Inter-Regular.woff2', weight: '400' },
+  { path: '../../public/fonts/premium/latin/Inter-Medium.woff2', weight: '500' },
+  { path: '../../public/fonts/premium/latin/Inter-SemiBold.woff2', weight: '600' },
+  { path: '../../public/fonts/premium/latin/Inter-Bold.woff2', weight: '700' },
 ], variable: '--font-ui', display: 'swap' });
 
 const display = localFont({
-  src: '../../public/fonts/premium/NotoSerifDisplay-Regular.ttf',
+  src: '../../public/fonts/premium/latin/NotoSerifDisplay-Regular.woff2',
   variable: '--font-display',
   display: 'swap',
 });
@@ -137,10 +137,10 @@ const indicFonts = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://easybiodatamaker.com'),
   title: {
-    default: 'Free Marriage Biodata Maker Online India – Premium Templates | EasyBiodataMaker',
+    default: 'Marriage Biodata Maker Online | EasyBiodataMaker',
     template: '%s | EasyBiodataMaker.com',
   },
-  description: 'Create a premium marriage biodata online in minutes. Choose a beautiful A4 template, add your details and photos, and create a shareable biodata without login. Privacy-first and designed for Indian families.',
+  description: 'Create an Indian marriage biodata online with A4 templates, photos and export options. Free to use, privacy-first and no login required for the builder.',
   keywords: ['biodata maker for marriage','free biodata maker online india','shaadi biodata maker','marriage biodata format india','online biodata maker no login','free biodata pdf download','biodata maker gujarati','biodata maker hindi','biodata maker marathi','shaadi ka biodata kaise banaye','free biodata format download','vivah biodata maker','lagna biodata online free'],
   authors: [{ name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' }],
   creator: 'EasyBiodataMaker',
@@ -150,6 +150,7 @@ export const metadata: Metadata = {
   openGraph: { type: 'website', locale: 'en_IN', url: 'https://easybiodatamaker.com', siteName: 'EasyBiodataMaker', title: 'Free Marriage Biodata Maker – Premium Templates, 9 Indian Languages, Photo Upload', description: 'Create marriage biodata online free. premium templates, 9 Indian languages, photo upload, A4 PDF. No login.', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'EasyBiodataMaker – Free Marriage Biodata Maker', type: 'image/png' }] },
   twitter: { card: 'summary_large_image', site: '@easybiodata', creator: '@easybiodata', title: 'EasyBiodataMaker – Free Marriage Biodata Maker India', description: 'premium templates · 9 Indian languages · Photo upload · Custom fields · Instant PDF · No login', images: [{ url: '/og-image.png', alt: 'EasyBiodataMaker' }] },
   alternates: { canonical: 'https://easybiodatamaker.com' },
+  verification: { google: process.env.NEXT_PUBLIC_GSC_TOKEN },
   icons: { icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }, { url: '/icon-192.png', sizes: '192x192', type: 'image/png' }], apple: '/apple-touch-icon.png' },
 };
 
@@ -160,6 +161,7 @@ const websiteSchema = {
   inLanguage: ['en-IN','gu-IN','mr-IN','hi-IN','pa-IN','ta-IN','bn-IN','te-IN','kn-IN'],
 };
 
+// TODO: add sameAs only after verified official profile URLs are provided by the owner.
 const orgSchema = {
   '@context': 'https://schema.org', '@type': 'Organization', '@id': 'https://easybiodatamaker.com/#organization',
   name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com',
@@ -168,16 +170,6 @@ const orgSchema = {
   contactPoint: [{ '@type': 'ContactPoint', contactType: 'customer support', email: 'support@easybiodatamaker.com', availableLanguage: ['English','Hindi','Gujarati','Marathi','Tamil','Bengali','Punjabi','Telugu','Kannada'] }],
   };
 
-const softwareSchema = {
-  '@context': 'https://schema.org', '@type': 'SoftwareApplication', '@id': 'https://easybiodatamaker.com/#software',
-  name: 'EasyBiodataMaker', alternateName: 'Free Marriage Biodata Maker',
-  applicationCategory: 'LifestyleApplication', applicationSubCategory: 'Matrimonial Tools',
-  operatingSystem: 'Web Browser',
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR', availability: 'https://schema.org/InStock', description: 'Free forever' },
-  description: 'Free online marriage biodata maker with premium templates in 9 Indian languages. Upload photos, add custom fields, download A4 PDF instantly.',
-  url: 'https://easybiodatamaker.com',
-  featureList: ['premium marriage biodata templates','9 Indian language form labels','Photo upload up to 5 photos','Custom fields when needed','Instant A4 PDF download','No registration required','Privacy-first browser-only storage','Mobile-friendly design'],
-};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -197,7 +189,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Structured Data */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
       </head>
       <body className="font-sans antialiased bg-ivory text-ink">
         <LangProvider>{children}</LangProvider>

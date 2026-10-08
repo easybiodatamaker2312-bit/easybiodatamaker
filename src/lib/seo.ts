@@ -1,16 +1,16 @@
-// ── SEO Utilities for consistent metadata across all pages ───────────────────
+// ── SEO utilities for consistent metadata across public pages ────────────────
 
 import type { Metadata } from 'next';
 
-const BASE_URL = 'https://easybiodatamaker.com';
-const SITE_NAME = 'EasyBiodataMaker';
-const DEFAULT_OG_IMAGE = '/og-image.png';
+export const BASE_URL = 'https://easybiodatamaker.com';
+export const SITE_NAME = 'EasyBiodataMaker';
+export const DEFAULT_OG_IMAGE = '/og-image.png';
 
 interface SEOConfig {
   title: string;
   description: string;
-  keywords: string[];
   path: string;
+  keywords?: string[];
   ogTitle?: string;
   ogDescription?: string;
   type?: 'website' | 'article';
@@ -23,12 +23,13 @@ export function buildMetadata(config: SEOConfig): Metadata {
   const ogDesc = config.ogDescription || config.description;
 
   return {
-    title: config.title,
+    // Absolute prevents the root title template from appending a second suffix.
+    title: { absolute: config.title },
     description: config.description,
-    keywords: config.keywords,
+    ...(config.keywords?.length ? { keywords: config.keywords } : {}),
     alternates: { canonical },
     robots: config.noIndex
-      ? { index: false, follow: false }
+      ? { index: false, follow: true }
       : { index: true, follow: true },
     openGraph: {
       type: config.type || 'website',
@@ -49,7 +50,6 @@ export function buildMetadata(config: SEOConfig): Metadata {
   };
 }
 
-// ── Article schema builder ────────────────────────────────────────────────────
 export function buildArticleSchema(config: {
   title: string;
   description: string;
@@ -64,7 +64,7 @@ export function buildArticleSchema(config: {
     description: config.description,
     ...(config.datePublished ? { datePublished: config.datePublished } : {}),
     ...(config.dateModified ? { dateModified: config.dateModified } : {}),
-    author: { '@type': 'Organization', name: 'EasyBiodataMaker', url: BASE_URL },
+    author: { '@type': 'Person', name: 'Karan Shah', url: `${BASE_URL}/about` },
     publisher: {
       '@type': 'Organization',
       name: 'EasyBiodataMaker',
@@ -76,7 +76,6 @@ export function buildArticleSchema(config: {
   };
 }
 
-// ── WebPage schema builder ────────────────────────────────────────────────────
 export function buildWebPageSchema(config: {
   title: string;
   description: string;
@@ -86,10 +85,7 @@ export function buildWebPageSchema(config: {
   const breadcrumbs = [
     { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
     ...(config.breadcrumbs || []).map((b, i) => ({
-      '@type': 'ListItem',
-      position: i + 2,
-      name: b.name,
-      item: `${BASE_URL}${b.path}`,
+      '@type': 'ListItem', position: i + 2, name: b.name, item: `${BASE_URL}${b.path}`,
     })),
     { '@type': 'ListItem', position: (config.breadcrumbs?.length || 0) + 2, name: config.title, item: `${BASE_URL}${config.path}` },
   ];
@@ -105,20 +101,17 @@ export function buildWebPageSchema(config: {
   };
 }
 
-// ── FAQ schema builder ────────────────────────────────────────────────────────
 export function buildFAQSchema(faqs: { q: string; a: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqs.map(({ q, a }) => ({
-      '@type': 'Question',
-      name: q,
+      '@type': 'Question', name: q,
       acceptedAnswer: { '@type': 'Answer', text: a },
     })),
   };
 }
 
-// ── HowTo schema builder ──────────────────────────────────────────────────────
 export function buildHowToSchema(config: {
   name: string;
   description: string;
@@ -134,3 +127,5 @@ export function buildHowToSchema(config: {
     step: config.steps.map(s => ({ '@type': 'HowToStep', name: s.name, text: s.text })),
   };
 }
+
+export { getSitePage } from '@/lib/seo/sitePages';
