@@ -50,7 +50,7 @@ function similarity(a: Set<string>, b: Set<string>) {
 describe('technical SEO guards', () => {
   it('uses the configured GA4 measurement ID and manual page views', () => {
     const source = fs.readFileSync(path.join(root, 'src', 'components', 'analytics', 'GoogleAnalytics.tsx'), 'utf8');
-    expect(source).toContain("process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-S4MM2P9GK1'");
+    expect(source).toContain("process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-S4MM2PG9K1'");
     expect(source).toContain("send_page_view: false");
     expect(source).toContain("window.gtag('event', 'page_view'");
   });

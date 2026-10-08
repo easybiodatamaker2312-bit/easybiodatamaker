@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 
 // The production GA4 web stream shown in the owner's Analytics property.
 // Set NEXT_PUBLIC_GA_MEASUREMENT_ID in Vercel if the stream ever changes.
-const MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-S4MM2P9GK1';
+const MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-S4MM2PG9K1';
 
 declare global {
   interface Window {
