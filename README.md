@@ -169,3 +169,8 @@ The template system contains 12 independent A4 layouts. Each template has three 
 
 - Email: support@easybiodatamaker.com
 - Website: https://easybiodatamaker.com
+
+
+## Premium template collection update (October 2026)
+
+The template gallery now registers 22 usable template designs. Ten additional layouts were added: Classic Ivory, Rose Arch, Blue Ledger, Garden Green, Modern Split, Gold Frame, Minimal Grid, Floral Border, Royal Maroon, and Contemporary Card. Each has three colorways, renders live biodata values, supports the existing language set, and is available in the builder template selector. The new gallery cards render the actual layout component so their preview matches the selected design. New visual directions are original interpretations of the supplied references, not copied competitor assets or text.

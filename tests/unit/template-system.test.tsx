@@ -40,8 +40,8 @@ function structuralHash(html: string) {
 }
 
 describe('template system', () => {
-  it('contains exactly twelve registered templates', () => {
-    expect(ids).toHaveLength(12);
+  it('contains twenty-two registered templates', () => {
+    expect(ids).toHaveLength(22);
   });
 
   it('templates are structurally different', () => {

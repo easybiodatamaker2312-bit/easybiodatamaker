@@ -64,10 +64,11 @@ const templateFiles = [
   'phaseC/RajwadaCrimson.tsx', 'phaseC/EmeraldPalace.tsx', 'phaseC/RoyalPeacock.tsx',
   'phaseC2/HaldiMarigold.tsx', 'phaseC2/PearlLavender.tsx', 'phaseC2/SandstoneRajasthan.tsx',
   'phaseC3/KanjivaramTemple.tsx', 'phaseC3/NoorNavy.tsx', 'phaseC3/SapphireSilver.tsx',
+  'phaseD/InspiredCollection.tsx',
 ];
 const missingTemplates = templateFiles.filter((file) => !fs.existsSync(path.join(srcRoot, 'components', 'biodata', 'templates', file)));
 if (missingTemplates.length) fail(`Missing registered template files: ${missingTemplates.join(', ')}`);
-else pass('All 12 registered template files exist');
+else pass('All 13 template implementation files exist (22 registered designs)');
 
 if (failures.length) {
   console.error(`\n${failures.length} source-integrity failure(s):`);

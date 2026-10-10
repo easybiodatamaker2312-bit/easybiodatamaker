@@ -45,7 +45,13 @@ export default function BiodataBuilder() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const requested = params.get('template') as TemplateId | null;
-    if (requested && requested in TEMPLATES) { setTemplate(requested); setColorway(TEMPLATES[requested].colorways[0].id); }
+    if (requested && requested in TEMPLATES) {
+      const requestedColorway = params.get('colorway');
+      const availableColorways = TEMPLATES[requested].colorways;
+      const matchedColorway = availableColorways.find((option) => option.id === requestedColorway);
+      setTemplate(requested);
+      setColorway(matchedColorway?.id ?? availableColorways[0].id);
+    }
     const requestedPack = getFieldPack(params.get('community')) ?? (params.get('nri') === '1' ? 'nri' : null);
     if (!requestedPack) return;
     setActivePack(requestedPack);

@@ -1,4 +1,14 @@
 export const TEMPLATE_PREVIEWS = {
+  "classic-ivory": { name: "Classic Ivory", alt: "Classic Ivory marriage biodata template preview with a double gold frame and centered portrait.", description: "Warm ivory paper, a double gold frame and centered portrait." },
+  "rose-arch": { name: "Rose Arch", alt: "Rose Arch marriage biodata template preview with soft rose stationery and a portrait arch.", description: "Soft rose stationery with a graceful portrait arch." },
+  "blue-ledger": { name: "Blue Ledger", alt: "Blue Ledger marriage biodata template preview with blue accents and structured rows.", description: "Crisp blue-and-ivory profile with a practical two-column layout." },
+  "garden-green": { name: "Garden Green", alt: "Garden Green marriage biodata template preview with botanical green accents.", description: "Botanical green accents and a calm centered composition." },
+  "modern-split": { name: "Modern Split", alt: "Modern Split marriage biodata template preview with a split portrait and editorial layout.", description: "A contemporary split portrait and editorial content layout." },
+  "gold-frame": { name: "Gold Frame", alt: "Gold Frame marriage biodata template preview with an ornate double-line gold frame.", description: "An ornate gold frame with ceremonial details." },
+  "minimal-grid": { name: "Minimal Grid", alt: "Minimal Grid marriage biodata template preview with typography-led grid and quiet rules.", description: "Typography-led grid with precise alignment and minimal ornament." },
+  "floral-border": { name: "Floral Border", alt: "Floral Border marriage biodata template preview with airy floral flourishes.", description: "Airy floral flourishes, gentle colors and refined portrait treatment." },
+  "royal-maroon": { name: "Royal Maroon", alt: "Royal Maroon marriage biodata template preview in maroon and antique gold.", description: "Deep maroon and antique gold on warm paper." },
+  "contemporary-card": { name: "Contemporary Card", alt: "Contemporary Card marriage biodata template preview with bordered information cards.", description: "Modern bordered cards, balanced whitespace and photo-led header." },
   "midnight-gold": {
     "name": "Midnight Gold",
     "alt": "Midnight Gold marriage biodata template preview \u2014 Aubergine-black wedding stationery with a gilded ceremonial center.",
