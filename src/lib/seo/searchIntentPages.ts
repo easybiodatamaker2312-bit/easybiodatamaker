@@ -2,7 +2,7 @@ import type { SearchIntentPageConfig } from '@/components/seo/SearchIntentLandin
 
 export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
   {
-    path: '/marriage-biodata-format', title: 'Marriage Biodata Format | Free A4 Guide', updatedAt: '2026-10-08',
+    path: '/marriage-biodata-format', title: 'Marriage Biodata Format | Free A4 Guide', updatedAt: '2026-10-11',
     description: 'Learn what a marriage biodata format should contain and create a polished A4 biodata online with photos, family, career and expectations.',
     eyebrow: 'Core format guide',
     intro: 'A marriage biodata is a concise introduction used by families or individuals when considering a matrimonial match. The strongest format is easy to scan, honest about important details, and flexible enough to remove fields that do not apply.',
@@ -31,7 +31,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/marriage-biodata-format-pdf', title: 'Marriage Biodata PDF | A4 Download & Print', updatedAt: '2026-10-08',
+    path: '/marriage-biodata-format-pdf', title: 'Marriage Biodata PDF | A4 Download & Print', updatedAt: '2026-10-11',
     description: 'Create a marriage biodata PDF in A4 format with selectable text, a profile photo and optional separate photo pages for sharing or printing.',
     eyebrow: 'PDF format',
     intro: 'A marriage biodata PDF is useful when the finished profile needs to be printed, emailed or forwarded without changing its layout. A4 sizing and readable text matter more than simply exporting a screenshot.',
@@ -51,7 +51,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/simple-marriage-biodata-format', title: 'Simple Marriage Biodata Format | Clean & Easy', updatedAt: '2026-10-08',
+    path: '/simple-marriage-biodata-format', title: 'Simple Marriage Biodata Format | Clean & Easy', updatedAt: '2026-10-04',
     description: 'Create a simple marriage biodata format with clear fields, minimal decoration, a profile photo and an A4 PDF that stays easy to read.',
     eyebrow: 'Simple format',
     intro: 'A simple marriage biodata format is not a bare document. It is a format where the information hierarchy is stronger than the decoration. This is useful for families that want a straightforward profile that can be printed and forwarded easily.',
@@ -71,7 +71,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/modern-marriage-biodata-format', title: 'Modern Marriage Biodata Format | Clean Design', updatedAt: '2026-10-08',
+    path: '/modern-marriage-biodata-format', title: 'Modern Marriage Biodata Format | Clean Design', updatedAt: '2026-10-06',
     description: 'Create a modern marriage biodata format with clean typography, optional community fields, photos and flexible section order.',
     eyebrow: 'Modern format',
     intro: 'A modern biodata can respect traditional matrimonial expectations while presenting the information in a cleaner way. The goal is not to remove cultural fields; it is to make the document easier to understand and less crowded.',
@@ -91,7 +91,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/marriage-biodata-template-free-download', title: 'Marriage Biodata Template | Free Online Format', updatedAt: '2026-10-08',
+    path: '/marriage-biodata-template-free-download', title: 'Marriage Biodata Template | Free Online Format', updatedAt: '2026-10-11',
     description: 'Explore free marriage biodata templates that can be customised online, exported to PDF or Word and adapted for Indian families.',
     eyebrow: 'Free templates',
     intro: 'A free marriage biodata template is useful when you want a starting structure instead of designing the document from scratch. The important question is whether the template can be personalised without breaking its layout.',
@@ -112,7 +112,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/marriage-biodata-maker-online', title: 'Marriage Biodata Maker Online | Free & Private', updatedAt: '2026-10-08',
+    path: '/marriage-biodata-maker-online', title: 'Marriage Biodata Maker Online | Free & Private', updatedAt: '2026-10-11',
     description: 'Use an online marriage biodata maker to create a private Indian matrimonial profile with photos, templates, PDF and Word export.',
     eyebrow: 'Online maker',
     intro: 'An online marriage biodata maker is useful when you want to create the document from a phone or computer without installing design software. The best workflow combines a guided form with a live preview so you can see the finished page before exporting it.',
@@ -132,7 +132,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/divorcee-marriage-biodata-format', title: 'Divorcee Marriage Biodata Format | Practical Guide', updatedAt: '2026-10-08',
+    path: '/divorcee-marriage-biodata-format', title: 'Divorcee Marriage Biodata Format | Practical Guide', updatedAt: '2026-10-07',
     description: 'A respectful divorcee marriage biodata format with practical guidance for previous marriage details, family, career and privacy.',
     eyebrow: 'Second-chapter profiles',
     intro: 'A divorcee marriage biodata should be factual, respectful and focused on the person’s present life. It does not need to turn a previous marriage into the headline of the document, but it should not hide a fact that is important to a serious matrimonial conversation.',
@@ -152,7 +152,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/widow-widower-marriage-biodata', title: 'Widow & Widower Marriage Biodata | Practical Guide', updatedAt: '2026-10-08',
+    path: '/widow-widower-marriage-biodata', title: 'Widow & Widower Marriage Biodata | Practical Guide', updatedAt: '2026-10-07',
     description: 'Create a respectful widow or widower marriage biodata with current family, career, children, expectations and privacy guidance.',
     eyebrow: 'Respectful profile guide',
     intro: 'A widow or widower marriage biodata should present the person as a complete individual today. A previous loss may be relevant to a matrimonial conversation, but the profile should not reduce someone’s identity to that event.',
@@ -172,7 +172,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/late-marriage-biodata-format', title: 'Late Marriage Biodata Format | Mature & Modern', updatedAt: '2026-10-08',
+    path: '/late-marriage-biodata-format', title: 'Late Marriage Biodata Format | Mature & Modern', updatedAt: '2026-10-07',
     description: 'A late marriage biodata format for mature profiles, with career, family, lifestyle, expectations and optional age-related context.',
     eyebrow: 'Mature profiles',
     intro: 'A late marriage biodata does not need to apologise for age. It should make the person’s current life easy to understand: career, family responsibilities, interests, location, lifestyle and what they want from a partnership.',
@@ -192,7 +192,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/kundali-marriage-biodata-format', title: 'Kundali Marriage Biodata | Gotra, Rashi & Nakshatra', updatedAt: '2026-10-08',
+    path: '/kundali-marriage-biodata-format', title: 'Kundali Marriage Biodata | Gotra, Rashi & Nakshatra', updatedAt: '2026-10-07',
     description: 'Create a marriage biodata with optional kundali fields including gotra, rashi, nakshatra, manglik status and birth details.',
     eyebrow: 'Horoscope-aware format',
     intro: 'Some families want the marriage biodata to carry a compact summary of the information used alongside a kundali or horoscope. Others exchange a separate horoscope document. This guide keeps those choices optional.',
@@ -212,7 +212,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/urdu-biodata-for-marriage', title: 'Urdu Biodata for Marriage | Matrimonial Format', updatedAt: '2026-10-08',
+    path: '/urdu-biodata-for-marriage', title: 'Urdu Biodata for Marriage | Matrimonial Format', updatedAt: '2026-10-05',
     description: 'Create an Urdu-friendly biodata for marriage with a clean structure, optional Islamic fields and readable regional-script support.',
     eyebrow: 'Language format',
     intro: 'Families who prefer Urdu can use the same practical marriage-biodata structure while choosing labels and writing that fit their language preference. The important part is keeping the profile accurate and readable rather than translating every field mechanically.',
@@ -232,7 +232,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/bilingual-biodata-maker', title: 'Bilingual Biodata Maker | English + Indian Language', updatedAt: '2026-10-08',
+    path: '/bilingual-biodata-maker', title: 'Bilingual Biodata Maker | English + Indian Language', updatedAt: '2026-10-06',
     description: 'Create a bilingual marriage biodata in English and an Indian language with script-aware labels, flexible fields and A4 export.',
     eyebrow: 'Language-friendly builder',
     intro: 'A bilingual biodata can help when the candidate is comfortable in English but parents or relatives prefer an Indian language. The goal is not to duplicate every sentence; it is to make the key profile information understandable to both audiences.',
@@ -252,7 +252,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/about-myself-for-marriage-biodata', title: 'About Myself for Marriage Biodata | Examples', updatedAt: '2026-10-08',
+    path: '/about-myself-for-marriage-biodata', title: 'About Myself for Marriage Biodata | Examples', updatedAt: '2026-10-11',
     description: 'Learn how to write an About Myself section for a marriage biodata with concise, natural examples for bride and groom profiles.',
     eyebrow: 'About Me guide',
     intro: 'The About Myself section should sound like a person speaking about their life, not like a list of adjectives. A short paragraph can show personality, work, family values and the kind of life you enjoy.',
@@ -272,7 +272,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/partner-expectations-for-marriage-biodata', title: 'Partner Expectations for Marriage Biodata | Guide', updatedAt: '2026-10-08',
+    path: '/partner-expectations-for-marriage-biodata', title: 'Partner Expectations for Marriage Biodata | Guide', updatedAt: '2026-10-11',
     description: 'Learn how to write partner expectations for a marriage biodata with respectful, specific examples that invite a real conversation.',
     eyebrow: 'Expectations guide',
     intro: 'Partner expectations should communicate what matters without sounding like a job description. A good section tells the reader about values, location, career or family preferences that genuinely affect compatibility.',
@@ -292,7 +292,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/family-details-in-marriage-biodata', title: 'Family Details in Marriage Biodata | What to Include', updatedAt: '2026-10-08',
+    path: '/family-details-in-marriage-biodata', title: 'Family Details in Marriage Biodata | What to Include', updatedAt: '2026-10-11',
     description: 'Learn what family details to include in a marriage biodata: parents, siblings, native place, family type and optional community fields.',
     eyebrow: 'Family section guide',
     intro: 'Family details help a matrimonial reader understand the person’s background, but the section should stay factual and privacy-conscious. A short list of parents, siblings and family context is usually more useful than a long description of status or assets.',
@@ -312,7 +312,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/marriage-biodata-profile-summary-examples', title: 'Marriage Biodata Profile Summary | Bride & Groom', updatedAt: '2026-10-08',
+    path: '/marriage-biodata-profile-summary-examples', title: 'Marriage Biodata Profile Summary | Bride & Groom', updatedAt: '2026-10-07',
     description: 'Practical marriage biodata profile summary examples for bride and groom profiles, with guidance to personalise each paragraph.',
     eyebrow: 'Profile writing guide',
     intro: 'A profile summary sits between a résumé and a personal introduction. It should quickly explain who the person is today and give a reader enough personality to decide whether to start a conversation.',
@@ -332,7 +332,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/royal-wedding-biodata-format', title: 'Royal Wedding Biodata Format | Elegant Indian Style', updatedAt: '2026-10-08',
+    path: '/royal-wedding-biodata-format', title: 'Royal Wedding Biodata Format | Elegant Indian Style', updatedAt: '2026-10-06',
     description: 'Explore a royal wedding biodata format with rich visual hierarchy, traditional motifs and a readable Indian marriage profile.',
     eyebrow: 'Design guide',
     intro: 'A royal wedding biodata format can use deeper colours, ornamental motifs and traditional typography without turning the page into a poster. The information should remain the visual priority.',
@@ -352,7 +352,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/traditional-marriage-biodata-template', title: 'Traditional Marriage Biodata Template | Family Format', updatedAt: '2026-10-08',
+    path: '/traditional-marriage-biodata-template', title: 'Traditional Marriage Biodata Template | Family Format', updatedAt: '2026-10-09',
     description: 'Create a traditional marriage biodata template with family, lineage, horoscope and career fields that remain optional and editable.',
     eyebrow: 'Traditional format',
     intro: 'Traditional marriage biodata templates often include family background, lineage and horoscope information alongside personal and career details. A modern builder can preserve that familiar structure while letting users remove fields that do not apply.',
@@ -372,7 +372,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/single-page-marriage-biodata-format', title: 'Single Page Marriage Biodata | A4 Format Guide', updatedAt: '2026-10-08',
+    path: '/single-page-marriage-biodata-format', title: 'Single Page Marriage Biodata | A4 Format Guide', updatedAt: '2026-10-06',
     description: 'Create a readable single-page marriage biodata format in A4 with concise fields, profile photo and optional extra photo pages.',
     eyebrow: 'One-page format',
     intro: 'A single-page marriage biodata is ideal for first introductions when the profile can fit comfortably without tiny text. The key is editing the information, not simply shrinking the entire page.',
@@ -392,7 +392,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/biodata-maker-for-mobile', title: 'Biodata Maker for Mobile | Create on Phone', updatedAt: '2026-10-08',
+    path: '/biodata-maker-for-mobile', title: 'Biodata Maker for Mobile | Create on Phone', updatedAt: '2026-10-10',
     description: 'Create a marriage biodata on your phone with a mobile-friendly builder, photo upload, live preview and PDF or Word export.',
     eyebrow: 'Mobile workflow',
     intro: 'Many marriage biodatas are created and shared on phones. A mobile-first workflow should make typing, photo selection, previewing and exporting practical without forcing users to manage a desktop design application.',
@@ -412,7 +412,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/biodata-maker-for-whatsapp', title: 'Biodata Maker for WhatsApp | Photo & PDF', updatedAt: '2026-10-08',
+    path: '/biodata-maker-for-whatsapp', title: 'Biodata Maker for WhatsApp | Photo & PDF', updatedAt: '2026-10-05',
     description: 'Create a marriage biodata for WhatsApp with a clean image export, A4 PDF and optional separate photo pages that are easy to review on a phone.',
     eyebrow: 'WhatsApp sharing',
     intro: 'WhatsApp is often where a marriage biodata first travels between relatives. A good export should remain readable after forwarding and should not expose more personal information than the family intends to share.',
@@ -432,7 +432,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/biodata-maker-with-photo', title: 'Biodata Maker with Photo | Profile + 5 Images', updatedAt: '2026-10-08',
+    path: '/biodata-maker-with-photo', title: 'Biodata Maker with Photo | Profile + 5 Images', updatedAt: '2026-10-07',
     description: 'Create a marriage biodata with a profile photo and up to five images, including dedicated photo pages for larger sharing.',
     eyebrow: 'Photo biodata maker',
     intro: 'A marriage biodata with photo should make the main portrait part of the information hierarchy, not an afterthought. Additional photos can provide variety without crowding the first page.',
@@ -491,7 +491,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/rajput-marriage-biodata-format', title: 'Rajput Marriage Biodata Format | Traditional & Modern', updatedAt: '2026-10-08',
+    path: '/rajput-marriage-biodata-format', title: 'Rajput Marriage Biodata Format | Traditional & Modern', updatedAt: '2026-10-09',
     description: 'Create a Rajput marriage biodata format with family background, native place, education, career and optional community fields.',
     eyebrow: 'Community format', intro: 'A Rajput marriage biodata can carry a strong sense of family background while still presenting the candidate’s education, career and personality clearly. The exact fields should follow the family rather than a generic community checklist.',
     quickAnswer: 'Use personal details, family background, native place, education, career, About Me and expectations as the core. Add lineage, clan or other community-specific details only when the family has confirmed the terminology and wants it included.',
@@ -510,7 +510,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
     ],
   },
   {
-    path: '/anand-karaj-biodata-format', title: 'Anand Karaj Biodata Format | Sikh Marriage Profile', updatedAt: '2026-10-08',
+    path: '/anand-karaj-biodata-format', title: 'Anand Karaj Biodata Format | Sikh Marriage Profile', updatedAt: '2026-10-04',
     description: 'Create an Anand Karaj marriage biodata with Sikh family, education and career details plus optional faith-related fields for a respectful profile.',
     eyebrow: 'Sikh marriage format', intro: 'An Anand Karaj biodata can keep the practical structure of a marriage profile while allowing Sikh families to include faith, family and community details that matter to them. The exact fields should be chosen by the family.',
     quickAnswer: 'Start with personal, family, education and career information. Add Sikh faith or community details when they are relevant to the family, and keep the profile focused on the person rather than turning it into a ceremonial document.',
@@ -549,7 +549,7 @@ export const SEARCH_INTENT_PAGES: SearchIntentPageConfig[] = [
   },
 
   {
-    path: '/biodata-maker-with-ganesh-photo', title: 'Biodata Maker with Ganesh Photo | Hindu Profile', updatedAt: '2026-10-08',
+    path: '/biodata-maker-with-ganesh-photo', title: 'Biodata Maker with Ganesh Photo | Hindu Profile', updatedAt: '2026-10-10',
     description: 'Create a Hindu marriage biodata with an optional Ganeshji header, profile photo, community fields and A4 PDF or Word export.',
     eyebrow: 'Hindu visual preset', intro: 'Some Hindu families prefer a Ganeshji image or symbol at the top of a marriage biodata. The important design choice is to make that spiritual element optional and respectful while keeping the candidate’s information readable.',
     quickAnswer: 'Choose a Hindu-friendly template, select Ganeshji when it matches your family preference, add the profile photo and fill the predefined marriage fields. You can also use Om, Swastik or another available symbol when that is more appropriate to your family.',

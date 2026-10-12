@@ -1,6 +1,28 @@
+// Intent consolidation decisions (Phase 4, 2026-10-11):
+// Keep /divorcee-marriage-biodata-format, /widow-widower-marriage-biodata and
+// /late-marriage-biodata-format as distinct life-stage landing pages. Keep
+// /blog/second-marriage-biodata-guide as an editorial guide to disclosure and wording,
+// not a substitute landing page; link these pages to each other contextually.
+// Keep style/format pages (/simple-, /modern-, /traditional-, /royal-, /single-page-)
+// separate from /templates: each answers a specific design/length choice, while
+// /templates is the browse-and-select gallery. Avoid repeating identical sample copy.
+// No URL was merged or redirected in this phase; all routes remain indexable where configured.
 export type SeoKeywordTarget = { keyword: string; target: string; intent: 'core'|'gender'|'community'|'language'|'writing'|'design'|'maker'|'feature'; existing?: boolean };
 
 export const SEO_KEYWORD_MAP: SeoKeywordTarget[] = [
+
+// Phase 5 — samples, answer guides and writing tools
+  {keyword:'marriage biodata samples',target:'/marriage-biodata-samples',intent:'core'},
+  {keyword:'marriage biodata sample for boy',target:'/marriage-biodata-samples',intent:'gender'},
+  {keyword:'marriage biodata sample for girl',target:'/marriage-biodata-samples',intent:'gender'},
+  {keyword:'what is biodata for marriage',target:'/blog/what-is-biodata-for-marriage',intent:'writing'},
+  {keyword:'should income be mentioned in marriage biodata',target:'/blog/should-you-mention-income-in-marriage-biodata',intent:'writing'},
+  {keyword:'rashi nakshatra in marriage biodata',target:'/blog/rashi-nakshatra-in-marriage-biodata',intent:'writing'},
+  {keyword:'height complexion diet in biodata',target:'/blog/how-to-write-height-complexion-diet-in-biodata',intent:'writing'},
+  {keyword:'share marriage biodata on WhatsApp safely',target:'/blog/how-to-share-marriage-biodata-on-whatsapp-safely',intent:'writing'},
+  {keyword:'about me generator for marriage biodata',target:'/tools/about-me-generator',intent:'maker'},
+  {keyword:'partner expectations generator for marriage biodata',target:'/tools/partner-expectations-generator',intent:'maker'},
+
   // Core & format
   {keyword:'marriage biodata format',target:'/marriage-biodata-format',intent:'core'},
   {keyword:'wedding biodata format',target:'/marriage-biodata-format',intent:'core'},

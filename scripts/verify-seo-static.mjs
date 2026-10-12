@@ -49,7 +49,7 @@ else pass('Sitemap uses per-page updatedAt and contains no priority/changeFreque
 
 const robotsSource = read(path.join(appRoot, 'robots.ts'));
 if (!/disallow:\s*['"]\/api\//.test(robotsSource) || !/allow:\s*['"]\//.test(robotsSource)) fail('robots.ts must allow public pages and disallow only /api/');
-if (!/sitemap:\s*['"]https:\/\/easybiodatamaker\.com\/sitemap\.xml['"]/.test(robotsSource)) fail('robots.ts must reference sitemap.xml');
+if (!/https:\/\/easybiodatamaker\.com\/sitemap\.xml/.test(robotsSource) || !/https:\/\/easybiodatamaker\.com\/image-sitemap\.xml/.test(robotsSource)) fail('robots.ts must reference both sitemap.xml and image-sitemap.xml');
 if (fs.existsSync(path.join(root, 'public', 'robots.txt'))) fail('public/robots.txt must be removed');
 else pass('robots.ts is authoritative and public/robots.txt is absent');
 

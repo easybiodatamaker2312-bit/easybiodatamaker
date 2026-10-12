@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
           <div className="col-span-2 sm:col-span-1">
             <Link href="/" className="mb-4 inline-flex rounded-xl bg-[#FBF7F0] px-3 py-2" aria-label="EasyBiodataMaker home">
-              <Image src="/brand-logo.png" alt="EasyBiodataMaker" width={261} height={158} className="h-14 w-auto object-contain" />
+              <Image src="/brand-logo.webp" alt="EasyBiodataMaker" width={261} height={158} className="h-14 w-auto object-contain" />
             </Link>
             <p className="text-sm text-stone-400 leading-relaxed mb-3">A calm, private marriage biodata maker for Indian families. Create, refine and share without a login.</p>
             <div className="text-xs text-stone-500">support@easybiodatamaker.com</div>
@@ -40,6 +40,9 @@ export default function Footer() {
                 ['/modern-marriage-biodata-format','Modern Biodata Format'],
                 ['/marriage-biodata-format-word','Word Biodata Format'],
                 ['/marriage-biodata-format-pdf','PDF Biodata Format'],
+                ['/marriage-biodata-samples','Filled Biodata Samples'],
+                ['/tools/about-me-generator','About Me Generator'],
+                ['/tools/partner-expectations-generator','Partner Expectations Generator'],
                 ['/hindu-marriage-biodata-format','Hindu Biodata'],
                 ['/muslim-marriage-biodata-format','Muslim Nikah Biodata'],
                 ['/blog','Blog & Guides'],

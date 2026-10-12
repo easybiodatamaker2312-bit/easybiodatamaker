@@ -8,7 +8,7 @@ export default function Navbar() {
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="group flex min-h-11 items-center" aria-label="EasyBiodataMaker home">
           <Image
-            src="/brand-logo.png"
+            src="/brand-logo.webp"
             alt="EasyBiodataMaker"
             width={261}
             height={158}

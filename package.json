@@ -12,7 +12,10 @@
     "typecheck": "tsc --noEmit",
     "verify:seo": "node scripts/verify-seo-static.mjs",
     "verify:source": "node scripts/verify-source-integrity.mjs",
-    "verify:build-readiness": "node scripts/verify-build-readiness.mjs"
+    "verify:build-readiness": "node scripts/verify-build-readiness.mjs",
+    "verify:templates": "node scripts/verify-template-gallery.mjs",
+    "verify:eeat": "node scripts/verify-eeat-phase2.mjs",
+    "verify:production": "node scripts/verify-production.mjs"
   },
   "dependencies": {
     "next": "14.2.35",

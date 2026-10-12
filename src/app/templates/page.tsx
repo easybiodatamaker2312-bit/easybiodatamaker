@@ -1,14 +1,15 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import { Check, Search, X, Eye, ArrowUpRight } from 'lucide-react';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import { TEMPLATES, type TemplateId } from '@/components/biodata/TemplateRegistry';
+import { TEMPLATE_PREVIEWS } from '@/lib/seo/templatePreviews';
 import { defaultBiodata } from '@/lib/biodata-schema';
 import { useBiodataView } from '@/lib/useBiodataView';
-import { TEMPLATE_PREVIEWS } from '@/lib/seo/templatePreviews';
 
 const softwareSchema = {
   '@context': 'https://schema.org',
@@ -74,11 +75,10 @@ export default function TemplatesPage() {
         {items.length ? <div className="grid gap-x-5 gap-y-10 pt-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{items.map((id, index) => {
           const t = TEMPLATES[id];
           const cw = selectedColorway(id);
-          const Layout = t.Layout;
           return <article key={id} className="group min-w-0">
             <div className="relative rounded-[22px] border border-[#e5d8c5] bg-white p-2 shadow-[0_7px_28px_rgba(71,45,30,.055)] transition duration-300 hover:-translate-y-1 hover:border-[#c3a064] hover:shadow-[0_20px_44px_rgba(71,45,30,.13)]">
               <div className="template-thumbnail overflow-hidden rounded-[14px] bg-[#f7f0e5]">
-                <div className="template-live-preview"><div><Layout view={view} auspiciousSymbol="none" colorway={cw} /></div></div>
+                <Image src={`/templates/${id}.webp`} alt={TEMPLATE_PREVIEWS[id].alt} width={720} height={980} priority={index < 4} loading={index < 4 ? 'eager' : 'lazy'} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw" className="block h-auto w-full object-contain" />
               </div>
               <span className="absolute left-4 top-4 rounded-full border border-white/80 bg-white/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[.13em] text-stone-600 shadow-sm">{String(index + 1).padStart(2, '0')}</span>
               <button onClick={() => setQuickViewId(id)} className="absolute bottom-4 right-4 inline-flex items-center gap-1.5 rounded-full border border-[#e6d7c1] bg-white/95 px-3 py-2 text-xs font-semibold text-[#49372a] shadow-md transition hover:bg-[#34251b] hover:text-white" aria-label={`Quick preview ${t.name}`}><Eye size={14} /> Quick view</button>
@@ -88,7 +88,7 @@ export default function TemplatesPage() {
               <p className="mt-2 min-h-[3rem] text-sm leading-6 text-stone-600">{t.mood}</p>
               <div className="mt-4 flex items-center justify-between gap-3 border-t border-[#eee5d8] pt-3">
                 <div className="flex items-center gap-2" aria-label={`Colorways for ${t.name}`}>{t.colorways.map((option) => <button key={option.id} type="button" onClick={() => setColorwayByTemplate((current) => ({ ...current, [id]: option.id }))} aria-label={`${option.name} colorway`} aria-pressed={cw.id === option.id} title={option.name} className={`flex h-7 w-7 items-center justify-center rounded-full border-2 transition ${cw.id === option.id ? 'scale-110 border-[#34251b] ring-2 ring-[#c5a36a]/40 ring-offset-1' : 'border-white shadow-sm hover:scale-105'}`} style={{ backgroundColor: option.swatch }}>{cw.id === option.id && <Check size={13} className="text-white drop-shadow" />}</button>)}</div>
-                <Link href={`/create?template=${id}`} className="inline-flex min-h-10 items-center gap-1.5 rounded-full bg-[#34251b] px-4 text-xs font-semibold text-white transition hover:bg-[#8a632e]">Use design <ArrowUpRight size={14} /></Link>
+                <Link href={`/create?template=${id}&colorway=${cw.id}`} className="inline-flex min-h-10 items-center gap-1.5 rounded-full bg-[#34251b] px-4 text-xs font-semibold text-white transition hover:bg-[#8a632e]">Use design <ArrowUpRight size={14} /></Link>
               </div>
               <p className="mt-2 text-[11px] text-stone-400">Selected: {cw.name}</p>
             </div>

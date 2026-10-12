@@ -4,6 +4,7 @@ import { AEOBlock } from '@/components/ui/AEOBlock';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import Link from 'next/link';
+import { AuthorBox } from '@/components/seo/AuthorBox';
 
 const page = getSitePage('/blog/what-to-write-in-partner-expectations');
 
@@ -86,6 +87,7 @@ export default function PartnerExpectationsPage() {
 
         <div className="max-w-3xl mx-auto px-4"><EditorialByline lastUpdated="2024-12-28" /></div>
 
+        <AuthorBox reviewedOn="2026-10-11" />
         <article className="py-12 px-4">
           <div className="max-w-3xl mx-auto space-y-5">
 

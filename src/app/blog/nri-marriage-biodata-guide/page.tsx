@@ -4,6 +4,7 @@ import { AEOBlock } from '@/components/ui/AEOBlock';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import Link from 'next/link';
+import { AuthorBox } from '@/components/seo/AuthorBox';
 
 const page = getSitePage('/blog/nri-marriage-biodata-guide');
 
@@ -59,6 +60,7 @@ export default function Page() {
         </section>
         <div className="max-w-3xl mx-auto px-4"><EditorialByline lastUpdated="2024-12-28" /></div>
 
+        <AuthorBox reviewedOn="2026-10-11" />
         <article className="py-12 px-4">
           <div className="max-w-3xl mx-auto space-y-5">
             <div className="card p-6 text-sm text-gray-600 leading-relaxed whitespace-pre-line">
@@ -79,6 +81,26 @@ Native City: Even if living abroad for years, maintain the native city/state men
                 <Link href="/marriage-biodata-format-uk-canada" className="text-saffron-700 hover:underline">UK & Canada biodata format →</Link>
               </div>
             </div>
+
+            
+            <section className="mt-9 rounded-2xl border border-amber-100 bg-white p-6">
+              <h2 className="font-display text-xl font-bold text-maroon-900">A sample NRI profile that separates facts from plans</h2>
+              <p className="mt-3 text-sm leading-7 text-gray-600"><strong>Fictional example:</strong> “Currently based in Toronto, Canada. Works as a data analyst. Permanent residency application: in progress. Open to discussing where to live after marriage based on both partners’ work and family needs.” This wording separates current location, work and immigration status instead of implying that a particular status is already granted. Use the exact status that applies; do not copy the example if it does not fit.</p>
+              <p className="mt-3 text-sm leading-7 text-gray-600">For an NRI profile, a country and city often provide enough context at the first stage. Add citizenship or residency only if the candidate is comfortable sharing it and can describe it accurately. Avoid passport numbers, visa identifiers, immigration documents, employer access details and a full residential address. Those details are not needed for an introductory biodata.</p>
+              <h3 className="mt-6 font-semibold text-maroon-900">What to discuss beyond the country name</h3>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-gray-600">
+                <li>Whether the candidate expects to remain abroad, return to India or is genuinely undecided.</li>
+                <li>Whether a move would depend on employment, immigration rules, family responsibilities or both partners’ preferences.</li>
+                <li>How the couple expects to manage visits to parents, holidays, time zones and long-distance introductions.</li>
+                <li>Whether education, professional licensing or a career change would affect relocation plans.</li>
+              </ul>
+              <p className="mt-3 text-sm leading-7 text-gray-600">These are conversation topics, not promises. Immigration decisions depend on individual circumstances and official processes; a biodata should not be treated as legal advice or a guarantee that a partner can migrate.</p>
+              <h3 className="mt-6 font-semibold text-maroon-900">What not to write</h3>
+              <p className="mt-3 text-sm leading-7 text-gray-600">Avoid “settled abroad” if the situation is temporary or uncertain, and do not imply citizenship or permanent residency when an application is pending. Do not quote income without saying whether it is annual and which currency it uses. Never attach financial or immigration documents to a biodata that may be forwarded widely.</p>
+              <h3 className="mt-6 font-semibold text-maroon-900">FAQ</h3>
+              <p className="mt-3 text-sm leading-7 text-gray-600"><strong>Should visa status appear in the biodata?</strong> A brief, accurate description may help if it affects plans, but detailed numbers and documents should stay private.</p>
+              <p className="mt-3 text-sm leading-7 text-gray-600"><strong>Should I state relocation preference?</strong> Yes, if you have a genuine preference; if you are undecided, say that you are open to discussing it together.</p>
+            </section>
 
             <div className="bg-gradient-to-r from-maroon-800 to-maroon-950 rounded-2xl p-6 text-white text-center">
               <h2 className="font-display text-xl font-bold mb-3">Create Your Biodata Free</h2>

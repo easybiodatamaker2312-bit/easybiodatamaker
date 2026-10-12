@@ -74,7 +74,8 @@ export const TEMPLATES: Record<TemplateId, TemplateDefinition> = {
     mood: 'Rajasthani sandstone paper, block-print geometry and indigo-led table typography.',
     languages: ['en', 'hi', 'gu', 'mr', 'ta', 'bn', 'pa', 'te', 'kn'],
     colorways: SANDSTONE_RAJASTHAN_COLORWAYS, Layout: SandstoneRajasthanLayout, Thumbnail: SandstoneRajasthanThumbnail,
-  },  'kanjivaram-temple': {
+  },
+  'kanjivaram-temple': {
     id: 'kanjivaram-temple', name: 'Kanjivaram Temple', category: 'Regional',
     mood: 'Deep plum temple stationery with zari geometry and boxed ceremonial tabs.',
     languages: ['en', 'hi', 'gu', 'mr', 'ta', 'bn', 'pa', 'te', 'kn'],

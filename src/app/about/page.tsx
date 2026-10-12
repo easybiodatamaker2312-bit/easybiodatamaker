@@ -40,9 +40,11 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto">
             <p className="text-xs font-semibold uppercase tracking-[.14em] text-amber-700">Editorial accountability</p>
             <h2 className="font-display text-2xl font-bold text-maroon-900 mt-2 mb-4">Author, review and editorial policy</h2>
-            <p className="text-gray-700 text-sm leading-7">Content is written and reviewed by <strong>Karan Shah</strong>. The editorial process focuses on practical marriage-biodata guidance, accurate descriptions of the tool, readable examples and clear privacy information.</p>
-            <p className="mt-3 text-gray-700 text-sm leading-7">We do not publish fabricated ratings, reviews, popularity numbers or claims that a feature exists when it does not. Examples are fictional unless explicitly identified otherwise. Pages are reviewed when their product workflow, supported exports or important guidance changes.</p>
+            <p className="text-gray-700 text-sm leading-7">The product is built and maintained by <strong>Karan Shah</strong>. Content is written and reviewed for practical usefulness, readable examples, respectful language and consistency with the features available in the tool. We do not claim third-party professional or legal review unless it is explicitly identified on a page.</p>
+            <p className="mt-3 text-gray-700 text-sm leading-7">We do not publish fabricated ratings, reviews, popularity numbers or claims that a feature exists when it does not. Examples are fictional unless explicitly identified otherwise. The “reviewed on” date indicates the latest editorial pass recorded for that page; it is not a claim of independent certification. Pages should be revisited when the product workflow, supported exports or important guidance changes.</p>
             <p className="mt-3 text-gray-700 text-sm leading-7">For community and language guidance, the site aims to describe optional fields without presenting one family's customs as universal. Readers should use their own family or community preferences when deciding what belongs in a biodata.</p>
+            <p className="mt-3 text-gray-700 text-sm leading-7">Where a guide discusses a community-specific custom or a sensitive personal circumstance, the goal is to explain common wording options rather than prescribe a single rule. Readers should verify religious, regional or legal questions with a trusted, appropriate source when needed.</p>
+            <p className="mt-3 text-gray-700 text-sm leading-7"><strong>Credentials and author photo:</strong> [Owner to provide any verified professional credentials and an approved author photograph, or confirm that these should remain omitted.] We do not invent qualifications.</p>
           </div>
         </section>
 
@@ -50,8 +52,9 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto space-y-8 text-gray-700 text-sm leading-loose">
             <div>
               <h2 className="font-display text-2xl font-bold text-maroon-900 mb-4">What This Tool Is</h2>
-              <p>EasyBiodataMaker.com helps you create a professional marriage biodata PDF in about 5 to 10 minutes. You fill a guided form with your personal, family, education, and contact information. You choose from 8 premium design templates. You download a finished PDF.</p>
+              <p>EasyBiodataMaker.com helps you create a professional marriage biodata PDF in about 5 to 10 minutes. You fill a guided form with your personal, family, education, and contact information. You choose from 22 registered design templates. You download a finished PDF.</p>
               <p className="mt-4">The tool supports 9 Indian languages — so form labels appear in Gujarati, Marathi, Hindi, Punjabi, Tamil, or Bengali based on your preference. It supports photo upload and custom fields when needed for community-specific information.</p>
+              <p className="mt-4">The product is developed and maintained by Karan Shah. Content updates are checked against the live tool, reviewed for clarity and respectful wording, and updated when relevant features or guidance change. Community-specific advice is presented as optional guidance, not a universal rule for every family.</p>
             </div>
 
             <div>
@@ -74,6 +77,7 @@ export default function AboutPage() {
               <Link href="/create" className="btn-primary text-sm">Create Free Biodata</Link>
               <Link href="/faq" className="btn-secondary text-sm">Read the FAQ</Link>
               <Link href="/contact" className="btn-secondary text-sm">Contact Us</Link>
+              <p className="basis-full text-sm leading-7">For corrections, accessibility feedback or questions about the tool, use the <Link href="/contact" className="font-semibold underline underline-offset-2">contact page</Link>. Owner input needed: [confirm the preferred public support email and expected response process before publishing any service-level promise].</p>
             </div>
           </div>
         </section>

@@ -1,6 +1,7 @@
 import { buildMetadata, getSitePage } from '@/lib/seo';
 import Link from 'next/link';
 import { SEARCH_INTENT_PAGES } from '@/lib/seo/searchIntentPages';
+import { SITE_PAGES } from '@/lib/seo/sitePages';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 
 const page = getSitePage('/marriage-biodata-guides');
@@ -8,16 +9,20 @@ const page = getSitePage('/marriage-biodata-guides');
 export const metadata = buildMetadata({ title: page.title, description: page.description, path: page.path, type: page.type });
 
 const groups = [
+  { title: 'Filled samples', paths: ['/marriage-biodata-samples'] },
+  { title: 'Free writing tools', paths: ['/tools/about-me-generator','/tools/partner-expectations-generator'] },
+  { title: 'New answer-style articles', paths: ['/blog/what-is-biodata-for-marriage','/blog/should-you-mention-income-in-marriage-biodata','/blog/rashi-nakshatra-in-marriage-biodata','/blog/how-to-write-height-complexion-diet-in-biodata','/blog/how-to-share-marriage-biodata-on-whatsapp-safely'] },
   { title: 'Formats & templates', paths: ['/marriage-biodata-format','/marriage-biodata-format','/marriage-biodata-format','/marriage-biodata-format','/simple-marriage-biodata-format','/modern-marriage-biodata-format','/marriage-biodata-template-free-download','/traditional-marriage-biodata-template','/royal-wedding-biodata-format','/single-page-marriage-biodata-format'] },
   { title: 'Maker, PDF & Word', paths: ['/marriage-biodata-maker-online','/marriage-biodata-maker-online','/marriage-biodata-maker-online','/marriage-biodata-format-pdf','/marriage-biodata-format-pdf','/marriage-biodata-format-word'] },
   { title: 'Photos, phone & sharing', paths: ['/biodata-maker-with-photo','/biodata-maker-with-ganesh-photo','/biodata-maker-for-mobile','/biodata-maker-for-whatsapp'] },
+  { title: 'New practical articles', paths: ['/blog/gotra-kya-hota-hai-biodata-mein','/blog/manglik-kya-hota-hai','/blog/shaadi-ka-biodata-kaise-banaye','/blog/biodata-photo-tips','/blog/marriage-biodata-sample-girl-boy','/blog/mumbai-marriage-biodata'] },
   { title: 'Writing & profile content', paths: ['/about-myself-for-marriage-biodata','/partner-expectations-for-marriage-biodata','/family-details-in-marriage-biodata','/marriage-biodata-profile-summary-examples'] },
   { title: 'Community & life-stage formats', paths: ['/divorcee-marriage-biodata-format','/widow-widower-marriage-biodata','/late-marriage-biodata-format','/kundali-marriage-biodata-format','/maratha-biodata-format','/brahmin-biodata-format-for-marriage','/rajput-marriage-biodata-format','/anand-karaj-biodata-format','/islamic-biodata-for-marriage','/urdu-biodata-for-marriage','/bilingual-biodata-maker'] },
 ];
 
 export default function MarriageBiodataGuidesPage() {
-  const lookup = new Map(SEARCH_INTENT_PAGES.map((page) => [page.path, page]));
-  const itemList = SEARCH_INTENT_PAGES.map((page, index) => ({ '@type': 'ListItem', position: index + 1, name: page.title, url: `https://easybiodatamaker.com${page.path}` }));
+  const lookup = new Map([...SEARCH_INTENT_PAGES, ...SITE_PAGES].map((page) => [page.path, page]));
+  const itemList = [...SEARCH_INTENT_PAGES, ...SITE_PAGES.filter((page) => page.type === 'article')].map((page, index) => ({ '@type': 'ListItem', position: index + 1, name: page.title, url: `https://easybiodatamaker.com${page.path}` }));
   return (
     <main className="min-h-screen bg-[#FBF7F0] text-[var(--ink)]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Marriage Biodata Guides', url: 'https://easybiodatamaker.com/marriage-biodata-guides', mainEntity: { '@type': 'ItemList', itemListElement: itemList } }) }} />

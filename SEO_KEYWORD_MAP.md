@@ -28,3 +28,16 @@ These former URLs were consolidated during Phase 2. Their keyword phrases remain
 - `/biodata-maker-pdf-one-page` → `/marriage-biodata-format-pdf`
 
 The machine-readable source is `src/lib/seo/keywordMap.ts`.
+
+
+## Phase 4 overlap decisions (2026-10-11)
+
+No URL was merged in this phase because the existing routes can serve distinct intents when their copy stays focused:
+
+- `/divorcee-marriage-biodata-format` answers the practical format/field needs of a divorced candidate.
+- `/widow-widower-marriage-biodata` addresses widowhood/widowerhood-specific wording and privacy considerations.
+- `/late-marriage-biodata-format` addresses candidates marrying later in life and the details they may choose to foreground.
+- `/blog/second-marriage-biodata-guide` remains an editorial guide to respectful disclosure, children, legal-status wording and examples across remarriage situations. It should link to the relevant life-stage page rather than duplicate its entire landing-page content.
+- `/simple-marriage-biodata-format`, `/modern-marriage-biodata-format`, `/traditional-marriage-biodata-template`, `/royal-wedding-biodata-format`, and `/single-page-marriage-biodata-format` each answer a distinct design or document-length choice. `/templates` remains the interactive browse-and-select gallery. The format pages should explain the decision and link to the gallery; they should not reproduce the whole gallery.
+
+Because these intents are separable, no 301 redirects were added and no URLs were removed from the sitemap. Revisit the decision if Search Console query/page data later shows persistent cannibalization.

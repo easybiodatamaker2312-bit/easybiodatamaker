@@ -141,7 +141,6 @@ export const metadata: Metadata = {
     template: '%s | EasyBiodataMaker.com',
   },
   description: 'Create an Indian marriage biodata online with A4 templates, photos and export options. Free to use, privacy-first and no login required for the builder.',
-  keywords: ['biodata maker for marriage','free biodata maker online india','shaadi biodata maker','marriage biodata format india','online biodata maker no login','free biodata pdf download','biodata maker gujarati','biodata maker hindi','biodata maker marathi','shaadi ka biodata kaise banaye','free biodata format download','vivah biodata maker','lagna biodata online free'],
   authors: [{ name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com' }],
   creator: 'EasyBiodataMaker',
   publisher: 'EasyBiodataMaker',
@@ -161,14 +160,20 @@ const websiteSchema = {
   inLanguage: ['en-IN','gu-IN','mr-IN','hi-IN','pa-IN','ta-IN','bn-IN','te-IN','kn-IN'],
 };
 
-// TODO: add sameAs only after verified official profile URLs are provided by the owner.
+const organizationSocialProfiles = [
+  process.env.NEXT_PUBLIC_SOCIAL_LINKEDIN,
+  process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM,
+  process.env.NEXT_PUBLIC_SOCIAL_YOUTUBE,
+].map((value) => value?.trim()).filter((value): value is string => Boolean(value));
+
 const orgSchema = {
   '@context': 'https://schema.org', '@type': 'Organization', '@id': 'https://easybiodatamaker.com/#organization',
   name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com',
   logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-192.png', width: 192, height: 192 },
   description: 'Free online marriage biodata maker with premium templates in 9 Indian languages.',
+  ...(organizationSocialProfiles.length ? { sameAs: organizationSocialProfiles } : {}),
   contactPoint: [{ '@type': 'ContactPoint', contactType: 'customer support', email: 'support@easybiodatamaker.com', availableLanguage: ['English','Hindi','Gujarati','Marathi','Tamil','Bengali','Punjabi','Telugu','Kannada'] }],
-  };
+};
 
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

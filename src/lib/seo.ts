@@ -10,7 +10,6 @@ interface SEOConfig {
   title: string;
   description: string;
   path: string;
-  keywords?: string[];
   ogTitle?: string;
   ogDescription?: string;
   type?: 'website' | 'article';
@@ -26,7 +25,6 @@ export function buildMetadata(config: SEOConfig): Metadata {
     // Absolute prevents the root title template from appending a second suffix.
     title: { absolute: config.title },
     description: config.description,
-    ...(config.keywords?.length ? { keywords: config.keywords } : {}),
     alternates: { canonical },
     robots: config.noIndex
       ? { index: false, follow: true }

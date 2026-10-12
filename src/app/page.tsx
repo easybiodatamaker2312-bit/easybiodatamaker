@@ -50,10 +50,10 @@ export default function HomePage() {
             <div className="max-w-2xl">
               <div className="eyebrow"><Sparkles size={14} /> Made for Indian families</div>
               <h1 className="mt-5 text-balance font-display text-[46px] font-semibold leading-[.98] tracking-[-.035em] text-ink sm:text-6xl lg:text-7xl">
-                A marriage biodata that feels <span className="text-oxblood">worthy of the occasion.</span>
+                Marriage Biodata Maker <span className="text-oxblood">for Indian Families.</span>
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-8 text-stone-600 sm:text-xl">
-                Create a refined, wedding-ready biodata in about five minutes. Choose a beautiful design, add your story and photos, and make an A4 document your family will be proud to share.
+                Create a refined, wedding-ready biodata worthy of the occasion in about five minutes. Choose a beautiful design, add your story and photos, and make an A4 document your family will be proud to share.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link href="/create" className="btn-primary px-6 py-3.5 text-base"><span>Create my biodata</span><ArrowRight size={17} /></Link>
@@ -111,6 +111,24 @@ export default function HomePage() {
                   </section>
 
         <MarriageBiodataContent />
+
+        <section className="px-5 py-16 sm:px-8">
+          <div className="mx-auto max-w-6xl rounded-3xl border border-stone-200 bg-white p-6 sm:p-9">
+            <p className="eyebrow">Helpful starting points</p>
+            <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">Samples, formats and writing tools</h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-stone-600">Explore fictional examples, understand what belongs in a biodata and draft your own wording before opening the maker.</p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                ['/marriage-biodata-samples','Filled biodata samples','See examples for different careers and life situations.'],
+                ['/marriage-biodata-format','Marriage biodata format','Review the essential sections and optional fields.'],
+                ['/blog','Practical blog guides','Read about privacy, wording and traditional fields.'],
+                ['/tools/about-me-generator','About-me generator','Create an editable personal introduction.'],
+                ['/tools/partner-expectations-generator','Partner expectations tool','Draft respectful expectations and preferences.'],
+                ['/marriage-biodata-guides','All biodata guides','Browse formats, community pages and articles.'],
+              ].map(([href,title,description]) => <Link key={href} href={href} className="rounded-2xl border border-stone-200 p-4 transition hover:border-[#B8893B]"><h3 className="font-semibold text-ink">{title}</h3><p className="mt-2 text-sm leading-6 text-stone-600">{description}</p><span className="mt-3 inline-flex text-sm font-semibold text-oxblood">Explore →</span></Link>)}
+            </div>
+          </div>
+        </section>
 
         <section className="px-5 py-20 sm:px-8 sm:py-24">
           <SectionHeading eyebrow="Questions, answered honestly" title="A few things families usually want to know." body="No inflated claims. If a feature is not available yet, we will say so." />

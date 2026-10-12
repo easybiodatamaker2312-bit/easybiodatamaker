@@ -7,6 +7,9 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/api/',
     },
-    sitemap: 'https://easybiodatamaker.com/sitemap.xml',
+    sitemap: [
+      'https://easybiodatamaker.com/sitemap.xml',
+      'https://easybiodatamaker.com/image-sitemap.xml',
+    ],
   };
 }

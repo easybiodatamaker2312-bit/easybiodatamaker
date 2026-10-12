@@ -4,6 +4,7 @@ import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import { AEOBlock } from '@/components/ui/AEOBlock';
 import Link from 'next/link';
+import { AuthorBox } from '@/components/seo/AuthorBox';
 
 const page = getSitePage('/blog/free-biodata-maker-vs-word-template');
 
@@ -59,6 +60,7 @@ export default function BiodataVsWordPage() {
 
         <div className="max-w-3xl mx-auto px-4"><EditorialByline lastUpdated="2024-12-24" /></div>
 
+        <AuthorBox reviewedOn="2026-10-11" />
         <article className="py-12 px-4">
           <div className="max-w-3xl mx-auto space-y-8">
 
