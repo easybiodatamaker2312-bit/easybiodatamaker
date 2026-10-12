@@ -246,3 +246,22 @@
 }
 
 @media print { .print-fit-page:last-child { break-after: auto !important; page-break-after: auto !important; } }
+
+/* Export-only row alignment fallback. pdf.ts also injects this into the
+   html2canvas clone so both downloaded PDF and JPG center multiline text. */
+#print-root .inspired-row, #png-root .inspired-row,
+.template-a4 .template-row, .template-a4 .pearl-row,
+.template-a4 .emerald-row, .template-a4 .kanjivaram-row,
+.template-a4 .noor-row, .template-a4 .sapphire-row,
+.template-a4 .rajwada-row, .template-a4 .peacock-row {
+  align-items: center !important;
+  align-content: center !important;
+}
+#print-root .inspired-row > *, #png-root .inspired-row > *,
+.template-a4 .template-row > *, .template-a4 .pearl-row > *,
+.template-a4 .emerald-row > *, .template-a4 .kanjivaram-row > *,
+.template-a4 .noor-row > *, .template-a4 .sapphire-row > *,
+.template-a4 .rajwada-row > *, .template-a4 .peacock-row > * {
+  align-self: center !important;
+  margin-block: 0 !important;
+}

@@ -101,6 +101,64 @@ async function renderA4Canvas(page: HTMLElement): Promise<HTMLCanvasElement> {
     windowHeight: A4_CSS_HEIGHT_PX,
     scrollX: 0,
     scrollY: 0,
+    // html2canvas renders a cloned document. Apply row alignment inside that
+    // clone as well as in the live preview, so PDF and JPG exports cannot fall
+    // back to a different baseline/vertical alignment due to cascade order.
+    onclone: (clonedDocument) => {
+      const style = clonedDocument.createElement('style');
+      style.setAttribute('data-export-row-alignment', 'true');
+      style.textContent = `
+        #print-root .inspired-row,
+        #png-root .inspired-row,
+        .inspired-template .inspired-row,
+        .template-a4 .template-row,
+        .template-a4 .pearl-row,
+        .template-a4 .emerald-row,
+        .template-a4 .kanjivaram-row,
+        .template-a4 .noor-row,
+        .template-a4 .sapphire-row,
+        .template-a4 .rajwada-row,
+        .template-a4 .peacock-row {
+          display: grid !important;
+          align-items: center !important;
+          align-content: center !important;
+        }
+        #print-root .inspired-row > *,
+        #png-root .inspired-row > *,
+        .inspired-template .inspired-row > *,
+        .template-a4 .template-row > *,
+        .template-a4 .pearl-row > *,
+        .template-a4 .emerald-row > *,
+        .template-a4 .kanjivaram-row > *,
+        .template-a4 .noor-row > *,
+        .template-a4 .sapphire-row > *,
+        .template-a4 .rajwada-row > *,
+        .template-a4 .peacock-row > * {
+          align-self: center !important;
+          margin-block-start: 0 !important;
+          margin-block-end: 0 !important;
+        }
+      `;
+      (clonedDocument.head || clonedDocument.documentElement).appendChild(style);
+
+      const rowSelector = [
+        '#print-root .inspired-row', '#png-root .inspired-row',
+        '.inspired-template .inspired-row', '.template-a4 .template-row',
+        '.template-a4 .pearl-row', '.template-a4 .emerald-row',
+        '.template-a4 .kanjivaram-row', '.template-a4 .noor-row',
+        '.template-a4 .sapphire-row', '.template-a4 .rajwada-row',
+        '.template-a4 .peacock-row',
+      ].join(',');
+      clonedDocument.querySelectorAll<HTMLElement>(rowSelector).forEach((row) => {
+        row.style.setProperty('align-items', 'center', 'important');
+        row.style.setProperty('align-content', 'center', 'important');
+        row.querySelectorAll<HTMLElement>(':scope > *').forEach((cell) => {
+          cell.style.setProperty('align-self', 'center', 'important');
+          cell.style.setProperty('margin-block-start', '0', 'important');
+          cell.style.setProperty('margin-block-end', '0', 'important');
+        });
+      });
+    },
   });
 }
 
