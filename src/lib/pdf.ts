@@ -43,6 +43,7 @@ async function prepareOnePagePrint(elementId = 'print-root') {
     const template = content.querySelector<HTMLElement>('.template-a4');
     if (!template) {
       content.style.setProperty('--print-scale', '1');
+      content.style.setProperty('--print-offset-x', '0mm');
       page.style.setProperty('--print-scale', '1');
       return;
     }
@@ -51,12 +52,12 @@ async function prepareOnePagePrint(elementId = 'print-root') {
     const contentHeight = Math.max(template.scrollHeight, template.getBoundingClientRect().height);
     template.style.minHeight = previousMinHeight;
     const scale = Math.min(1, a4HeightPx / Math.max(contentHeight, 1));
-    // Keep the biodata at the full A4 width. Uniform scaling was shrinking
-    // long biodata layouts horizontally as well, leaving a large blank strip
-    // on the right side of the PDF. Fit the vertical content only; this keeps
-    // labels and values spread across the page and avoids the half-width look.
+    // Never stretch the design on only one axis: that makes typefaces and
+    // decorative elements look squashed compared with the live preview. Use
+    // one proportional scale for both axes and center the reduced artwork on
+    // the A4 page. Short layouts stay at 100%; only over-height layouts shrink.
     content.style.setProperty('--print-scale', String(scale));
-    content.style.setProperty('--print-scale-x', '1');
+    content.style.setProperty('--print-offset-x', `${((210 * (1 - scale)) / 2).toFixed(3)}mm`);
     page.style.setProperty('--print-scale', String(scale));
   });
 }
@@ -84,6 +85,9 @@ export async function downloadBiodataAsPDF(elementId = 'print-root', filename = 
 }
 
 async function renderA4Canvas(page: HTMLElement): Promise<HTMLCanvasElement> {
+  // Canvas capture can otherwise race web-font loading and fall back to a
+  // system font, changing line breaks and making the downloaded layout drift.
+  try { await document.fonts?.ready; } catch { /* use the best available font */ }
   const html2canvas = (await import('html2canvas')).default;
   return html2canvas(page, {
     scale: A4_EXPORT_WIDTH_PX / A4_CSS_WIDTH_PX,
