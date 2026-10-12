@@ -265,3 +265,22 @@
   align-self: center !important;
   margin-block: 0 !important;
 }
+
+
+/* Final export centering: keep each row cell stretched to the row height and
+   center the complete text block, including multiline labels and values. */
+#print-root .inspired-row > *, #png-root .inspired-row > *,
+.inspired-template .inspired-row > *, .template-a4 .template-row > *,
+.template-a4 .pearl-row > *, .template-a4 .emerald-row > *,
+.template-a4 .kanjivaram-row > *, .template-a4 .noor-row > *,
+.template-a4 .sapphire-row > *, .template-a4 .rajwada-row > *,
+.template-a4 .peacock-row > * {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-self: stretch !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  margin-block: 0 !important;
+  padding-block: 0 !important;
+}

@@ -134,9 +134,18 @@ async function renderA4Canvas(page: HTMLElement): Promise<HTMLCanvasElement> {
         .template-a4 .sapphire-row > *,
         .template-a4 .rajwada-row > *,
         .template-a4 .peacock-row > * {
-          align-self: center !important;
+          /* Grid alignment alone can leave glyphs visually low in html2canvas.
+             Stretch each cell to the row height, then center its text block. */
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: center !important;
+          align-self: stretch !important;
+          min-width: 0 !important;
+          box-sizing: border-box !important;
           margin-block-start: 0 !important;
           margin-block-end: 0 !important;
+          padding-block-start: 0 !important;
+          padding-block-end: 0 !important;
         }
       `;
       (clonedDocument.head || clonedDocument.documentElement).appendChild(style);
@@ -150,12 +159,20 @@ async function renderA4Canvas(page: HTMLElement): Promise<HTMLCanvasElement> {
         '.template-a4 .peacock-row',
       ].join(',');
       clonedDocument.querySelectorAll<HTMLElement>(rowSelector).forEach((row) => {
-        row.style.setProperty('align-items', 'center', 'important');
+        row.style.setProperty('display', 'grid', 'important');
+        row.style.setProperty('align-items', 'stretch', 'important');
         row.style.setProperty('align-content', 'center', 'important');
         row.querySelectorAll<HTMLElement>(':scope > *').forEach((cell) => {
-          cell.style.setProperty('align-self', 'center', 'important');
+          cell.style.setProperty('display', 'flex', 'important');
+          cell.style.setProperty('flex-direction', 'column', 'important');
+          cell.style.setProperty('justify-content', 'center', 'important');
+          cell.style.setProperty('align-self', 'stretch', 'important');
+          cell.style.setProperty('min-width', '0', 'important');
+          cell.style.setProperty('box-sizing', 'border-box', 'important');
           cell.style.setProperty('margin-block-start', '0', 'important');
           cell.style.setProperty('margin-block-end', '0', 'important');
+          cell.style.setProperty('padding-block-start', '0', 'important');
+          cell.style.setProperty('padding-block-end', '0', 'important');
         });
       });
     },
