@@ -225,17 +225,16 @@
 .print-fit-content { width: 210mm; margin-left: var(--print-offset-x, 0mm); transform-origin: top left; transform: scale(var(--print-scale, 1)); }
 .print-page-footer { position: absolute; left: 8mm; right: 8mm; bottom: 3.5mm; z-index: 9999; text-align: center; font-family: Arial, sans-serif; font-size: 7pt; line-height: 1.2; color: #6b6258; }
 .png-export-page { break-after: auto; page-break-after: auto; }
-.photo-export-page { position: relative; width: 210mm; height: 297mm; min-height: 297mm; box-sizing: border-box; padding: 18mm 15mm 18mm; overflow: hidden; font-family: var(--template-body, Arial, sans-serif); }
-.photo-export-frame { height: 100%; box-sizing: border-box; border: 1px solid var(--template-accent-30, rgba(0,0,0,.15)); padding: 10mm; display: flex; flex-direction: column; }
-.photo-export-kicker { text-transform: uppercase; letter-spacing: .18em; font-size: 7pt; color: var(--template-accent, #8b6b2d); text-align: center; }
-.photo-export-page h1 { margin: 2mm 0 1mm; text-align: center; font-family: var(--template-display, Georgia, serif); font-size: 25pt; line-height: 1; color: var(--template-ink, #222); }
-.photo-export-page > .photo-export-frame > p { margin: 0 0 8mm; text-align: center; font-size: 8pt; color: var(--template-muted, #666); }
-.photo-export-grid { flex: 1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 7mm; align-content: center; justify-items: center; }
-.photo-export-item { width: 68mm; height: 82mm; margin: 0; padding: 3mm; background: rgba(255,255,255,.72); border: 1px solid var(--template-accent-30, rgba(0,0,0,.15)); box-sizing: border-box; }
-.photo-export-item img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.photo-export-profile { border-width: 1.5px; }
-.photo-export-item figcaption { text-align: center; margin-top: 1.5mm; font-size: 6.5pt; color: var(--template-muted, #666); }
-.photo-export-footer { position: absolute; left: 15mm; right: 15mm; bottom: 5mm; text-align: center; font: 7pt/1.2 Arial, sans-serif; color: #6b6258; }
+.photo-export-page { position: relative; width: 210mm; height: 297mm; min-height: 297mm; box-sizing: border-box; padding: 12mm; overflow: hidden; font-family: var(--template-body, Arial, sans-serif); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.photo-export-frame { position: relative; height: 100%; box-sizing: border-box; border: 1px solid var(--template-accent-55, rgba(0,0,0,.35)); outline: 1px solid var(--template-accent-18, rgba(0,0,0,.12)); outline-offset: 2mm; padding: 8mm; display: flex; flex-direction: column; }
+.photo-export-gallery-frame { padding: 8mm; }
+.photo-export-grid { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 7mm; align-content: stretch; justify-items: stretch; }
+.photo-export-item { min-width: 0; min-height: 0; margin: 0; padding: 2.5mm; background: var(--template-paper, #fff); border: 1px solid var(--template-accent-30, rgba(0,0,0,.15)); box-shadow: inset 0 0 0 1px var(--template-accent-8, rgba(0,0,0,.04)); box-sizing: border-box; }
+.photo-export-item img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.photo-single-frame { height: 100%; box-sizing: border-box; border: 1px solid var(--template-accent-55, rgba(0,0,0,.35)); outline: 1px solid var(--template-accent-18, rgba(0,0,0,.12)); outline-offset: 2mm; padding: 7mm; display: flex; align-items: stretch; justify-content: stretch; }
+.photo-single-image-wrap { flex: 1; min-width: 0; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 3mm; border: 1px solid var(--template-accent-30, rgba(0,0,0,.15)); background: var(--template-paper, #fff); box-sizing: border-box; }
+.photo-single-image-wrap img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.photo-export-footer { display: none; }
 @media print {
   @page { size: A4 portrait; margin: 0; }
   body > *:not(#print-root) { display: none !important; }
@@ -246,10 +245,4 @@
   #print-root .print-page-footer { display: block !important; }
 }
 
-.photo-single-frame { height: 100%; box-sizing: border-box; padding: 12mm 12mm 15mm; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.photo-export-single-page h1 { margin: 2mm 0 1mm; text-align: center; font-family: var(--template-display, Georgia, serif); font-size: 25pt; line-height: 1; color: var(--template-ink, #222); }
-.photo-single-label { margin: 0 0 8mm; font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--template-muted, #666); }
-.photo-single-image-wrap { width: 176mm; height: 242mm; display: flex; align-items: center; justify-content: center; padding: 4mm; border: 1px solid var(--template-accent-30, rgba(0,0,0,.15)); background: rgba(255,255,255,.6); box-sizing: border-box; }
-.photo-single-image-wrap img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.photo-export-page { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 @media print { .print-fit-page:last-child { break-after: auto !important; page-break-after: auto !important; } }

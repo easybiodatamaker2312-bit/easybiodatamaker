@@ -22,36 +22,31 @@ function RenderTemplate({ elementId, photosOverride }: { elementId: string; phot
 }
 
 function PhotoGalleryPage({ photos, singlePhoto = false }: { photos: PhotoItem[]; singlePhoto?: boolean }) {
-  const { data, language, templateId, colorwayId } = useBiodataStore();
-  const safeLanguage = language in TRANSLATIONS ? language : 'en';
+  const { templateId, colorwayId } = useBiodataStore();
   const definition = TEMPLATES[(templateId in TEMPLATES ? templateId : 'midnight-gold') as TemplateId];
   const colorway = definition.colorways.find((item) => item.id === colorwayId) ?? definition.colorways[0];
-  const title = TRANSLATIONS[safeLanguage].photos;
+
+  // Additional-photo pages are deliberately image-only: no repeated biodata
+  // heading, candidate name, or arbitrary "Photo 2" label. The first page
+  // already identifies the person; the following pages should feel like a
+  // curated photo insert in a premium printed dossier.
   if (singlePhoto) {
     const photo = photos[0];
     return <div className="photo-export-page photo-export-single-page" style={{ ...colorwayVariables(colorway), background: 'var(--template-paper)', color: 'var(--template-ink)' }}>
       <div className="photo-single-frame">
-        <div className="photo-export-kicker">{TRANSLATIONS[safeLanguage].marriageBiodata}</div>
-        <h1>{data.fullName || title}</h1>
-        <div className="photo-single-label">{title} · {photos.indexOf(photo) + 2}</div>
-        <div className="photo-single-image-wrap"><img src={photo.dataUrl} alt={`${data.fullName || 'Biodata'} photo`} decoding="async" /></div>
+        <div className="photo-single-image-wrap"><img src={photo.dataUrl} alt="Additional biodata photograph" decoding="async" /></div>
       </div>
-      <div className="photo-export-footer">Created with EasyBiodataMaker.com - Free Marriage Biodata Maker</div>
     </div>;
   }
-  return <div className="photo-export-page" style={{ ...colorwayVariables(colorway), background: 'var(--template-paper)', color: 'var(--template-ink)' }}>
-    <div className="photo-export-frame">
-      <div className="photo-export-kicker">{TRANSLATIONS[safeLanguage].marriageBiodata}</div>
-      <h1>{title}</h1>
-      <p>{data.fullName || TRANSLATIONS[safeLanguage].marriageBiodata}</p>
+
+  return <div className="photo-export-page photo-export-gallery-page" style={{ ...colorwayVariables(colorway), background: 'var(--template-paper)', color: 'var(--template-ink)' }}>
+    <div className="photo-export-frame photo-export-gallery-frame">
       <div className="photo-export-grid">
-        {photos.map((photo, index) => <figure key={photo.id} className="photo-export-item">
-          <img src={photo.dataUrl} alt={`${data.fullName || 'Biodata'} photo ${index + 2}`} decoding="async" />
-          <figcaption>Photo {index + 2}</figcaption>
+        {photos.map((photo) => <figure key={photo.id} className="photo-export-item">
+          <img src={photo.dataUrl} alt="Additional biodata photograph" decoding="async" />
         </figure>)}
       </div>
     </div>
-    <div className="photo-export-footer">Created with EasyBiodataMaker.com - Free Marriage Biodata Maker</div>
   </div>;
 }
 
