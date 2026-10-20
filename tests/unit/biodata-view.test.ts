@@ -21,6 +21,6 @@ describe('biodata view model', () => {
     const view = useBiodataView(defaultBiodata, 'en', ['additional', 'photos'], {}, true, [{ id: '1', name: 'profile.jpg', dataUrl: 'data:image/jpeg;base64,x' }], [{ id: 'c1', label: 'Kuldevta', value: 'Shree Krishna' }]);
     expect(view.customFields[0].label).toBe('Kuldevta');
     expect(view.photos).toHaveLength(1);
-    expect(view.sections.map((section) => section.key)).toEqual(['additional', 'photos']);
+    expect(view.sections.map((section) => section.key).slice(0, 2)).toEqual(['additional', 'photos']); // custom order first; missing sections are appended so no data is dropped
   });
 });

@@ -74,7 +74,7 @@ export function CommunityLandingPage({ page }: { page: CommunityPageData }) {
       </div>
     </section>
     <main lang={page.lang === 'en' ? 'en' : `${page.lang}-IN`} className="min-h-screen bg-[var(--ivory,#FBF7F0)] text-stone-900">
-      <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Formats by community',href:'/marriage-biodata-formats-by-community'},{label:page.name}]} />
+      <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Formats by community',href:'/marriage-biodata-formats-by-community'},{label:page.name}]} schemaPath={page.path} />
       <section className="border-b border-stone-200 bg-white px-4 py-12 sm:py-16">
         <div className="mx-auto max-w-6xl grid gap-10 lg:grid-cols-[1.05fr_.95fr] items-center">
           <div>

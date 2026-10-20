@@ -44,6 +44,10 @@ describe('template system', () => {
     expect(ids).toHaveLength(22);
   });
 
+  it('no template renders elements that paint built-in UI (details, summary, dialog)', () => {
+    for (const id of ids) expect(renderTemplate(id), id).not.toMatch(/<(details|summary|dialog)[\s>]/);
+  });
+
   it('templates are structurally different', () => {
     const hashes = ids.map((id) => structuralHash(renderTemplate(id)));
     expect(new Set(hashes).size).toBe(hashes.length);

@@ -25,7 +25,7 @@ export function AnswerGuideArticle({ article }: { article: GuideArticle }) {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     <div className="mx-auto max-w-4xl px-5 py-8 sm:px-8 sm:py-12">
-      <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Blog',href:'/blog'},{label:article.title}]} />
+      <Breadcrumbs items={[{label:'Home',href:'/'},{label:'Blog',href:'/blog'},{label:article.title}]} schemaPath={article.path} />
       <article className="mt-8 rounded-3xl border border-stone-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-12">
         <p className="text-xs font-semibold uppercase tracking-[.16em] text-amber-700">Practical guide · EasyBiodataMaker</p>
         <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{article.title}</h1>

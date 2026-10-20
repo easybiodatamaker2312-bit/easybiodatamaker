@@ -6,13 +6,14 @@ import { SEARCH_INTENT_PAGES } from '@/lib/seo/searchIntentPages';
 import { SEO_KEYWORD_MAP } from '@/lib/seo/keywordMap';
 import { SITE_PAGES } from '@/lib/seo/sitePages';
 import { SEARCH_INTENT_ENHANCEMENTS } from '@/lib/seo/searchIntentEnhancements';
+import { buildMetadata } from '@/lib/seo';
 
 const root = path.resolve(process.cwd());
 const appRoot = path.join(root, 'src', 'app');
 const BASE = 'https://easybiodatamaker.com';
 
 function routeFile(route: string) {
-  return path.join(appRoot, route === '/' ? 'page.tsx' : route.slice(1), 'page.tsx');
+  return route === '/' ? path.join(appRoot, 'page.tsx') : path.join(appRoot, route.slice(1), 'page.tsx');
 }
 
 function routeSource(route: string) {
@@ -48,10 +49,10 @@ function similarity(a: Set<string>, b: Set<string>) {
 }
 
 describe('technical SEO guards', () => {
-  it('uses the configured GA4 measurement ID and manual page views', () => {
+  it('uses the configured GA4 measurement ID; first view via config, later App Router navigations sent manually', () => {
     const source = fs.readFileSync(path.join(root, 'src', 'components', 'analytics', 'GoogleAnalytics.tsx'), 'utf8');
     expect(source).toContain("process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-S4MM2P9GK1'");
-    expect(source).toContain("send_page_view: false");
+    expect(source).toContain('firstPathname'); // the initial page_view comes from gtag config, so it is not double-counted
     expect(source).toContain("window.gtag('event', 'page_view'");
   });
 
@@ -67,18 +68,19 @@ describe('technical SEO guards', () => {
 
   it('does not put the noindex builder in the sitemap', () => {
     expect(sitemapRoutes()).not.toContain('/create');
-    const source = routeSource('/create');
-    expect(source).toContain('index: false');
-    expect(source).toContain('follow: true');
+    expect(routeSource('/create')).toContain('noIndex: true');
+    const robots = (buildMetadata({ title: 'x', description: 'y', path: '/create', noIndex: true }).robots ?? {}) as { index?: boolean; follow?: boolean };
+    expect(robots.index).toBe(false);
+    expect(robots.follow).toBe(true);
   });
 
   it('keeps every indexable page final title <= 60 and description 120-158, with unique descriptions', () => {
     const pages = [...SITE_PAGES, ...COMMUNITY_PAGES, ...SEARCH_INTENT_PAGES];
-    expect(new Set(pages.map((page) => page.path)).size).toBe(66);
+    expect(new Set(pages.map((page) => page.path)).size).toBe(pages.length); // no duplicate paths
     expect(pages.every((page) => page.title.length <= 60)).toBe(true);
     expect(pages.every((page) => page.description.length >= 120 && page.description.length <= 158)).toBe(true);
     expect(new Set(pages.map((page) => page.description)).size).toBe(pages.length);
-    expect(pages.every((page) => page.updatedAt === '2026-10-08')).toBe(true);
+    expect(pages.every((page) => /^\d{4}-\d{2}-\d{2}$/.test(page.updatedAt))).toBe(true); // real per-page lastmod
   });
 
   it('every indexable config resolves to a self-canonical URL with complete social metadata', async () => {
@@ -94,9 +96,9 @@ describe('technical SEO guards', () => {
       expect(metadata.title).toEqual({ absolute: page.title });
       expect(metadata.alternates?.canonical).toBe(`${BASE}${page.path}`);
       expect(metadata.description).toBe(page.description);
-      expect(metadata.openGraph?.type).toBe(page.type || 'website');
+      expect((metadata.openGraph as { type?: string } | null | undefined)?.type).toBe(('type' in page ? page.type : undefined) || 'website');
       expect(metadata.openGraph?.images).toBeTruthy();
-      expect(metadata.twitter?.card).toBe('summary_large_image');
+      expect((metadata.twitter as { card?: string } | null | undefined)?.card).toBe('summary_large_image');
     }
   });
 
@@ -118,9 +120,9 @@ describe('technical SEO guards', () => {
     const seo = await import('@/lib/seo');
     const metadata = seo.buildMetadata({ title: 'Test Marriage Biodata', description: 'A valid test description that is intentionally long enough to represent a normal search snippet for this metadata unit test page.', path: '/test' });
     expect(metadata.title).toEqual({ absolute: 'Test Marriage Biodata' });
-    expect(metadata.openGraph?.type).toBe('website');
+    expect((metadata.openGraph as { type?: string } | null | undefined)?.type).toBe('website');
     expect(metadata.openGraph?.images).toBeTruthy();
-    expect(metadata.twitter?.card).toBe('summary_large_image');
+    expect((metadata.twitter as { card?: string } | null | undefined)?.card).toBe('summary_large_image');
     expect(metadata.alternates?.canonical).toBe('https://easybiodatamaker.com/test');
   });
 
@@ -244,7 +246,10 @@ describe('technical SEO guards', () => {
     const word = fs.readFileSync(path.join(root, 'src/lib/word-export.ts'), 'utf8');
     const footer = 'Created with EasyBiodataMaker.com - Free Marriage Biodata Maker';
     expect(word).toContain("await import('docx')");
-    expect(pdf).toContain("await import('html2canvas')");
+    const capture = fs.readFileSync(path.join(root, 'src/lib/export/capture.ts'), 'utf8');
+    expect(capture).toContain("await import('html-to-image')");
+    expect(pdf).toContain("await import('jspdf')");
+    expect(`${pdf}${capture}`).not.toMatch(/from 'html2canvas'|from 'html-to-image'|from 'jspdf'/); // never in the initial bundle
     expect(pdf).toContain('navigator.canShare');
     expect(preview).toContain('Share / WhatsApp');
     expect(preview).toContain(footer);

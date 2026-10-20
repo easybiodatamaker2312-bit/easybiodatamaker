@@ -27,7 +27,7 @@ export default function MarriageBiodataGuidesPage() {
     <main className="min-h-screen bg-[#FBF7F0] text-[var(--ink)]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Marriage Biodata Guides', url: 'https://easybiodatamaker.com/marriage-biodata-guides', mainEntity: { '@type': 'ItemList', itemListElement: itemList } }) }} />
       <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8 sm:py-12">
-        <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Marriage Biodata Guides' }]} />
+        <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Marriage Biodata Guides' }]} schemaPath="/marriage-biodata-guides" />
         <header className="mt-8 max-w-4xl">
           <p className="eyebrow">Practical content hub</p>
           <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">Marriage Biodata Guides</h1>

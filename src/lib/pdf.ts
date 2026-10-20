@@ -1,232 +1,228 @@
 'use client';
 
-export interface ExportOptions { elementId?: string; filename?: string; }
+/**
+ * Biodata export pipeline (PDF / PNG / JPG).
+ *
+ * The caller mounts an <ExportStage> (same template component + same store data as the
+ * live preview, laid out at a fixed 794 x 1123 px A4 box) and passes it here:
+ *
+ *   1. wait for the exact fonts and images the export uses (no arbitrary sleeps)
+ *   2. decide the page plan: 1:1, mild fit-to-page, or readable multi-page
+ *   3. rasterise each page with the browser's own layout/text engine (html-to-image)
+ *   4. assemble PDF (jsPDF) or PNG/JPEG blobs
+ */
+import {
+  A4_CSS_HEIGHT_PX, A4_CSS_WIDTH_PX, A4_EXPORT_HEIGHT_PX, A4_EXPORT_WIDTH_PX, A4_MM,
+  FOOTER_ZONE_PX, IMAGE_JPEG_QUALITY, IMAGE_SCALE_LADDER, MIN_AUTO_FIT_SCALE, PDF_JPEG_QUALITY, PDF_SCALE_LADDER,
+  type ExportFormat, type PageMode,
+} from '@/lib/export/constants';
+import { analyse, applyWindow, measureWindow } from '@/lib/export/dom';
+import { buildFontEmbedCSS, waitForExportReady } from '@/lib/export/fonts';
+import { canvasToBlob, capturePageWithFallback } from '@/lib/export/capture';
+import { choosePagePlan, paginate } from '@/lib/export/paginate';
 
-/** A4 at 96 CSS px/in, with 300-DPI raster exports for crisp printing/sharing. */
-export const A4_CSS_WIDTH_PX = 794;
-export const A4_CSS_HEIGHT_PX = 1123;
-export const A4_EXPORT_WIDTH_PX = 2480;
-export const A4_EXPORT_HEIGHT_PX = 3508;
-export const A4_MM = { width: 210, height: 297 } as const;
+export { A4_CSS_HEIGHT_PX, A4_CSS_WIDTH_PX, A4_EXPORT_HEIGHT_PX, A4_EXPORT_WIDTH_PX, A4_MM };
+export type { ExportFormat, PageMode };
 
-function safeFilename(filename: string) {
-  return filename.replace(/[^a-z0-9._-]+/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+export type ExportStageName = 'fonts' | 'layout' | 'render' | 'encode';
+export interface ExportProgress { stage: ExportStageName; page?: number; pages?: number }
+
+export interface ExportRequest {
+  format: ExportFormat;
+  /** File name without extension (sanitised here). */
+  filename: string;
+  pageMode?: PageMode;
+  onProgress?: (progress: ExportProgress) => void;
 }
 
-function filenameWithoutExtension(filename: string) {
-  return filename.replace(/\.(pdf|png|jpe?g)$/i, '');
+export interface ExportedFile { name: string; blob: Blob }
+export interface ExportOutcome {
+  files: ExportedFile[];
+  /** Number of biodata pages (extra photo pages in a PDF are counted separately). */
+  biodataPages: number;
+  totalPages: number;
+  layout: 'single' | 'paginated';
+  /** Text scale applied when a single page had to be shrunk (1 = designed size). */
+  fitScale: number;
+  warnings: string[];
+  timings: { readyMs: number; layoutMs: number; renderMs: number; totalMs: number };
 }
 
-function getExportElement(elementId = 'print-root') {
-  const element = document.getElementById(elementId);
-  if (!element) throw new Error('Biodata export was not found.');
-  return element;
+export class ExportBusyError extends Error { constructor() { super('Another export is already running.'); this.name = 'ExportBusyError'; } }
+
+let exportInFlight = false;
+
+export function safeFilename(filename: string): string {
+  const cleaned = filename
+    .replace(/\.(pdf|png|jpe?g)$/i, '')
+    .replace(/[^\p{L}\p{M}\p{N}._-]+/gu, '-')
+    .replace(/-+/g, '-')
+    .replace(/^[-.]+|[-.]+$/g, '')
+    .slice(0, 80);
+  return cleaned || 'biodata';
 }
 
-async function prepareOnePagePrint(elementId = 'print-root') {
-  const root = getExportElement(elementId);
-  const pages = Array.from(root.querySelectorAll<HTMLElement>('.print-fit-page'));
-  if (!pages.length) return;
+function requireElement<T extends Element>(parent: ParentNode, selector: string, what: string): T {
+  const el = parent.querySelector<T>(selector);
+  if (!el) throw new Error(`The ${what} is not available for export.`);
+  return el;
+}
 
-  try { await document.fonts?.ready; } catch { /* continue with system fonts */ }
-  const images = Array.from(root.querySelectorAll<HTMLImageElement>('img'));
-  await Promise.all(images.map(async (image) => {
-    try { await image.decode(); } catch { /* an image can still be printable */ }
-  }));
+const nextFrame = () => new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
 
-  // Fit the rendered A4 artwork to the printable content area while preserving
-  // the exact 210 x 297 mm page box. This prevents horizontal clipping and footer overlap.
-  const a4HeightPx = (285 / 25.4) * 96;
-  pages.forEach((page) => {
-    const content = page.querySelector<HTMLElement>('.print-fit-content');
-    if (!content) return;
-    const template = content.querySelector<HTMLElement>('.template-a4');
-    if (!template) {
-      content.style.setProperty('--print-scale', '1');
-      content.style.setProperty('--print-offset-x', '0mm');
-      page.style.setProperty('--print-scale', '1');
-      return;
+interface PageWindow { lo: number; hi: number }
+
+/** Render the stage to files. Never downloads anything by itself. */
+export async function renderExport(stage: HTMLElement, request: ExportRequest): Promise<ExportOutcome> {
+  if (typeof window === 'undefined') throw new Error('Export is only available in the browser.');
+  if (exportInFlight) throw new ExportBusyError();
+  exportInFlight = true;
+  const t0 = performance.now();
+  const report = request.onProgress ?? (() => undefined);
+  const warnings: string[] = [];
+  try {
+    const bioPage = requireElement<HTMLElement>(stage, '[data-export-biodata-page]', 'biodata page');
+    const scaler = requireElement<HTMLElement>(bioPage, '[data-export-scaler]', 'biodata layout');
+    const root = requireElement<HTMLElement>(scaler, '.template-a4', 'template');
+    const extraPages = request.format === 'pdf' ? Array.from(stage.querySelectorAll<HTMLElement>('[data-export-extra-page]')) : [];
+    const pageNumber = bioPage.querySelector<HTMLElement>('[data-export-page-number]');
+    const background = getComputedStyle(bioPage).backgroundColor || '#ffffff';
+
+    // 1 — readiness (real signals: loaded FontFaces and decoded images)
+    report({ stage: 'fonts' });
+    const readiness = await waitForExportReady(stage);
+    if (readiness.fontsFailed.length) warnings.push('Some fonts could not be loaded; the closest available font was used.');
+    if (readiness.imagesFailed) warnings.push('A photo could not be loaded and was left out.');
+    const fontEmbedCSS = await buildFontEmbedCSS(stage);
+    await nextFrame();
+    const readyMs = performance.now() - t0;
+
+    // 2 — page plan, measured on the natural (unscaled, unpaginated) layout
+    report({ stage: 'layout' });
+    const tLayout = performance.now();
+    scaler.style.transform = 'none';
+    scaler.style.left = '0px';
+    const analysis = analyse(root);
+    let plan = choosePagePlan({ naturalHeight: analysis.naturalHeight, pageHeight: A4_CSS_HEIGHT_PX, footerZone: FOOTER_ZONE_PX, mode: request.pageMode ?? 'auto', minFitScale: MIN_AUTO_FIT_SCALE });
+    if (plan.kind === 'paginated' && analysis.units.length < 2) {
+      plan = { kind: 'single', scale: Math.max(0.5, (A4_CSS_HEIGHT_PX - FOOTER_ZONE_PX * 0.5) / analysis.naturalHeight) };
+      warnings.push('This layout cannot be split across pages, so it was fitted onto one page.');
     }
-    const previousMinHeight = template.style.minHeight;
-    template.style.minHeight = '0';
-    const contentHeight = Math.max(template.scrollHeight, template.getBoundingClientRect().height);
-    template.style.minHeight = previousMinHeight;
-    const scale = Math.min(1, a4HeightPx / Math.max(contentHeight, 1));
-    // Never stretch the design on only one axis: that makes typefaces and
-    // decorative elements look squashed compared with the live preview. Use
-    // one proportional scale for both axes and center the reduced artwork on
-    // the A4 page. Short layouts stay at 100%; only over-height layouts shrink.
-    content.style.setProperty('--print-scale', String(scale));
-    content.style.setProperty('--print-offset-x', `${((210 * (1 - scale)) / 2).toFixed(3)}mm`);
-    page.style.setProperty('--print-scale', String(scale));
-  });
-}
 
-export async function downloadBiodataAsPDF(elementId = 'print-root', filename = 'biodata.pdf') {
-  if (typeof window === 'undefined') return;
-  await prepareOnePagePrint(elementId);
-  const root = getExportElement(elementId);
-  const pages = Array.from(root.querySelectorAll<HTMLElement>('.print-fit-page'));
-  if (!pages.length) throw new Error('No biodata pages are available for PDF export.');
-
-  // Direct PDF export uses the same selected template + colorway that the user
-  // sees in the preview, rasterized at a fixed A4/300-DPI canvas size. This avoids
-  // browser print-margin/zoom differences and guarantees a true 210 x 297 mm page.
-  const { jsPDF } = await import('jspdf');
-  const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4', compress: true });
-
-  for (let index = 0; index < pages.length; index += 1) {
-    const canvas = await renderA4Canvas(pages[index]);
-    if (index > 0) pdf.addPage('a4', 'portrait');
-    pdf.addImage(canvas.toDataURL('image/jpeg', 0.97), 'JPEG', 0, 0, A4_MM.width, A4_MM.height, undefined, 'FAST');
-  }
-
-  pdf.save(`${safeFilename(filenameWithoutExtension(filename)) || 'biodata'}.pdf`);
-}
-
-async function renderA4Canvas(page: HTMLElement): Promise<HTMLCanvasElement> {
-  // Canvas capture can otherwise race web-font loading and fall back to a
-  // system font, changing line breaks and making the downloaded layout drift.
-  try { await document.fonts?.ready; } catch { /* use the best available font */ }
-  const html2canvas = (await import('html2canvas')).default;
-  return html2canvas(page, {
-    scale: A4_EXPORT_WIDTH_PX / A4_CSS_WIDTH_PX,
-    useCORS: true,
-    allowTaint: false,
-    backgroundColor: null,
-    logging: false,
-    width: A4_CSS_WIDTH_PX,
-    height: A4_CSS_HEIGHT_PX,
-    windowWidth: A4_CSS_WIDTH_PX,
-    windowHeight: A4_CSS_HEIGHT_PX,
-    scrollX: 0,
-    scrollY: 0,
-    // html2canvas renders a cloned document. Apply row alignment inside that
-    // clone as well as in the live preview, so PDF and JPG exports cannot fall
-    // back to a different baseline/vertical alignment due to cascade order.
-    onclone: (clonedDocument) => {
-      const style = clonedDocument.createElement('style');
-      style.setAttribute('data-export-row-alignment', 'true');
-      style.textContent = `
-        #print-root .inspired-row,
-        #png-root .inspired-row,
-        .inspired-template .inspired-row,
-        .template-a4 .template-row,
-        .template-a4 .pearl-row,
-        .template-a4 .emerald-row,
-        .template-a4 .kanjivaram-row,
-        .template-a4 .noor-row,
-        .template-a4 .sapphire-row,
-        .template-a4 .rajwada-row,
-        .template-a4 .peacock-row {
-          display: grid !important;
-          align-items: center !important;
-          align-content: center !important;
-        }
-        #print-root .inspired-row > *,
-        #png-root .inspired-row > *,
-        .inspired-template .inspired-row > *,
-        .template-a4 .template-row > *,
-        .template-a4 .pearl-row > *,
-        .template-a4 .emerald-row > *,
-        .template-a4 .kanjivaram-row > *,
-        .template-a4 .noor-row > *,
-        .template-a4 .sapphire-row > *,
-        .template-a4 .rajwada-row > *,
-        .template-a4 .peacock-row > * {
-          /* Grid alignment alone can leave glyphs visually low in html2canvas.
-             Stretch each cell to the row height, then center its text block. */
-          display: flex !important;
-          flex-direction: column !important;
-          justify-content: center !important;
-          align-self: stretch !important;
-          min-width: 0 !important;
-          box-sizing: border-box !important;
-          margin-block-start: 0 !important;
-          margin-block-end: 0 !important;
-          padding-block-start: 0 !important;
-          padding-block-end: 0 !important;
-        }
-      `;
-      (clonedDocument.head || clonedDocument.documentElement).appendChild(style);
-
-      const rowSelector = [
-        '#print-root .inspired-row', '#png-root .inspired-row',
-        '.inspired-template .inspired-row', '.template-a4 .template-row',
-        '.template-a4 .pearl-row', '.template-a4 .emerald-row',
-        '.template-a4 .kanjivaram-row', '.template-a4 .noor-row',
-        '.template-a4 .sapphire-row', '.template-a4 .rajwada-row',
-        '.template-a4 .peacock-row',
-      ].join(',');
-      clonedDocument.querySelectorAll<HTMLElement>(rowSelector).forEach((row) => {
-        row.style.setProperty('display', 'grid', 'important');
-        row.style.setProperty('align-items', 'stretch', 'important');
-        row.style.setProperty('align-content', 'center', 'important');
-        row.querySelectorAll<HTMLElement>(':scope > *').forEach((cell) => {
-          cell.style.setProperty('display', 'flex', 'important');
-          cell.style.setProperty('flex-direction', 'column', 'important');
-          cell.style.setProperty('justify-content', 'center', 'important');
-          cell.style.setProperty('align-self', 'stretch', 'important');
-          cell.style.setProperty('min-width', '0', 'important');
-          cell.style.setProperty('box-sizing', 'border-box', 'important');
-          cell.style.setProperty('margin-block-start', '0', 'important');
-          cell.style.setProperty('margin-block-end', '0', 'important');
-          cell.style.setProperty('padding-block-start', '0', 'important');
-          cell.style.setProperty('padding-block-end', '0', 'important');
-        });
+    let windows: PageWindow[] = [{ lo: -Infinity, hi: Infinity }];
+    let fitScale = 1;
+    if (plan.kind === 'single') {
+      fitScale = plan.scale;
+      if (fitScale < 1) {
+        scaler.style.transform = `scale(${fitScale})`;
+        scaler.style.left = `${((A4_CSS_WIDTH_PX * (1 - fitScale)) / 2).toFixed(2)}px`;
+      }
+    } else {
+      const { starts, overflowPages } = paginate({
+        units: analysis.units,
+        limit: A4_CSS_HEIGHT_PX,
+        measure: (lo, hi) => measureWindow(analysis, lo, hi),
       });
-    },
-  });
+      windows = starts.map((lo, i) => ({ lo, hi: starts[i + 1] ?? Infinity }));
+      if (overflowPages.length) warnings.push('A very large block of text did not fit on its page and may be cut off.');
+    }
+    const biodataPages = windows.length;
+    const totalPages = biodataPages + extraPages.length;
+    const layoutMs = performance.now() - tLayout;
+
+    // 3 + 4 — rasterise and assemble
+    const tRender = performance.now();
+    const ladder = request.format === 'pdf' ? PDF_SCALE_LADDER : IMAGE_SCALE_LADDER;
+    const base = safeFilename(request.filename);
+    const captureOptions = { background, fontEmbedCSS };
+    const files: ExportedFile[] = [];
+    let pdf: import('jspdf').jsPDF | null = null;
+    if (request.format === 'pdf') {
+      const { jsPDF } = await import('jspdf');
+      pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4', compress: true });
+      pdf.setProperties({ title: base, creator: 'EasyBiodataMaker' });
+    }
+    let usedScale = ladder[0];
+
+    const emit = async (canvas: HTMLCanvasElement, index: number) => {
+      report({ stage: 'encode', page: index + 1, pages: totalPages });
+      if (pdf) {
+        if (index > 0) pdf.addPage('a4', 'portrait');
+        pdf.addImage(canvas.toDataURL('image/jpeg', PDF_JPEG_QUALITY), 'JPEG', 0, 0, A4_MM.width, A4_MM.height, undefined, 'FAST');
+      } else {
+        const isPng = request.format === 'png';
+        const blob = await canvasToBlob(canvas, isPng ? 'image/png' : 'image/jpeg', isPng ? undefined : IMAGE_JPEG_QUALITY);
+        const suffix = biodataPages > 1 ? `-page-${index + 1}` : '';
+        files.push({ name: `${base}${suffix}.${isPng ? 'png' : 'jpg'}`, blob });
+      }
+      canvas.width = 0; canvas.height = 0; // free the bitmap immediately
+    };
+
+    for (let i = 0; i < windows.length; i += 1) {
+      report({ stage: 'render', page: i + 1, pages: totalPages });
+      if (pageNumber) pageNumber.textContent = biodataPages > 1 ? `Page ${i + 1} of ${biodataPages}` : '';
+      const restore = plan.kind === 'paginated' ? applyWindow(analysis, windows[i].lo, windows[i].hi) : () => undefined;
+      try {
+        const { canvas, scale } = await capturePageWithFallback(bioPage, ladder.slice(ladder.indexOf(usedScale)), captureOptions);
+        usedScale = scale;
+        await emit(canvas, i);
+      } finally {
+        restore();
+      }
+    }
+    for (let i = 0; i < extraPages.length; i += 1) {
+      report({ stage: 'render', page: biodataPages + i + 1, pages: totalPages });
+      const { canvas, scale } = await capturePageWithFallback(extraPages[i], ladder.slice(ladder.indexOf(usedScale)), { background: getComputedStyle(extraPages[i]).backgroundColor || background, fontEmbedCSS });
+      usedScale = scale;
+      await emit(canvas, biodataPages + i);
+    }
+    if (usedScale < ladder[0]) warnings.push('Your device could not create the full 300 DPI image, so a slightly lower resolution was used.');
+    if (pdf) files.push({ name: `${base}.pdf`, blob: pdf.output('blob') });
+
+    const renderMs = performance.now() - tRender;
+    return {
+      files, biodataPages, totalPages, layout: plan.kind, fitScale, warnings,
+      timings: { readyMs: Math.round(readyMs), layoutMs: Math.round(layoutMs), renderMs: Math.round(renderMs), totalMs: Math.round(performance.now() - t0) },
+    };
+  } finally {
+    exportInFlight = false;
+  }
 }
 
-async function createBiodataImage(elementId = 'png-root', format: 'png' | 'jpeg' = 'png'): Promise<Blob> {
-  await prepareOnePagePrint(elementId);
-  const element = getExportElement(elementId);
-  const page = element.querySelector<HTMLElement>('.print-fit-page') ?? element;
-  const canvas = await renderA4Canvas(page);
-  const mime = format === 'jpeg' ? 'image/jpeg' : 'image/png';
-  const quality = format === 'jpeg' ? 0.96 : undefined;
-  const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, mime, quality));
-  if (!blob) throw new Error(`${format.toUpperCase()} generation failed.`);
-  return blob;
-}
+/* ------------------------------------------------------------------ delivery */
 
-export async function downloadBiodataAsPNG(elementId = 'png-root', filename = 'biodata.png') {
-  const blob = await createBiodataImage(elementId, 'png');
-  downloadBlob(blob, `${safeFilename(filenameWithoutExtension(filename)) || 'biodata'}.png`);
-}
-
-export async function downloadBiodataAsJPG(elementId = 'png-root', filename = 'biodata.jpg') {
-  const blob = await createBiodataImage(elementId, 'jpeg');
-  downloadBlob(blob, `${safeFilename(filenameWithoutExtension(filename)) || 'biodata'}.jpg`);
-}
-
-function downloadBlob(blob: Blob, filename: string) {
+export function downloadBlob(blob: Blob, filename: string): void {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
   link.download = filename;
+  link.rel = 'noopener';
   document.body.appendChild(link);
   link.click();
   link.remove();
-  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  // Revoke after the browser has started the download (long enough for slow mobile browsers).
+  window.setTimeout(() => URL.revokeObjectURL(url), 15_000);
 }
 
-export async function shareBiodata(title: string, text: string, elementId = 'png-root', filename = 'biodata.png') {
-  if (typeof window === 'undefined') return false;
+export async function downloadFiles(files: ExportedFile[]): Promise<void> {
+  for (let i = 0; i < files.length; i += 1) {
+    downloadBlob(files[i].blob, files[i].name);
+    if (i < files.length - 1) await new Promise((resolve) => setTimeout(resolve, 400)); // browsers throttle simultaneous downloads
+  }
+}
+
+/** Share page images (Web Share API). Returns true if shared/cancelled, false if the caller should use the WhatsApp text fallback. */
+export async function shareFiles(files: ExportedFile[], title: string, text: string): Promise<boolean> {
+  const shareable = files.map((file) => new File([file.blob], file.name, { type: file.blob.type }));
   try {
-    const blob = await createBiodataImage(elementId, 'png');
-    const file = new File([blob], safeFilename(filenameWithoutExtension(filename)) + '.png', { type: 'image/png' });
-    if (navigator.canShare?.({ files: [file] })) {
-      await navigator.share({ title, text, files: [file] });
+    if (navigator.canShare?.({ files: shareable })) {
+      await navigator.share({ title, text, files: shareable });
       return true;
     }
-    downloadBlob(blob, file.name);
   } catch (error) {
     if (error instanceof DOMException && error.name === 'AbortError') return true;
-    try { await downloadBiodataAsPNG(elementId, filename); } catch { /* fall through to WhatsApp */ }
   }
-  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
-  window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  await downloadFiles(files);
+  window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
   return false;
 }

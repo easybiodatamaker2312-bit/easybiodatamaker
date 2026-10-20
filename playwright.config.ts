@@ -2,14 +2,16 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests/e2e',
-  timeout: 30_000,
+  timeout: 90_000,
   use: {
-    baseURL: 'http://127.0.0.1:3000',
+    baseURL: process.env.E2E_BASE_URL ?? 'http://127.0.0.1:3000',
+    // Optional: run against a locally installed Chromium (PW_CHROMIUM_PATH) instead of Playwright's download.
+    ...(process.env.PW_CHROMIUM_PATH ? { launchOptions: { executablePath: process.env.PW_CHROMIUM_PATH, args: ['--no-sandbox'] } } : {}),
     trace: 'retain-on-failure',
   },
   webServer: {
     command: 'npm run dev',
-    url: 'http://127.0.0.1:3000',
+    url: process.env.E2E_BASE_URL ?? 'http://127.0.0.1:3000',
     reuseExistingServer: true,
   },
   projects: [

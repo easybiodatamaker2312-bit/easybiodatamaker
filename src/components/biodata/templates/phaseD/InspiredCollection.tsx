@@ -73,7 +73,9 @@ function InspiredLayout({view,auspiciousSymbol,colorway,id}:TemplateRenderProps 
  const photo = view.photos[0];
  const sections = view.sections.filter(section => section.key !== 'photos');
  const split = style.hero === 'split';
- const Ornament = ({'classic-ivory':'aside','rose-arch':'figure','blue-ledger':'nav','garden-green':'section','modern-split':'header','gold-frame':'footer','minimal-grid':'address','floral-border':'details','royal-maroon':'main','contemporary-card':'summary'} as const)[id];
+ // Decorative frame element. Tag names only vary the DOM structure per template: never use details/summary
+ // (they paint a visible "Details" label / bullet) or landmark tags such as main for a purely visual node.
+ const Ornament = ({'classic-ivory':'aside','rose-arch':'figure','blue-ledger':'nav','garden-green':'section','modern-split':'header','gold-frame':'footer','minimal-grid':'address','floral-border':'article','royal-maroon':'hgroup','contemporary-card':'figcaption'} as const)[id];
  return <A4Root className={`inspired-template inspired-${id}`} style={{...TEMPLATE_ROOT_STYLE,...colorwayVariables(colorway),fontFamily:'var(--template-body)',padding:'13mm',position:'relative',overflow:'hidden'}}>
   {React.createElement(Ornament, { className: `inspired-frame frame-${style.frame}`, 'aria-hidden': 'true' })}
   <header className={`inspired-hero hero-${style.hero}`}>

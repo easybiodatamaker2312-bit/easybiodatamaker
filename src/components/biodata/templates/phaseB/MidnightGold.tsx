@@ -22,8 +22,7 @@ export function MidnightGoldLayout({ view, auspiciousSymbol, colorway }: Templat
     <header className="midnight-header">
       <SymbolMark auspiciousSymbol={auspiciousSymbol} />
       <p className="midnight-caption">{view.headerCaption}</p>
-      <h1>{view.sections.length || view.photos.length ? view.sections[0]?.rows.find((r) => r.key === 'fullName')?.value || '' : ''}</h1>
-      <div className="midnight-name">{view.fullName}</div>
+      <h1>{view.fullName}</h1>
       <div className="midnight-rule"><span /><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2L12 2Z"/></svg><span /></div>
       {photo ? <div className="midnight-arch"><PhotoImage src={photo} /></div> : <div className="midnight-arch empty"><PhotoImage /></div>}
     </header>
