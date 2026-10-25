@@ -51,7 +51,7 @@ function similarity(a: Set<string>, b: Set<string>) {
 describe('technical SEO guards', () => {
   it('uses the configured GA4 measurement ID; first view via config, later App Router navigations sent manually', () => {
     const source = fs.readFileSync(path.join(root, 'src', 'components', 'analytics', 'GoogleAnalytics.tsx'), 'utf8');
-    expect(source).toContain("process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-S4MM2P9GK1'");
+    expect(source).toContain("process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-S4MM2PG9K1'");
     expect(source).toContain('firstPathname'); // the initial page_view comes from gtag config, so it is not double-counted
     expect(source).toContain("window.gtag('event', 'page_view'");
   });
