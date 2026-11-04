@@ -103,7 +103,7 @@ for (const forbidden of ['aggregateRating', 'ratingValue', 'reviewCount', 'itemR
   if (new RegExp(forbidden, 'i').test(allSource)) fail(`Forbidden review/rating schema token found: ${forbidden}`);
 }
 if (!/await import\(['"]docx['"]\)/.test(allSource)) fail('docx must remain interaction-only via dynamic import');
-if (!/await import\(['"]html2canvas['"]\)/.test(allSource)) fail('html2canvas must remain interaction-only via dynamic import');
+if (!/await import\(['"]html-to-image['"]\)/.test(allSource)) fail('html-to-image must remain interaction-only via dynamic import');
 if (failures.length === 0) pass('Structured-data and interaction-only dependency guards passed');
 
 const oldFontFiles = [

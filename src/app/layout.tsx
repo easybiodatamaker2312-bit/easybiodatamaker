@@ -150,7 +150,16 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', site: '@easybiodata', creator: '@easybiodata', title: 'EasyBiodataMaker – Free Marriage Biodata Maker India', description: 'premium templates · 9 Indian languages · Photo upload · Custom fields · Instant PDF · No login', images: [{ url: '/og-image.png', alt: 'EasyBiodataMaker' }] },
   alternates: { canonical: 'https://easybiodatamaker.com' },
   verification: { google: process.env.NEXT_PUBLIC_GSC_TOKEN },
-  icons: { icon: [{ url: '/favicon.png', sizes: '512x512', type: 'image/png' }, { url: '/icon-192.png', sizes: '192x192', type: 'image/png' }], apple: '/apple-touch-icon.png' },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', sizes: '512x512', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
 };
 
 const websiteSchema = {
@@ -169,7 +178,7 @@ const organizationSocialProfiles = [
 const orgSchema = {
   '@context': 'https://schema.org', '@type': 'Organization', '@id': 'https://easybiodatamaker.com/#organization',
   name: 'EasyBiodataMaker', url: 'https://easybiodatamaker.com',
-  logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-192.png', width: 192, height: 192 },
+  logo: { '@type': 'ImageObject', url: 'https://easybiodatamaker.com/icon-512.png', width: 512, height: 512 },
   description: 'Free online marriage biodata maker with premium templates in 9 Indian languages.',
   ...(organizationSocialProfiles.length ? { sameAs: organizationSocialProfiles } : {}),
   contactPoint: [{ '@type': 'ContactPoint', contactType: 'customer support', email: 'support@easybiodatamaker.com', availableLanguage: ['English','Hindi','Gujarati','Marathi','Tamil','Bengali','Punjabi','Telugu','Kannada'] }],
@@ -182,13 +191,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#FBF7F0" />
+        <meta name="theme-color" content="#FFF8ED" />
         <meta name="rating" content="general" />
         <meta name="distribution" content="global" />
         <meta name="HandheldFriendly" content="True" />
         <meta name="MobileOptimized" content="320" />
         {/* PWA */}
         <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         {/* Performance preconnects */}
         {/* Structured Data */}

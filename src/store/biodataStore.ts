@@ -51,8 +51,8 @@ export interface BiodataStore {
 export const useBiodataStore = create<BiodataStore>()(persist((set) => ({
   data: defaultBiodata,
   language: 'en',
-  templateId: 'midnight-gold',
-  colorwayId: 'gold',
+  templateId: 'gold-frame',
+  colorwayId: 'antique-gold',
   step: 1,
   photos: [],
   photoPageMode: 'single-per-page',
@@ -83,7 +83,7 @@ export const useBiodataStore = create<BiodataStore>()(persist((set) => ({
   setPhotoPageMode: (photoPageMode) => set({ photoPageMode, updatedAt: Date.now() }),
   addPhoto: (photo) => set((s) => ({ photos: [...s.photos, photo].slice(0, 5), updatedAt: Date.now() })),
   removePhoto: (id) => set((s) => ({ photos: s.photos.filter((p) => p.id !== id), updatedAt: Date.now() })),
-  reset: () => set({ data: defaultBiodata, language: 'en', templateId: 'midnight-gold', colorwayId: 'gold', step: 1, photos: [], photoPageMode: 'single-per-page', optionalFields: {}, customFields: [], sectionOrder: ['basics', 'family', 'education', 'about', 'contact', 'photos'], fieldOrder: {}, contactVisible: true, auspiciousSymbol: 'none', updatedAt: null }),
+  reset: () => set({ data: defaultBiodata, language: 'en', templateId: 'gold-frame', colorwayId: 'antique-gold', step: 1, photos: [], photoPageMode: 'single-per-page', optionalFields: {}, customFields: [], sectionOrder: ['basics', 'family', 'education', 'about', 'contact', 'photos'], fieldOrder: {}, contactVisible: true, auspiciousSymbol: 'none', updatedAt: null }),
 }), {
   name: 'easy-biodata-v3',
   storage: createJSONStorage(() => localStorage),

@@ -13,14 +13,14 @@ import { colorwayVariables } from '@/components/biodata/template-contract';
  */
 export function useActiveColorway() {
   const { templateId, colorwayId } = useBiodataStore();
-  const definition = TEMPLATES[(templateId in TEMPLATES ? templateId : 'midnight-gold') as TemplateId];
+  const definition = TEMPLATES[(templateId in TEMPLATES ? templateId : 'gold-frame') as TemplateId];
   const colorway = definition.colorways.find((item) => item.id === colorwayId) ?? definition.colorways[0];
   return { definition, colorway };
 }
 
 export function RenderTemplate({ elementId, photosOverride }: { elementId: string; photosOverride?: PhotoItem[] }) {
   const { data, photos, customFields, templateId, language, contactVisible, sectionOrder, optionalFields, auspiciousSymbol, colorwayId, fieldOrder } = useBiodataStore();
-  const safeTemplateId = (templateId in TEMPLATES ? templateId : 'midnight-gold') as TemplateId;
+  const safeTemplateId = (templateId in TEMPLATES ? templateId : 'gold-frame') as TemplateId;
   const safeLanguage = (language in TRANSLATIONS ? language : 'en') as SupportedLanguage;
   const definition = TEMPLATES[safeTemplateId];
   const colorway = definition.colorways.find((item) => item.id === colorwayId) ?? definition.colorways[0];

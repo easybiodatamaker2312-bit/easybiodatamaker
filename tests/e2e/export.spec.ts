@@ -37,7 +37,7 @@ async function download(page: Page, name: RegExp, statusRe = /downloaded/) {
 
 test.describe('export pipeline', () => {
   test('long biodata exports as readable A4 PNG pages (one file per page) at 2480 px width', async ({ page }) => {
-    await seed(page, STANDARD, 'classic-ivory');
+    await seed(page, STANDARD, 'gold-frame');
     const files = await download(page, /Download PNG/);
     expect(files.length).toBeGreaterThan(1);
     for (const file of files) {
@@ -51,7 +51,7 @@ test.describe('export pipeline', () => {
   });
 
   test('PDF is a valid A4 document whose page count matches the status message', async ({ page }) => {
-    await seed(page, STANDARD, 'midnight-gold');
+    await seed(page, STANDARD, 'gold-frame');
     const [pdf] = await download(page, /Download Premium PDF/);
     const text = fs.readFileSync((await pdf.path())!).toString('latin1');
     expect(text.startsWith('%PDF-')).toBe(true);
@@ -73,7 +73,7 @@ test.describe('export pipeline', () => {
   });
 
   test('buttons are disabled while exporting and restored afterwards', async ({ page }) => {
-    await seed(page, SHORT, 'classic-ivory');
+    await seed(page, SHORT, 'gold-frame');
     const pdfButton = page.getByRole('button', { name: /Download Premium PDF|Generating PDF/ });
     await pdfButton.click();
     await expect(page.getByRole('button', { name: /Generating PDF/ })).toBeDisabled();
@@ -84,14 +84,14 @@ test.describe('export pipeline', () => {
   });
 
   test('the export contains none of the site UI (stage holds only the biodata)', async ({ page }) => {
-    await seed(page, SHORT, 'classic-ivory');
+    await seed(page, SHORT, 'gold-frame');
     await page.getByRole('button', { name: /Download PNG/ }).click();
     const html = await page.waitForFunction(() => document.querySelector('[data-export-stage]')?.innerHTML ?? null, null, { timeout: 15_000 }).then((h) => h.jsonValue() as Promise<string | null>).catch(() => null);
     if (html) { expect(html).not.toMatch(/<button|<nav|role="dialog"/); }
   });
 
   test('single-page export matches the browser-rendered preview (pixel comparison)', async ({ page }) => {
-    await seed(page, SHORT, 'classic-ivory');
+    await seed(page, SHORT, 'gold-frame');
     await page.evaluate(() => { const w = document.querySelector<HTMLElement>('.builder-a4-scale'); if (w) w.style.transform = 'none'; const a = document.querySelector<HTMLElement>('.builder-a4-wrap'); if (a) { a.style.height = 'auto'; a.style.overflow = 'visible'; } });
     const native = await page.locator('#biodata-preview-live').screenshot();
     const [png] = await download(page, /Download PNG/);

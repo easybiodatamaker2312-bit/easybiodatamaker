@@ -11,6 +11,7 @@ import { downloadBiodataAsWord } from '@/lib/word-export';
 import { useBiodataView } from '@/lib/useBiodataView';
 import { PhotoGalleryPage, RenderTemplate, useActiveColorway } from '@/components/builder/BiodataRender';
 import { ExportStage } from '@/components/builder/ExportStage';
+import { recordDownload } from '@/lib/analytics/download-stats';
 
 const EXPORT_FOOTER = 'Created with EasyBiodataMaker.com - Free Marriage Biodata Maker';
 type Busy = ExportFormat | 'word' | 'share' | null;
@@ -99,6 +100,7 @@ export function PreviewPane() {
   const exportFile = (format: ExportFormat) => run(format, async () => {
     const outcome = await generate(format);
     await downloadFiles(outcome.files);
+    void recordDownload(format).catch((error) => console.warn('Download analytics could not be recorded.', error));
     const count = format === 'pdf' ? outcome.totalPages : outcome.biodataPages;
     const pages = count > 1 ? ` (${count} A4 pages)` : '';
     const note = outcome.warnings[0] ? ` ${outcome.warnings[0]}` : '';
@@ -107,6 +109,7 @@ export function PreviewPane() {
 
   const exportWord = () => run('word', async () => {
     await downloadBiodataAsWord(view, `${filename}.docx`);
+    void recordDownload('word').catch((error) => console.warn('Download analytics could not be recorded.', error));
     flash({ tone: 'success', text: 'Word document downloaded.' });
   }, 'Word document');
 

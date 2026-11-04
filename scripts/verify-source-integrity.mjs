@@ -68,7 +68,7 @@ const templateFiles = [
 ];
 const missingTemplates = templateFiles.filter((file) => !fs.existsSync(path.join(srcRoot, 'components', 'biodata', 'templates', file)));
 if (missingTemplates.length) fail(`Missing registered template files: ${missingTemplates.join(', ')}`);
-else pass('All 13 template implementation files exist (22 registered designs)');
+else pass('All 13 template implementation files exist (19 registered designs)');
 
 if (failures.length) {
   console.error(`\n${failures.length} source-integrity failure(s):`);

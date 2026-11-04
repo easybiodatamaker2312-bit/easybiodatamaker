@@ -24,7 +24,7 @@ export type SearchIntentPageConfig = {
 const templatePreviewByPath: Record<string, { id: string; alt: string }> = {
   '/simple-marriage-biodata-format': { id: 'editorial-mono', alt: 'Editorial Mono simple marriage biodata template preview' },
   '/modern-marriage-biodata-format': { id: 'blush-rose-floral', alt: 'Blush Rose Floral modern marriage biodata template preview' },
-  '/traditional-marriage-biodata-template': { id: 'midnight-gold', alt: 'Midnight Gold traditional marriage biodata template preview' },
+  '/traditional-marriage-biodata-template': { id: 'gold-frame', alt: 'Midnight Gold traditional marriage biodata template preview' },
   '/royal-wedding-biodata-format': { id: 'royal-peacock', alt: 'Royal Peacock royal wedding biodata template preview' },
   '/marriage-biodata-template-free-download': { id: 'sandstone-rajasthan', alt: 'Sandstone Rajasthan marriage biodata template preview' },
 };

@@ -66,7 +66,7 @@ export function buildArticleSchema(config: {
     publisher: {
       '@type': 'Organization',
       name: 'EasyBiodataMaker',
-      logo: { '@type': 'ImageObject', url: `${BASE_URL}/icon-192.png` },
+      logo: { '@type': 'ImageObject', url: `${BASE_URL}/icon-512.png` },
     },
     mainEntityOfPage: `${BASE_URL}${config.path}`,
     image: `${BASE_URL}${DEFAULT_OG_IMAGE}`,

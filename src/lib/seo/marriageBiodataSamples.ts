@@ -2,7 +2,7 @@ export const MARRIAGE_BIODATA_SAMPLES = [
   {
     "id": "boy",
     "title": "Boy / groom sample",
-    "template": "classic-ivory",
+    "template": "gold-frame",
     "text": [
       "Name: Arjun Sharma",
       "Age: 29 · Height: 178 cm",
@@ -107,7 +107,7 @@ export const MARRIAGE_BIODATA_SAMPLES = [
   {
     "id": "second-marriage",
     "title": "Second marriage sample",
-    "template": "classic-ivory",
+    "template": "gold-frame",
     "text": [
       "Name: S. Patel",
       "Age: 35",

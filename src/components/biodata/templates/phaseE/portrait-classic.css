@@ -1,0 +1,30 @@
+.portrait-classic { box-sizing:border-box; padding:10mm 10mm 8mm; font-family:var(--template-body); position:relative; overflow:hidden; }
+.portrait-classic * { box-sizing:border-box; }
+.portrait-classic-frame { min-height:279mm; height:100%; border:1.2mm solid var(--template-accent); outline:.35mm solid var(--template-accent); outline-offset:-2.4mm; padding:5mm 5mm 4mm; position:relative; background:linear-gradient(145deg,rgba(255,255,255,.26),transparent 38%),var(--template-paper); }
+.portrait-classic-frame:before,.portrait-classic-frame:after { content:""; position:absolute; inset:2mm; border: .25mm solid color-mix(in srgb,var(--template-accent) 68%,transparent); pointer-events:none; }
+.portrait-classic-corner { position:absolute; z-index:1; color:var(--template-accent); font-family:Georgia,serif; font-size:11mm; line-height:1; opacity:.8; }
+.portrait-classic-corner-tl {top:0;left:1mm;transform:rotate(35deg)} .portrait-classic-corner-tr {top:0;right:1mm;transform:scaleX(-1) rotate(35deg)} .portrait-classic-corner-bl {bottom:0;left:1mm;transform:scaleY(-1) rotate(35deg)} .portrait-classic-corner-br {bottom:0;right:1mm;transform:scale(-1) rotate(35deg)}
+.portrait-classic-header {text-align:center; position:relative; padding:1mm 0 5mm; color:var(--template-ink)}
+.portrait-classic-header>p {margin:0; font-family:var(--template-display); font-size:3.5mm; letter-spacing:.13em; text-transform:uppercase}
+.portrait-classic-lotus {color:var(--template-accent);font-size:3mm;letter-spacing:.12em;margin:1mm 0}
+.portrait-classic-lotus span {font-size:7mm;vertical-align:middle;line-height:1}
+.portrait-classic-header h1 {font-family:var(--template-display);font-size:13mm;line-height:1.02;font-weight:700;margin:0;color:var(--template-ink)}
+.portrait-classic-subtitle {font-family:var(--template-display);font-size:3.6mm;letter-spacing:.24em;margin-top:2mm;color:var(--template-muted)}
+.portrait-classic-symbol {position:absolute;right:2mm;top:1mm;color:var(--template-accent);font-size:4mm}
+.portrait-classic-hero {display:grid;grid-template-columns:35% 1fr;gap:5mm;align-items:start;margin:1mm 0 5mm}
+.portrait-classic-photo-wrap {height:81mm;border:.9mm solid var(--template-accent);border-radius:5mm;padding:1mm;background:var(--template-paper);box-shadow:0 1.5mm 3mm rgba(30,20,10,.10);overflow:hidden}
+.portrait-classic-photo {display:block;width:100%;height:100%;object-fit:cover;object-position:center 28%;border-radius:3.5mm}
+.portrait-classic-section {margin:0 0 4.5mm;min-width:0}
+.portrait-classic-section h2 {display:flex;align-items:center;gap:2.5mm;margin:0 0 2.5mm;padding:1.8mm 3mm;border-radius:4mm;background:linear-gradient(90deg,var(--template-accent-18),var(--template-accent2-18));font-family:var(--template-display);font-size:4.7mm;font-weight:700;line-height:1.25;color:var(--template-ink)}
+.portrait-classic-section-icon {display:inline-flex;align-items:center;justify-content:center;width:7mm;height:7mm;border-radius:50%;background:var(--template-paper);color:var(--template-accent);font-size:4mm;flex:none}
+.portrait-classic-rows {padding:0 2.5mm}
+.portrait-classic-row {display:grid;grid-template-columns:minmax(25mm,39%) minmax(0,1fr);gap:2mm;padding:1.4mm 0;border-bottom:.2mm solid var(--template-accent-18);font-size:3.35mm;line-height:1.28;color:var(--template-ink);break-inside:avoid}
+.portrait-classic-row span {color:var(--template-muted)}
+.portrait-classic-row b {font-weight:500;overflow-wrap:anywhere}
+.portrait-classic-about-copy {padding:0 3mm;font-size:3.55mm;line-height:1.55;color:var(--template-ink)}
+.portrait-classic-about-copy p {margin:0 0 1.5mm}
+.portrait-classic-footer {display:flex;align-items:center;justify-content:center;gap:3mm;margin:5mm auto 0;width:62%;color:var(--template-accent)}
+.portrait-classic-footer span {height:.35mm;flex:1;background:linear-gradient(90deg,transparent,var(--template-accent))}
+.portrait-classic-footer span:last-child {transform:scaleX(-1)}
+.portrait-classic-footer b {font-family:Georgia,serif;font-size:8mm;font-weight:400;line-height:1}
+@media print {.portrait-classic-frame {break-inside:avoid}}

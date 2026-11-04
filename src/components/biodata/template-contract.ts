@@ -18,7 +18,7 @@ export interface TemplateDefinition {
   category: TemplateCategory;
   mood: string;
   languages: SupportedLanguage[];
-  colorways: [Colorway, Colorway, Colorway];
+  colorways: Colorway[];
   Layout: ComponentType<TemplateRenderProps>;
   Thumbnail: ComponentType<TemplateRenderProps>;
 }

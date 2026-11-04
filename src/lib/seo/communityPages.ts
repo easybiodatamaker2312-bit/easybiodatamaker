@@ -15,7 +15,7 @@ export const COMMUNITY_PAGES: CommunityPageData[] = [
 {
  slug:'gujarati', path:'/gujarati-marriage-biodata', updatedAt:'2026-10-11', lang:'gu', name:'Gujarati', nativeName:'ગુજરાતી',
  title:'ગુજરાતી લગ્ન બાયોડેટા ફોર્મેટ | EasyBiodataMaker',
- description:'પરિવાર, શિક્ષણ, વ્યવસાય અને જરૂરી પરંપરાગત વિગતો સાથે ગુજરાતી લગ્ન બાયોડેટા બનાવો. બિનજરૂરી ખાનગી માહિતી ટાળો અને વિગતો ચકાસો.', template:'midnight-gold',
+ description:'પરિવાર, શિક્ષણ, વ્યવસાય અને જરૂરી પરંપરાગત વિગતો સાથે ગુજરાતી લગ્ન બાયોડેટા બનાવો. બિનજરૂરી ખાનગી માહિતી ટાળો અને વિગતો ચકાસો.', template:'gold-frame',
  intro:'ગુજરાતી લગ્ન બાયોડેટામાં પરિવારની માહિતી, શિક્ષણ, વ્યવસાય અને વ્યક્તિગત પસંદગીઓ સ્પષ્ટ રીતે લખો. દરેક પરંપરાગત વિગતો દરેક પરિવાર માટે જરૂરી નથી; જે માહિતી તમારા પરિવાર માટે યોગ્ય અને સાચી હોય તે જ ઉમેરો.',
  sections:[
  {heading:'Start with roots, then add the present', paragraphs:[

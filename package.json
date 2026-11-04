@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "test": "vitest run",
     "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit",
@@ -15,7 +15,8 @@
     "verify:build-readiness": "node scripts/verify-build-readiness.mjs",
     "verify:templates": "node scripts/verify-template-gallery.mjs",
     "verify:eeat": "node scripts/verify-eeat-phase2.mjs",
-    "verify:production": "node scripts/verify-production.mjs"
+    "verify:production": "node scripts/verify-production.mjs",
+    "verify:all": "node scripts/verify-all.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -25,9 +26,9 @@
     "html-to-image": "^1.11.13",
     "jspdf": "^3.0.3",
     "lucide-react": "^0.428.0",
-    "next": "14.2.35",
-    "react": "^18",
-    "react-dom": "^18",
+    "next": "16.4.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "react-easy-crop": "^5.4.1",
     "react-hook-form": "^7.53.0",
     "tailwind-merge": "^2.5.2",
@@ -37,15 +38,18 @@
   "devDependencies": {
     "@playwright/test": "^1.49.1",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.35",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "16.4.4",
     "jsdom": "^25.0.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5",
     "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   }
 }

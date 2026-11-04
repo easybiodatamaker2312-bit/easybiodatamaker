@@ -47,7 +47,7 @@ export function MarriageBiodataContent() {
           </div>
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {languages.map((language) => (
-              <Link key={language.href} href={language.href} className="group rounded-2xl border border-stone-200 bg-ivory p-5 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-sm">
+              <Link key={language.href} href={language.href} className="group rounded-2xl border border-stone-200 bg-[#F5F7FF] p-5 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-sm">
                 <div className="flex items-start justify-between gap-4">
                   <div><p className="text-xs font-semibold uppercase tracking-[.14em] text-stone-400">{language.name}</p><p className="mt-2 font-serif text-2xl text-ink">{language.native}</p></div>
                   <ArrowRight size={17} className="mt-1 text-stone-400 transition group-hover:translate-x-1 group-hover:text-oxblood" />
@@ -83,7 +83,7 @@ export function MarriageBiodataContent() {
         </div>
       </section>
 
-      <section className="bg-[#F3EEE5] px-5 py-20 sm:px-8 sm:py-24">
+      <section className="bg-[#EEF2FF] px-5 py-20 sm:px-8 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-3xl">
             <span className="eyebrow">Choose the right starting point</span>
@@ -111,7 +111,7 @@ export function MarriageBiodataContent() {
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {communityLinks.map(([href, title, text]) => (
-              <Link key={href} href={href} className="rounded-2xl border border-stone-200 bg-ivory p-6 transition hover:border-gold">
+              <Link key={href} href={href} className="rounded-2xl border border-stone-200 bg-[#F5F7FF] p-6 transition hover:border-gold">
                 <h3 className="font-display text-xl font-semibold text-ink">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-stone-600">{text}</p>
               </Link>
@@ -147,7 +147,7 @@ export function MarriageBiodataContent() {
         </div>
       </section>
 
-      <section className="border-y border-stone-200/70 bg-[#F3EEE5] px-5 py-20 sm:px-8 sm:py-24">
+      <section className="border-y border-stone-200/70 bg-[#EEF2FF] px-5 py-20 sm:px-8 sm:py-24">
         <div className="mx-auto max-w-6xl grid gap-12 lg:grid-cols-[1.1fr_.9fr]">
           <div>
             <span className="eyebrow"><ShieldCheck size={14} /> A practical privacy checklist</span>

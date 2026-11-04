@@ -26,7 +26,7 @@ const checks = [
   ['All blog article routes include AuthorBox', missingAuthorBox.length === 0],
   ['Sensitive landing pages conditionally include AuthorBox', landing.includes("'/divorcee-marriage-biodata-format'") && landing.includes("'/widow-widower-marriage-biodata'") && landing.includes('<AuthorBox reviewedOn=')],
   ['Organization sameAs uses social environment variables and omits empty values', layout.includes('NEXT_PUBLIC_SOCIAL_LINKEDIN') && layout.includes('NEXT_PUBLIC_SOCIAL_INSTAGRAM') && layout.includes('NEXT_PUBLIC_SOCIAL_YOUTUBE') && layout.includes('organizationSocialProfiles.length ? { sameAs: organizationSocialProfiles } : {}')],
-  ['About page documents authorship, review, owner input and 22 templates', about.includes('Karan Shah') && about.includes('Credentials and author photo') && about.includes('22 registered design templates')],
+  ['About page documents authorship, review, owner input and 19 templates', about.includes('Karan Shah') && about.includes('Credentials and author photo') && about.includes('22 registered design templates')],
 ];
 let failed = false;
 for (const [label, pass] of checks) {
