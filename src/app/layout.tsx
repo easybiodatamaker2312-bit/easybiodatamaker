@@ -3,6 +3,7 @@ import './globals.css';
 import localFont from 'next/font/local';
 import { LangProvider } from '@/lib/LangContext';
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
+import CloudflareAnalytics from '@/components/analytics/CloudflareAnalytics';
 
 const inter = localFont({ src: [
   { path: '../../public/fonts/premium/latin/Inter-Regular.woff2', weight: '400' },
@@ -210,6 +211,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-sans antialiased bg-ivory text-ink">
         <LangProvider>{children}</LangProvider>
         <GoogleAnalytics />
+        <CloudflareAnalytics />
     </body>
     </html>
   );

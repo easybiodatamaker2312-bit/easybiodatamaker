@@ -13,14 +13,14 @@
 - Share/WhatsApp is not included as a download.
 
 ## Setup required
-Set `NEXT_PUBLIC_FIREBASE_DATABASE_URL` and publish the updated rules in `FIREBASE-DOWNLOAD-STATS-SETUP.md`, then redeploy. The frontend can only show shared live counters after the database is configured.
+Set `Cloudflare D1 DB binding` and publish the updated rules in `CLOUDFLARE-D1-ANALYTICS-SETUP.md`, then redeploy. The frontend can only show shared live counters after the database is configured.
 
 ## Verification note
 The project dependencies were not fully available in the build environment, and `npm ci` timed out. Run `npm ci`, `npm run typecheck`, `npm test` and `npm run build` locally/CI before deploying.
 
 
 ## 2026-11-03 follow-up
-- Fixed the missing-counter UX: the homepage now displays an explicit Firebase setup state instead of hiding the entire counter section.
+- Fixed the missing-counter UX: the homepage now displays an explicit Cloudflare D1 setup state instead of hiding the entire counter section.
 - Brightened the homepage palette and replaced the near-black hero title with a plum/coral gradient.
 - Replaced the dark hero document with Blush Rose and Pearl Lavender previews featuring original illustrated man/woman sample avatars.
 - See `HOMEPAGE-THEME-COUNTER-AUDIT-2026-11-03.md` for the audit and deployment requirements.

@@ -16,7 +16,13 @@
     "verify:templates": "node scripts/verify-template-gallery.mjs",
     "verify:eeat": "node scripts/verify-eeat-phase2.mjs",
     "verify:production": "node scripts/verify-production.mjs",
-    "verify:all": "node scripts/verify-all.mjs"
+    "verify:all": "node scripts/verify-all.mjs",
+    "preview:cf": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy:cf": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload:cf": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf:typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "db:migrate:local": "wrangler d1 execute easybiodatamaker-analytics --local --file=./migrations/0001_analytics.sql",
+    "db:migrate:remote": "wrangler d1 execute easybiodatamaker-analytics --remote --file=./migrations/0001_analytics.sql"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -33,7 +39,8 @@
     "react-hook-form": "^7.53.0",
     "tailwind-merge": "^2.5.2",
     "zod": "^3.23.8",
-    "zustand": "^5.0.3"
+    "zustand": "^5.0.3",
+    "@opennextjs/cloudflare": "^1.20.16"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.1",
@@ -47,7 +54,8 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5",
-    "vitest": "^2.1.8"
+    "vitest": "^2.1.8",
+    "wrangler": "^4.0.0"
   },
   "engines": {
     "node": ">=22.0.0"

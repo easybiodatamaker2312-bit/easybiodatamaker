@@ -11,14 +11,11 @@ const sections = [
     title: '1. Information We Collect',
     content: `EasyBiodataMaker.com is designed with privacy as the foundation. When you use our free marriage biodata maker, all form data you enter (including your name, date of birth, family details, education, and contact information) is stored exclusively in your browser's session storage.
 
-We do NOT collect, transmit, or store any personal information on our servers. Your biodata data never leaves your device unless you choose to download the PDF.
+Your biodata details, including names, date of birth, family details, education, contact information and uploaded photos, are processed in your browser and are not sent to the analytics database.
 
-We may collect non-personal, anonymised data such as:
-• Page visit counts (via privacy-respecting analytics)
-• Browser type and general geographic region (country-level only)
-• Pages viewed and time spent on site
+For aggregate site statistics, we store: successful download counts by file format; page-view counts by day; and a daily unique-visitor estimate. A random ID is stored in your browser's local storage. The analytics endpoint converts it into a one-way daily hash before storing it, so the raw browser ID is not stored in our database. We do not store individual page paths, full URLs or query strings, and do not store names, email addresses, phone numbers or biodata content in these analytics tables.
 
-This data is used solely to improve the website experience and is never linked to any individual.`,
+Cloudflare processes network information, including IP addresses, to deliver and secure the website. Our application analytics tables do not store IP addresses.`,
   },
   {
     title: '2. How We Use Your Information',
@@ -33,18 +30,19 @@ We do not use your information for marketing, advertising, or selling to third p
   },
   {
     title: '3. Cookies',
-    content: `EasyBiodataMaker.com uses minimal cookies:
+    content: `EasyBiodataMaker uses browser storage for essential product functionality and anonymous aggregate analytics:
 
-• Session Storage: Temporarily stores your form data so you don't lose progress between steps. This is cleared when you close your browser tab.
-• Analytics Cookies: If we use analytics tools, they use privacy-first, cookieless tracking. We do not use Google Analytics in a way that tracks individuals.
+• Session Storage: Temporarily stores builder form data so you do not lose progress between steps.
+• Local Storage: Stores a randomly generated analytics browser ID used to estimate unique visitors per day. You can remove it by clearing this site's local storage in your browser.
+• Google Analytics: The site also loads Google Analytics (GA4) for website measurement. Google may process information according to its own privacy terms and settings.
 
-We do not use advertising cookies, tracking pixels, or third-party marketing cookies.`,
+We do not use advertising cookies or third-party marketing pixels as part of the Cloudflare D1 counter.`,
   },
   {
     title: '4. Third-Party Services',
     content: `We use the following trusted third-party services:
 
-• Vercel: Website hosting. Vercel may log IP addresses for security and performance purposes per their privacy policy.
+• Cloudflare Workers and D1: Website hosting and storage of aggregate download and visitor statistics. Cloudflare may process network information for security and delivery.
 • Google Fonts: To load beautiful typography. Google may log font requests.
 • Content Delivery Networks (CDN): For loading JavaScript libraries used in PDF generation.
 
@@ -55,8 +53,8 @@ We are not affiliated with any matrimonial website and do not share your data wi
     content: `Your biodata data is stored only in your browser's session storage. It is:
 
 • Never transmitted to our servers
-• Never stored in databases
-• Never accessible to us or any third party
+• Never included in the Cloudflare analytics database
+• Not included in the aggregate visitor or download counters
 • Automatically deleted when you close the browser tab
 
 We use HTTPS encryption on all pages to protect any data transmitted between your browser and our hosting servers.`,
@@ -67,7 +65,7 @@ We use HTTPS encryption on all pages to protect any data transmitted between you
   },
   {
     title: '7. Your Rights',
-    content: `Since we do not store your personal data on our servers, there is no data to request, modify, or delete from our end. Your biodata data exists only in your browser and is fully under your control.
+    content: `We do not store your biodata details in the analytics database. Aggregate statistics and daily one-way visitor hashes are stored in Cloudflare D1. You can clear the random browser ID by clearing this site's local storage in your browser.
 
 If you have concerns about anonymised analytics data, you can contact us and we will address them promptly.`,
   },

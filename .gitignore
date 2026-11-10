@@ -1,2 +1,5 @@
 tsconfig.tsbuildinfo
 *-previews/
+.open-next/
+.wrangler/
+cloudflare-env.d.ts
