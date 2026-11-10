@@ -16,13 +16,17 @@
     "verify:templates": "node scripts/verify-template-gallery.mjs",
     "verify:eeat": "node scripts/verify-eeat-phase2.mjs",
     "verify:production": "node scripts/verify-production.mjs",
-    "verify:all": "node scripts/verify-all.mjs",
+    "verify:all": "node scripts/verify-all.mjs && node scripts/verify-cloudflare-config.mjs",
     "preview:cf": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy:cf": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "deploy:cf": "opennextjs-cloudflare deploy",
     "upload:cf": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "cf:typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "db:migrate:local": "wrangler d1 execute easybiodatamaker-analytics --local --file=./migrations/0001_analytics.sql",
-    "db:migrate:remote": "wrangler d1 execute easybiodatamaker-analytics --remote --file=./migrations/0001_analytics.sql"
+    "db:migrate:remote": "wrangler d1 execute easybiodatamaker-analytics --remote --file=./migrations/0001_analytics.sql",
+    "cf:build": "opennextjs-cloudflare build",
+    "cf:preview": "opennextjs-cloudflare preview",
+    "cf:deploy": "opennextjs-cloudflare deploy",
+    "verify:cloudflare": "node scripts/verify-cloudflare-config.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

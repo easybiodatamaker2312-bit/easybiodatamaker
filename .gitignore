@@ -3,3 +3,11 @@ tsconfig.tsbuildinfo
 .open-next/
 .wrangler/
 cloudflare-env.d.ts
+
+node_modules/
+.next/
+.dev.vars*
+!.dev.vars.example
+*.log
+.env*
+!.env.example
