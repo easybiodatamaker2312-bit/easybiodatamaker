@@ -20,7 +20,7 @@
   ],
   "d1_databases": [
     {
-      "binding": "DB",
+      "binding": "ANALYTICS_DB",
       "database_name": "easybiodatamaker-analytics",
       "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID"
     }

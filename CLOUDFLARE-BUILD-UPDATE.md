@@ -4,7 +4,7 @@
 
 - OpenNext Cloudflare adapter dependency and Wrangler CLI dependency.
 - Cloudflare Worker config at `wrangler.jsonc`, using Worker name `easybiodatamaker`.
-- D1 binding `DB` connected to `easybiodatamaker-analytics` (the database ID supplied in the Cloudflare dashboard screenshot).
+- D1 binding `ANALYTICS_DB` connected to `easybiodatamaker-analytics` (with the existing `DB` binding retained for compatibility) (the database ID supplied in the Cloudflare dashboard screenshot).
 - D1 migration for aggregate visitor and download analytics.
 - Automatic page-view tracking and approximate daily unique-browser counts.
 - Successful PDF, PNG, JPG and Word download tracking.
@@ -31,7 +31,7 @@ After checking the Worker preview, deploy with:
 npm run deploy:cf
 ```
 
-The deploy command publishes to the Cloudflare Worker named `easybiodatamaker`. Confirm the Worker has the D1 binding `DB` before deploying. Keep any additional bindings, secrets, routes, or environment variables configured in your Cloudflare dashboard; this config includes the Worker runtime, static assets, self-reference and the supplied D1 binding.
+The deploy command publishes to the Cloudflare Worker named `easybiodatamaker`. Confirm the Worker has the D1 binding `ANALYTICS_DB` before deploying; the existing `DB` compatibility binding is also preserved in `wrangler.jsonc`. Keep any additional bindings, secrets, routes, or environment variables configured in your Cloudflare dashboard; this config includes the Worker runtime, static assets, self-reference and the supplied D1 binding.
 
 ## Verification performed for this package
 

@@ -33,7 +33,7 @@ export async function POST(request: Request) {
 
   const day = getIndiaDateKey();
   const { env } = getCloudflareContext();
-  const db = (env as unknown as AnalyticsCloudflareEnv).DB;
+  const db = (env as unknown as AnalyticsCloudflareEnv).ANALYTICS_DB;
   if (!db) return json({ error: 'Analytics database is not bound.' }, 503);
 
   try {

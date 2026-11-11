@@ -15,40 +15,37 @@ The analytics code does not send or store biodata fields, uploaded photos, names
 
 These API routes use the OpenNext Cloudflare adapter. Your Worker config should use `main: ".open-next/worker.js"`. If your deployed Worker uses vinext instead, do not copy the OpenNext `getCloudflareContext` import; the binding access code must be adapted to vinext's `cloudflare:workers` runtime.
 
-## 2. Install the adapter and Wrangler (if not already installed)
+## 2. Install the project dependencies
 
-Use Node.js 22 or newer for this project.
-
-```bash
-npm install @opennextjs/cloudflare@latest
-npm install --save-dev wrangler@latest
-```
-
-The `next.config.js` now calls `initOpenNextCloudflareForDev()` so the D1 binding can be accessed while developing with `next dev`.
-
-## 3. Create the D1 database
-
-From the project root:
+Use Node.js 22 or newer. The OpenNext Cloudflare adapter and Wrangler are already declared in this project's `package.json`; do not install floating `@latest` versions over the pinned project setup.
 
 ```bash
-npx wrangler d1 create easybiodatamaker-analytics
+npm install
 ```
 
-Copy the returned `database_id`. In your existing `wrangler.jsonc` (or `wrangler.toml`), add this binding under `d1_databases`. Do not replace your existing Worker name, main, assets, compatibility flags, routes, vars, or other bindings.
+The `next.config.js` initializes the OpenNext Cloudflare development adapter so the D1 binding can be accessed while developing with `next dev`.
+
+## 3. Confirm the existing D1 database binding
+
+This project already targets the existing database `easybiodatamaker-analytics` with ID `d1024181-a82c-4406-9e63-c51b29c37ee4`. The binding name used by the application is `ANALYTICS_DB`. It is already present in this project’s `wrangler.jsonc` and in the Cloudflare Worker settings shown during setup. Do not create another database.
+
+The expected Wrangler entry is:
 
 ```jsonc
 "d1_databases": [
   {
-    "binding": "DB",
+    "binding": "ANALYTICS_DB",
     "database_name": "easybiodatamaker-analytics",
     "database_id": "PASTE_THE_REAL_DATABASE_ID_HERE"
   }
 ]
 ```
 
-If you do not have a Wrangler config file yet and are using OpenNext, use `wrangler.jsonc.example` as the starting point, replacing the database ID with the real ID. Merge any other settings required by your existing deployment.
+The dashboard currently shows both `ANALYTICS_DB` and the previous `DB` binding to the same database. Both are retained in `wrangler.jsonc` so deployment preserves the existing configuration. This build reads `ANALYTICS_DB`.
 
-## 4. Create the tables in D1
+## 4. Apply the analytics schema in D1
+
+The earlier manual tables named `visitors`, `visitor_days`, and `downloads` can remain. This migration adds the four aggregate tables used by this application; it does not drop or overwrite those earlier tables.
 
 For a local test database:
 

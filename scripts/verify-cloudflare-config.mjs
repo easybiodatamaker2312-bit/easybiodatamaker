@@ -27,8 +27,10 @@ if (wrangler.images?.binding !== 'IMAGES') fail('Cloudflare Images binding IMAGE
 else pass('Cloudflare Images binding is preserved.');
 if (!wrangler.services?.some((x) => x.binding === 'WORKER_SELF_REFERENCE' && x.service === wrangler.name)) fail('WORKER_SELF_REFERENCE must point to the current Worker.');
 else pass('Worker self-reference service binding is configured.');
-if (!wrangler.d1_databases?.some((x) => x.binding === 'DB' && x.database_name === 'easybiodatamaker-analytics' && /^[0-9a-f-]{36}$/i.test(x.database_id ?? ''))) fail('D1 DB binding or database ID is missing/invalid.');
-else pass('D1 DB binding points to the configured analytics database.');
+if (!wrangler.d1_databases?.some((x) => x.binding === 'ANALYTICS_DB' && x.database_name === 'easybiodatamaker-analytics' && x.database_id === 'd1024181-a82c-4406-9e63-c51b29c37ee4')) fail('D1 ANALYTICS_DB binding or database ID is missing/invalid.');
+else pass('D1 ANALYTICS_DB binding points to the configured analytics database.');
+if (!wrangler.d1_databases?.some((x) => x.binding === 'DB' && x.database_name === 'easybiodatamaker-analytics' && x.database_id === 'd1024181-a82c-4406-9e63-c51b29c37ee4')) fail('Existing DB binding was not preserved.');
+else pass('Existing DB binding is preserved as a compatibility alias.');
 
 if (!fs.existsSync(path.join(root, 'open-next.config.ts'))) fail('open-next.config.ts is missing.');
 else {

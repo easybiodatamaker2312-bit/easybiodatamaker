@@ -13,7 +13,7 @@ type PageViewTotalRow = { total_page_views: number };
 export async function GET() {
   try {
     const { env } = getCloudflareContext();
-    const db = (env as unknown as AnalyticsCloudflareEnv).DB;
+    const db = (env as unknown as AnalyticsCloudflareEnv).ANALYTICS_DB;
     if (!db) return Response.json({ error: 'Analytics database is not bound.' }, { status: 503 });
 
     const day = getIndiaDateKey();

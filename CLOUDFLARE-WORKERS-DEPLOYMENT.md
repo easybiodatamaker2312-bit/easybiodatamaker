@@ -57,7 +57,7 @@ must not be committed.
 
 ## Apply the D1 schema
 
-The Wrangler binding in `wrangler.jsonc` is named `DB` and points to the existing
+The Wrangler binding in `wrangler.jsonc` is named `ANALYTICS_DB` and points to the existing
 D1 database ID. Apply the SQL migration once (it uses `IF NOT EXISTS`, so it can
 safely be rerun):
 
@@ -99,7 +99,8 @@ build has completed successfully.
 
 The config declares these bindings so deployment configuration remains explicit:
 
-- `DB` — D1 database `easybiodatamaker-analytics`.
+- `ANALYTICS_DB` — D1 database `easybiodatamaker-analytics`, used by analytics API routes.
+- `DB` — same existing D1 database, retained as a compatibility binding for the previous configuration.
 - `IMAGES` — Cloudflare Images binding shown in the existing dashboard.
 - `WORKER_SELF_REFERENCE` — service binding to `easybiodatamaker`.
 

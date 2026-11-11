@@ -20,6 +20,11 @@
   ],
   "d1_databases": [
     {
+      "binding": "ANALYTICS_DB",
+      "database_name": "easybiodatamaker-analytics",
+      "database_id": "d1024181-a82c-4406-9e63-c51b29c37ee4"
+    },
+    {
       "binding": "DB",
       "database_name": "easybiodatamaker-analytics",
       "database_id": "d1024181-a82c-4406-9e63-c51b29c37ee4"

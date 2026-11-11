@@ -23,7 +23,7 @@ export interface AnalyticsD1Database {
 }
 
 export interface AnalyticsCloudflareEnv {
-  DB: AnalyticsD1Database;
+  ANALYTICS_DB: AnalyticsD1Database;
 }
 
 export function getIndiaDateKey(date = new Date()): string {
